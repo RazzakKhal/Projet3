@@ -1,0 +1,46 @@
+.container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+//mon logo coeur train
+.logo{
+     display: flex; 
+    flex-direction: row;   
+    justify-content: center;  
+}
+.logoSite {
+    width:40%;
+    display: flex;
+}
+
+//div connexion et inscription
+.connexion, .inscription{
+    position: relative;
+    padding: 20px;
+    background: var(--colorGrey);
+    backdrop-filter: blur(25px); //permet d'obtenir un effet de flou
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;  
+}
+
+.connexion h2, .inscription h2{
+    text-align: center;
+    font-family: var(--texteIceberg);
+    font-size: 1.3rem;
+}
+
+//texte bas voyage
+.texte {
+    height: 20vh;
+}
+.voyage{
+    font-size: 1.8rem;
+    text-align: center;
+    font-family : var(--texteItalianno);
+}
