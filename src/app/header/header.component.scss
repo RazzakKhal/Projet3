@@ -1,6 +1,6 @@
 .container{
   height : 8vh;
-  background-color: #D9D9D9;
+  background-color: var(--colorGrey);
   display : flex;
   justify-content: space-between;
 }
