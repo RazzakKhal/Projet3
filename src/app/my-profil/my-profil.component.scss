@@ -1,56 +1,70 @@
+* {
+  width: auto;
+  font-family: 'Iceberg', cursive;
+  font-size: 16px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Iceberg&display=swap');
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  opacity: 0.8;
 }
-.photoProfil{
+.photoProfil {
   width: 60%;
   margin: 20px 0 0 0;
 }
-
-.iconeCrayon{
-  width: 9%;
+.iconeCrayon {
+  width: 8%;
+  
 }
 h1 {
-  font-family: var(--texteItalianno);
-  padding:20px;
+  font-family: 'Italianno', cursive;
+  font-size:35px;
+  padding: 20px;
 }
+h2{
+  font-family: 'Italianno', cursive;
+  font-size:30px;
 
+}
 .bloc1 {
   background-color: var(--colorWhite);
-  padding: 15px 70px;
-  margin: 0 0 20px 0;
-  
+  padding: 15px 67px;
+
 }
 .bloc2 {
   background-color: var(--colorWhite);
   padding: 20px 10px;
   align-items: center;
-  line-height: 20px;
-  margin:20px;
+
+  margin: 20px;
   border-radius: 10px;
-
+  opacity: 0.8;
 }
 
-.sous-bloc2{
-
-  display:flex;
+.sous-bloc2 {
+  display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
-.sous-bloc22{
-  margin:20px;
+.sous-bloc22 {
+  margin: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-
 }
 .bloc3 {
-  margin: 20px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   background-color: var(--colorWhite);
-  padding: 20px 100px;
+  padding: 8px 50px;
   align-items: center;
   border-radius: 10px;
+  line-height: 30px;
+  opacity: 0.8;
 }
