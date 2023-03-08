@@ -7,9 +7,11 @@ export class User {
   private mail : string;
   private password : string;
   private gender : string;
+  private photos : string[];
+  private tall : number;
 
 
-    constructor(firstname : string, lastname:string, pseudo:string , date_Of_Birth:Date, mail:string, password:string, gender:string){
+    constructor(firstname : string, lastname:string, pseudo:string , date_Of_Birth:Date, mail:string, password:string, gender:string, photos : string[], tall : number){
       this.firstname = firstname;
       this.lastname = lastname;
       this.pseudo = pseudo;
@@ -17,6 +19,8 @@ export class User {
       this.mail = mail;
       this.password = password;
       this.gender = gender;
+      this.photos = photos;
+      this.tall = tall;
     }
 
     sendLikes(){
@@ -91,5 +95,19 @@ export class User {
       this.gender = gender;
     }
 
+    getPhotos() : string[]{
+      return this.photos;
+    }
 
+    addPhotos() : void{
+
+    }
+
+    getTall(){
+
+    }
+
+    setTall(){
+
+    }
 }
