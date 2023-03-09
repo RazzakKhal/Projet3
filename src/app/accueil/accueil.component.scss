@@ -1,0 +1,94 @@
+.container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+////////////////  Logo Coeur  /////////////////////////
+.logo{  //contenaire du logo
+     display: flex; 
+    flex-direction: row;   
+    justify-content: center;   
+}
+
+.logoSite {  //image logo
+    width:20vh;
+    display: flex;
+   
+}
+
+////////////////  Connexion Inscription Forms  /////////////////////
+
+.texte {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+   
+}
+.voyage{
+    font-size: 1.8rem;
+    text-align: center;
+    font-family :'Great Vibes', cursive;
+}
+
+.connexion, .inscription{
+    width: 280px;
+    padding: 20px;
+    background: var(--colorGrey);
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px; //espace entre mes inputs
+    border-radius: 15px; //bord arrondie
+    margin: 10px;
+}
+
+.connexion h2, .inscription h2{
+    text-align: center;
+    font-family: var(--texteIceberg);
+    font-size: 1.3rem;
+}
+
+
+////////////////  Input  /////////////////////////
+input {
+    text-align: center;
+    background-color: var(--colorWhite);
+}
+
+.grey, .red{
+    width: 280px;
+    border: none;  
+}
+
+.grey::placeholder{
+    color: var(--colorGrey);
+}
+
+.red::placeholder{
+    color: var(--colorRed);
+}
+
+// ////////////////  Texte Voyage  /////////////////////////
+.texte {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+   
+}
+.voyage{
+    font-size: 1.8rem;
+    text-align: center;
+    font-family : var(--texteItalianno);
+}
+
+////////////////  button  /////////////////////////
+button {
+    background-color: var(--colorBrown);
+    width: 155px;
+    color: var(--colorWhite);
+}

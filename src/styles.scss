@@ -52,22 +52,23 @@ table {
 
 
 body{
-  height : 100vh;
-  width : 100vw;
-  background-image: url('assets/images/fondtrain.png');
-  background-repeat: no-repeat;
-  background-size:cover;
-
-
+	height : 100vh;
+	width : 100vw;
+	background-image: url('assets/images/fondtrain.png');
+	background-repeat: no-repeat;
+	background-size:cover;
 }
 
+// Les variables
 :root {
+	--colorWhite: rgba(255, 255, 255, 1);
 	--colorGrey: rgba(217, 217, 217, 0.7);
-	--colorRed : rgba(225, 84, 88, 1);
 	--colorBrown : rgba(110, 99, 92, 1);
+	--colorRed : rgba(225, 84, 88, 1);
 	--colorBackground : linear(#DC9D54 0%
 	#B785BB 100%);
-	--colorWhite: rgba(255, 255, 255, 1);
-	--texteItalianno : url('https://fonts.googleapis.com/css2? family= Great+Vibes & display=swap');
-	--textIceberg : url('https://fonts.googleapis.com/css2? family= Great+Vibes & display=swap');
+	--texteItalianno :'Great Vibes', cursive;
+	--textIceberg : 'Great Vibes', cursive ;
 }
+
+//import des polices
