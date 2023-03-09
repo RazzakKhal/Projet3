@@ -2,44 +2,24 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: center; 
 }
 
-//mon logo coeur train
-.logo{
+////////////////  Logo Coeur  /////////////////////////
+.logo{  //contenaire du logo
      display: flex; 
     flex-direction: row;   
-    justify-content: center;  
-    height: 20vh;
-  
+    justify-content: center;   
 }
-.logoSite {
-    width:40%;
+
+.logoSite {  //image logo
+    width:20vh;
     display: flex;
+   
 }
 
-//div connexion et inscription
+////////////////  Connexion Inscription Forms  /////////////////////
 
-
-.connexion, .inscription{
-    position: relative;
-    padding: 20px;
-    background: var(--colorGrey);
-    border: none;
-    display: flex;
-    flex-direction: column;
-    gap: 12px; //espace entre mes inputs
-    border-radius: 15px; //bord arrondie
-}
-
-.connexion h2, .inscription h2{
-    text-align: center;
-    font-family: var(--texteIceberg);
-    font-size: 1.3rem;
-}
-
-//texte bas voyage
 .texte {
     display: flex;
     justify-content: center;
@@ -50,5 +30,66 @@
 .voyage{
     font-size: 1.8rem;
     text-align: center;
-    font-family : var(--texteItalianno);
+    font-family :'Great Vibes', cursive;
+}
+
+.connexion, .inscription{
+    width: 280px;
+    padding: 20px;
+    background: var(--colorGrey);
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px; //espace entre mes inputs
+    border-radius: 15px; //bord arrondie
+    margin: 10px;
+}
+
+.connexion h2, .inscription h2{
+    text-align: center;
+    font-size: 1.3rem;
+    font-family: 'Iceberg', cursive;
+}
+
+
+////////////////  Input  /////////////////////////
+input {
+    text-align: center;
+    background-color: var(--colorWhite);
+}
+
+.grey, .red{
+    width: 280px;
+    border: none;  
+}
+
+.grey::placeholder{
+    color: var(--colorGrey);
+}
+
+.red::placeholder{
+    color: var(--colorRed);
+}
+
+// ////////////////  Texte Voyage  /////////////////////////
+.texte {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+      
+}
+.voyage{
+    font-size: 3rem;
+    text-align: center;
+    font-family: 'Italianno', cursive;
+    color: var(--colorWhite);
+    padding: 10px;
+}
+
+////////////////  button  /////////////////////////
+button {
+    background-color: var(--colorBrown);
+    width: 155px;
+    color: var(--colorWhite);
 }

@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container" *ngIf="showNav">
   <img class="logoSite" src="assets/images/logoTrain.png" alt="logo du site">
   <nav>
   <ul>
-    <li><a href="">Galerie</a></li>
-    <li><a href="">Mon profil</a></li>
-    <li><a href="">Messagerie</a></li>
-    <a href=""><img class="deconnexion" src="assets/images/deconnexion.png" alt="logo deconnexion"></a>
+    <li><a [routerLink]="['/galerie']">Galerie</a></li>
+    <li><a [routerLink]="['/myProfil']">Mon profil</a></li>
+    <li><a [routerLink]="['/messagerie']">Messagerie</a></li>
+    <a [routerLink]="['/']"><img class="deconnexion" src="assets/images/deconnexion.png" alt="logo deconnexion"></a>
 
   </ul>
   </nav>
