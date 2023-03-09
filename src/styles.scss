@@ -67,8 +67,10 @@ body{
 	--colorRed : rgba(225, 84, 88, 1);
 	--colorBackground : linear(#DC9D54 0%
 	#B785BB 100%);
-	--texteItalianno :'Great Vibes', cursive;
-	--textIceberg : 'Great Vibes', cursive ;
+	--texteItalianno : 'Iceberg', cursive;
+	--textIceberg :'Italianno', cursive;;
 }
 
 //import des polices
+@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Iceberg&display=swap');

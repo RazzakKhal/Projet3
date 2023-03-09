@@ -48,8 +48,8 @@
 
 .connexion h2, .inscription h2{
     text-align: center;
-    font-family: var(--texteIceberg);
     font-size: 1.3rem;
+    font-family: 'Iceberg', cursive;
 }
 
 
@@ -77,13 +77,13 @@ input {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 20vh;
-   
+      
 }
 .voyage{
-    font-size: 1.8rem;
+    font-size: 2.3rem;
     text-align: center;
-    font-family : var(--texteItalianno);
+    font-family: 'Italianno', cursive;
+    color: var(--colorWhite);
 }
 
 ////////////////  button  /////////////////////////
