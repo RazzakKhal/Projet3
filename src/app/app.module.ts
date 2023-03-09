@@ -9,6 +9,7 @@ import { OtherProfilComponent } from './other-profil/other-profil.component';
 import { TchatComponent } from './tchat/tchat.component';
 import { AdminInterfaceComponent } from './admin-interface/admin-interface.component';
 import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HeaderComponent } from './header/header.component';
     OtherProfilComponent,
     TchatComponent,
     AdminInterfaceComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
