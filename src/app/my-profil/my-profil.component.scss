@@ -1,6 +1,6 @@
 * {
   // width: auto;
-  font-family: "Iceberg", cursive;
+  font-family: var(--textIceberg);
   font-size: 16px;
 }
 // @import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
@@ -21,11 +21,11 @@
   width: 8%;
 }
 h1 {
-  font-family: "Italianno", cursive;
+  font-family: var(--textItalianno);
   font-size: 30px;
 }
 h2 {
-  font-family: "Italianno", cursive;
+  font-family: var(--textItalianno);
   font-size: 30px;
 }
 
@@ -48,7 +48,7 @@ h2 {
   background-color: var(--colorWhite);
   padding: 20px 10px;
   box-sizing: border-box;
-  
+
   width: 80%;
   line-height:35px;
   border-radius: 10px;
