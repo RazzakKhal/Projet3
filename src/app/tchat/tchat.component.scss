@@ -1,0 +1,145 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 45px; //espace pour mon button
+    align-content: center;
+}
+
+.grande_box{
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;   //bord arrondi 
+    margin-top: 80px;
+    position: relative;
+   
+}
+
+// //////////////////// card principale ////////////////////
+.grande_box .card {
+    position: relative;
+    background: var(--colorGrey);
+    width: 300px;
+    min-height: 440px;
+    backdrop-filter: blur(10px); //effet de flou
+    border: 1px solid rgba(255,255,255,0.5); 
+    border-top: 1px solid rgba(255,255,255,0.75); //bord en haut
+    border-left: 1px solid rgba(255,255,255,0.75); //bord gris coté gauche
+    border-radius: 20px;
+    box-shadow: 0 25px 45px rgba(0,0,0,0.05);
+        
+}
+
+
+//////////////////// box guillemets ////////////////////
+.elements {
+    position: absolute;
+    top: 40px;
+    left: -27px;
+    width: 70px;
+    height: 70px;
+    background: var(--colorCardTchat);
+    backdrop-filter: blur(10px);  //effet de flou
+    border: 1px solid rgba(255,255,255,0.5); 
+    border-top: 1px solid rgba(255,255,255,0.75); //bord en haut
+    border-left: 1px solid rgba(255,255,255,0.75); //bord gris coté gauche
+    border-radius: 20px;
+    box-shadow: 0 25px 45px rgba(0,0,0,0.05);
+    border-radius: 10px;
+    z-index: 1;  //le mettre en 1ere position
+    box-shadow: 0 25px 45px rgba(0,0,0,0.05);
+
+}
+
+.guillemets{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    font-family: var(--guillemet);
+    
+}
+
+//////////////////// box photo /////////////////
+
+.elements.photo{
+    top: -50px;
+    left: 200px;
+    height: 110px;
+    width: 110px;
+    background:var(--colorCardTchat);
+    backdrop-filter: blur(10px);  //effet de flou
+    border: 1px solid rgba(255,255,255,0.5); 
+    border-top: 1px solid rgba(255,255,255,0.75); //bord en haut
+    border-left: 1px solid rgba(255,255,255,0.75); //bord gris coté gauche
+    border-radius: 20px;
+    box-shadow: 0 25px 45px rgba(0,0,0,0.05);
+    padding: 10px;
+    
+    
+}
+
+.elements.photo img {
+    position: absolute;
+    width: calc(100% - 20px); //padding 10px donc 2x10px
+    border-radius: 10px; 
+    border: 2px solid rgba(39, 38, 38, 0.5); 
+    border-top: 1px solid  rgba(39, 38, 38, 0.5); 
+    border-left: 1px solid  rgba(7, 7, 7, 0.5); 
+    box-shadow: 0 25px 45px rgba(0,0,0,0.05);
+}
+
+//////////////////// box conversation ////////////////////
+
+//conversation femme
+.elements.paroles{
+    background:var(--colorFemme);
+    width: 220px;
+    min-height: 20px;
+    text-align: center;
+    position: absolute;
+    top: 110px;
+    left:90px;
+    padding: 10px;
+    border: 1px solid rgba(255,255,255,0.5); 
+    border-top: 1px solid rgba(255,255,255,0.75); 
+    border-left: 1px solid rgba(255,255,255,0.75); 
+    box-shadow: 0 25px 45px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+//conversation Homme
+.elements.reponses {
+    background:var(--colorHomme);
+    width: 220px;
+    min-height: 20px;
+    text-align: center;
+    position: absolute;
+    top: 250px;
+    left:-30px;
+    padding: 10px;
+    border: 1px solid rgba(255,255,255,0.5); 
+    border-top: 1px solid rgba(255,255,255,0.75); 
+    border-left: 1px solid rgba(255,255,255,0.75); 
+    box-shadow: 0 25px 45px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    background: var(--colorBrown);
+    font-family: var(--textItalianno);
+    color: white;
+    height: 50px;
+    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+
+
