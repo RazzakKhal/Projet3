@@ -56,7 +56,9 @@ body{
 	width : 100vw;
 	background-image: url('assets/images/fondtrain.png');
 	background-repeat: no-repeat;
-	background-size:cover;
+	background-size:100% 100%;
+  background-attachment: fixed;
+
 }
 
 // Les variables
@@ -67,8 +69,8 @@ body{
 	--colorRed : rgba(225, 84, 88, 1);
 	--colorBackground : linear(#DC9D54 0%
 	#B785BB 100%);
-	--texteItalianno : 'Iceberg', cursive;
-	--textIceberg :'Italianno', cursive;;
+	--textIceberg : 'Iceberg', cursive;
+	--textItalianno :'Italianno', cursive;
 }
 
 //import des polices
