@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HeaderService } from '../services/header.service';
 
 @Component({
   selector: 'app-my-profil',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./my-profil.component.scss']
 })
 export class MyProfilComponent {
+  
 
 }

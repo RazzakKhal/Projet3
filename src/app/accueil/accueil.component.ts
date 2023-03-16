@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HeaderService } from '../services/header.service';
 
 @Component({
   selector: 'app-accueil',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./accueil.component.scss']
 })
 export class AccueilComponent {
+
+
 
 }
