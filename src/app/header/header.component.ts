@@ -11,14 +11,16 @@ import { Router } from '@angular/router';
 export class HeaderComponent {
  
   constructor(private router:Router){  }
-
+  
+// methode pour cacher le header
 showNav2(){
 if(this.router.url === "/"){
- return false;
+  //mon test est  console.log(this.router.url)
+  return false;
 }else{
- return true;
+  return true;
 }
-// console.log(this.router.url)
+ console.log(this.router.url)
 }
 
 }
