@@ -1,10 +1,7 @@
 * {
-  // width: auto;
   font-family: var(--textIceberg);
   font-size: 16px;
 }
-// @import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Iceberg&display=swap');
 
 .container {
   display: flex;
@@ -42,7 +39,6 @@ h2 {
 
 .bloc1 p {
   margin-top: 10px;
-
 }
 .bloc2 {
   background-color: var(--colorWhite);
@@ -50,7 +46,7 @@ h2 {
   box-sizing: border-box;
 
   width: 80%;
-  line-height:35px;
+  line-height: 35px;
   border-radius: 10px;
   opacity: 0.8;
 }
@@ -60,30 +56,27 @@ h2 {
   justify-content: space-around;
   align-items: center;
   width: 90%;
- 
 }
 
 .sous-bloc22 {
- 
   padding-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .bloc3 {
-  width:80%;
+  width: 80%;
   display: flex;
   justify-content: center;
   flex-direction: column;
   box-sizing: border-box;
   background-color: var(--colorWhite);
-  // padding: 8px 50px;
   align-items: center;
   border-radius: 10px;
   line-height: 30px;
   opacity: 0.8;
 }
 
-.bloc3 p{
+.bloc3 p {
   text-align: center;
 }
