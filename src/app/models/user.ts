@@ -1,129 +1,161 @@
+import { Like } from "./like";
+import { Message } from "./message";
+import { Picture } from "./picture";
+
+
 export class User {
-  private id : number = 0;
-  private firstname : string;
-  private lastname : string;
-  private pseudo : string;
-  private date_Of_Birth : Date;
-  private mail : string;
-  private password : string;
-  private gender : string;
-  private pictures : string[];
-  private size : number;
+  private id: number = 0;
+  private firstname: string;
+  private lastname: string;
+  private pseudo: string;
+  private date_Of_Birth: Date;
+  private mail: string;
+  private password: string;
+  private gender: string;
+  private pictures: Picture[];
+  private size: number;
   private train_number: number;
   private car_number: number;
   private description: string;
-  private messagesSended: string[];
-  private messagesReceived: string[];
-  private likesSended: string[];
-  private likesReceived: string[];
+  private messagesSended: Message[];
+  private messagesReceived: Message[];
+  private likesSended: Like[];
+  private likesReceived: Like[];
 
-    constructor(id:number, firstname:string, lastname:string, pseudo:string ,
-      date_Of_Birth:Date, mail:string, password:string, gender:string,
-      pictures:string[], size:number, train_number:number, car_number:number, description:string,
-      messagesSended:string[], messagesReceived: string[], likesSended:string[], likesReceived:string[]){
-      this.id = id;
-      this.firstname = firstname;
-      this.lastname = lastname;
-      this.pseudo = pseudo;
-      this.date_Of_Birth = date_Of_Birth;
-      this.mail = mail;
-      this.password = password;
-      this.gender = gender;
-      this.pictures = pictures;
-      this.size = size;
-      this.train_number = train_number;
-      this.car_number = car_number;
-      this.messagesSended = messagesSended;
-      this.messagesReceived = messagesReceived;
-      this.likesSended = likesSended;
-      this.likesReceived = likesReceived;
-    }
+  constructor(firstname: string, lastname: string, pseudo: string,
+    date_Of_Birth: Date, mail: string, password: string, gender: string){
 
-    sendLikes(){
+    this.firstname = firstname;
+    this.lastname = lastname;
+    this.pseudo = pseudo;
+    this.date_Of_Birth = date_Of_Birth;
+    this.mail = mail;
+    this.password = password;
+    this.gender = gender;
+  }
 
-    }
+  getFirstname(): string {
+    return this.firstname;
+  }
 
-    getLikes(){
+  setFirstname(firstname: string): void {
+    this.firstname = firstname;
+  }
 
-    }
+  getLastname(): string {
+    return this.lastname;
+  }
 
-    sendMessages(){
+  setLastname(lastname: string): void {
+    this.lastname = lastname;
+  }
 
-    }
+  getPseudo(): string {
+    return this.pseudo;
+  }
 
-    getMessages(){
+  setPseudo(pseudo: string): void {
+    this.pseudo = pseudo;
+  }
 
-    }
+  getDateOfBirth(): Date {
+    return this.date_Of_Birth;
+  }
 
-    getFirstname() : string{
-      return this.firstname;
-    }
+  setDateOfBirth(date_Of_Birth: Date) {
+    this.date_Of_Birth = date_Of_Birth;
+  }
 
-    setFirstname(firstname : string) : void {
-      this.firstname = firstname;
-    }
+  getMail(): string {
+    return this.mail;
+  }
 
-    getLastname() : string{
-      return this.lastname;
-    }
+  setMail(mail: string) {
+    this.mail = mail;
+  }
 
-    setLastname(lastname : string) : void{
-      this.lastname = lastname;
-    }
+  getPassword(): string {
+    return this.password;
+  }
 
-    getPseudo() : string{
-      return this.pseudo;
-    }
+  setPassword(password: string) {
+    this.password = password;
+  }
 
-    setPseudo(pseudo : string) : void{
-      this.pseudo = pseudo;
-    }
+  getGender(): string {
+    return this.gender;
+  }
 
-    getDateOfBirth() : Date{
-      return this.date_Of_Birth;
-    }
+  setGender(gender: string) {
+    this.gender = gender;
+  }
 
-    setDateOfBirth(date_Of_Birth : Date){
-      this.date_Of_Birth = date_Of_Birth;
-    }
+  getPictures(): Picture[] {
+    return this.pictures;
+  }
+  setPictures(pictures: Picture[]) {
+    this.pictures = pictures;
+  }
 
-    getMail() : string{
-      return this.mail;
-    }
+  getLikesSended(): Like[] {
+    return this.likesSended;
+  }
 
-    setMail(mail : string){
-      this.mail = mail;
-    }
+  setLikesSended(likesSended: Like[]) {
+    this.likesSended = likesSended;
+  }
+  getLikesReceived(): Like[] {
+    return this.likesReceived;
+  }
 
-    getPassword() : string{
-      return this.password;
-    }
+  setLikesReceived(likesReceived: Like[]) {
+    this.likesReceived = likesReceived;
+  }
 
-    setPassword(password : string){
-      this.password = password;
-    }
+  getMessagesSended(): Message[] {
+    return this.messagesSended;
+  }
 
-    getGender() : string{
-      return this.gender;
-    }
+  setMessagesSended(messagesSended: Message[]) {
+    this.messagesSended = messagesSended;
+  }
+  getMessagesReceived(): Message[] {
+    return this.messagesReceived;
+  }
 
-    setGender(gender : string){
-      this.gender = gender;
-    }
+  setMessagesReceived(messagesReceived: Message[]) {
+    this.messagesReceived = messagesReceived;
+  }
 
-    getPhotos() : string[]{
-      return this.photos;
-    }
+  getSize(): number {
+    return this.size;
+  }
 
-    addPhotos() : void{
+  setSize(size: number) {
+    this.size = size;
+  }
 
-    }
+  getTrainNumber(): number {
+    return this.train_number;
+  }
 
-    getTall(){
+  setTrainNumber(train_number: number) {
+    this.train_number = train_number;
+  }
 
-    }
+  getCarNumber(): number {
+    return this.car_number;
+  }
 
-    setTall(){
+  setCarNumber(car_number : number) {
+    this.car_number = car_number;
+  }
 
-    }
+  getDescription() : string {
+    return this.description;
+  }
+
+  setDescription(description : string) {
+    this.description = description ;
+  }
 }
