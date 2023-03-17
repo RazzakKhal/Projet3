@@ -1,5 +1,5 @@
 export class User {
-
+  private id : number = 0;
   private firstname : string;
   private lastname : string;
   private pseudo : string;
@@ -7,11 +7,21 @@ export class User {
   private mail : string;
   private password : string;
   private gender : string;
-  private photos : string[];
-  private tall : number;
+  private pictures : string[];
+  private size : number;
+  private train_number: number;
+  private car_number: number;
+  private description: string;
+  private messagesSended: string[];
+  private messagesReceived: string[];
+  private likesSended: string[];
+  private likesReceived: string[];
 
-
-    constructor(firstname : string, lastname:string, pseudo:string , date_Of_Birth:Date, mail:string, password:string, gender:string, photos : string[], tall : number){
+    constructor(id:number, firstname:string, lastname:string, pseudo:string ,
+      date_Of_Birth:Date, mail:string, password:string, gender:string,
+      pictures:string[], size:number, train_number:number, car_number:number, description:string,
+      messagesSended:string[], messagesReceived: string[], likesSended:string[], likesReceived:string[]){
+      this.id = id;
       this.firstname = firstname;
       this.lastname = lastname;
       this.pseudo = pseudo;
@@ -19,8 +29,14 @@ export class User {
       this.mail = mail;
       this.password = password;
       this.gender = gender;
-      this.photos = photos;
-      this.tall = tall;
+      this.pictures = pictures;
+      this.size = size;
+      this.train_number = train_number;
+      this.car_number = car_number;
+      this.messagesSended = messagesSended;
+      this.messagesReceived = messagesReceived;
+      this.likesSended = likesSended;
+      this.likesReceived = likesReceived;
     }
 
     sendLikes(){
