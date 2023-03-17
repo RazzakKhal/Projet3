@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HeaderService } from '../services/header.service';
+
 
 @Component({
   selector: 'app-my-profil',

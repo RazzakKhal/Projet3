@@ -6,6 +6,7 @@ import { GalerieComponent } from './galerie/galerie.component';
 import { TchatComponent } from './tchat/tchat.component';
 import { AdminInterfaceComponent } from './admin-interface/admin-interface.component';
 
+
 const routes: Routes = [
   {path:'', component : AccueilComponent},
   {path:'myProfil', component : MyProfilComponent},
