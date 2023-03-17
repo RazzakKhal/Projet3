@@ -67,12 +67,17 @@ body{
 	--colorGrey: rgba(217, 217, 217, 0.7);
 	--colorBrown : rgba(110, 99, 92, 1);
 	--colorRed : rgba(225, 84, 88, 1);
+	--colorCardTchat: rgba(195, 187, 187, 0.54);
+	--colorFemme : rgba(225, 186, 225, 1);
+	--colorHomme : rgba(186, 202, 225, 1);
 	--colorBackground : linear(#DC9D54 0%
 	#B785BB 100%);
 	--textIceberg : 'Iceberg', cursive;
 	--textItalianno :'Italianno', cursive;
+	--guillemet:'Catamaran', sans empattement ;
 }
 
 //import des polices
 @import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Iceberg&display=swap');
+@import url('https://fonts.googleapis.com/css2? famille= Catamaran:wght@200 &family= Great+Vibes & display=swap');
