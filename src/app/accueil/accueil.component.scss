@@ -80,10 +80,11 @@ input {
       
 }
 .voyage{
-    font-size: 2.3rem;
+    font-size: 3rem;
     text-align: center;
     font-family: 'Italianno', cursive;
     color: var(--colorWhite);
+    padding: 10px;
 }
 
 ////////////////  button  /////////////////////////
@@ -92,3 +93,4 @@ button {
     width: 155px;
     color: var(--colorWhite);
 }
+
