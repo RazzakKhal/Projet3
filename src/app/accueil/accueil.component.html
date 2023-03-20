@@ -20,37 +20,43 @@
     <div class="inscription">
         <h2>Inscription</h2>
         <form [formGroup]="inscriptionForm">
-
-            <input type="text" formControlName="lastname" required placeholder="nom">
-
-            <label>
-                <input type="text" formControlName="firstname" required placeholder="prenom">
-            </label>
-            <label>
-                <input type="text" formControlName="pseudo" required placeholder="pseudo">
-            </label>
-            <label>
-                <input type="date" formControlName="date_of_birth" required placeholder="date de naissance">
-            </label>
-            <label>
-                <input type="email" formControlName="mail" required placeholder="mail">
-            </label>
-            <label>
-                <input type="password" formControlName="password" required placeholder="password">
-            </label>
-            <label>
-                <select formControlName="genre" required placeholder="genre">
-                    <option value="">-- Sélectionner --</option>
-                    <option value="M">Masculin</option>
-                    <option value="F">Feminin</option>
-                </select>
-            </label>
-        </form>
-
-            <button (click)="userInscription()">suivant</button>
-
-
-            <div class="texte">
-                <p class="voyage">Voyage vers l’ Amour <br>
-                    sans billet retour </p>
+            <div class="box_input">
+            <input type="text" formControlName="firstname" required placeholder="Prenom">
             </div>
+
+            <div class="box_input">
+            <input type="text" formControlName="lastname" required placeholder="Nom">
+            </div>
+
+            <div class="box_input">
+            <input type="text" formControlName="pseudo" required placeholder="Pseudo">
+            </div>
+
+            <div class="box_input">
+            <input type="date" formControlName="date_of_birth" required placeholder="Date de Naissance">
+            </div>
+
+            <div class="box_input">
+            <input type="email" formControlName="mail" required placeholder="Mail">
+            </div>
+
+            <div class="box_input">
+            <input type="password" formControlName="password" required placeholder="Mot de Passe">
+            </div>
+            
+            <div class="box_input">
+            <select formControlName="gender" required placeholder="Genre">
+                <option value="">-- Sélectionner --</option>
+                <option value="M">Masculin</option>
+                <option value="F">Feminin</option>
+            </select>
+            </div>
+       
+            <button (click)="userInscription()">suivant</button>
+        </form>
+    </div>
+
+    <div class="texte">
+        <p class="voyage">Voyage vers l’ Amour <br>
+            sans billet retour </p>
+    </div>
