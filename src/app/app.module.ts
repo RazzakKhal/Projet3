@@ -11,7 +11,11 @@ import { AdminInterfaceComponent } from './admin-interface/admin-interface.compo
 import { HeaderComponent } from './header/header.component';
 import { ProfilCardComponent } from './profil-card/profil-card.component';
 import { FooterComponent } from './footer/footer.component';
+<<<<<<< HEAD
 
+=======
+import { ReactiveFormsModule } from '@angular/forms';
+>>>>>>> sandra
 
 @NgModule({
   declarations: [
@@ -24,11 +28,18 @@ import { FooterComponent } from './footer/footer.component';
     AdminInterfaceComponent,
     HeaderComponent,
     ProfilCardComponent,
+<<<<<<< HEAD
     FooterComponent
+=======
+    FooterComponent,
+
+  
+>>>>>>> sandra
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
