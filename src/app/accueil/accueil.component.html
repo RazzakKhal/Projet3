@@ -19,33 +19,44 @@
     </div>
     <div class="inscription">
         <h2>Inscription</h2>
-        <div class="box_input">
-            <input class="grey" type="text" placeholder="Nom">
-        </div>
-        <div class="box_input">
-            <input class="red" type="text" placeholder="Prénom">
-        </div>
-        <div class="box_input">
-            <input class="grey" type="text" placeholder="Pseudo">
-        </div>
-        <div class="box_input">
-            <input class="red" type="date" placeholder="Date de naissance">
-        </div>
-        <div class="box_input">
-            <input class="grey" type="mail" placeholder="Mail">
-        </div>
-        <div class="box_input">
-            <input class="red" type="password" placeholder="Mot de passe">
-        </div>
-        <div class="box_input">
-            <input class="grey" type="text" placeholder="Sexe">
-        </div>
-        
-           <button>suivant</button>
+        <form [formGroup]="inscriptionForm">
+            <div class="box_input">
+            <input type="text" formControlName="firstname" required placeholder="Prenom">
+            </div>
+
+            <div class="box_input">
+            <input type="text" formControlName="lastname" required placeholder="Nom">
+            </div>
+
+            <div class="box_input">
+            <input type="text" formControlName="pseudo" required placeholder="Pseudo">
+            </div>
+
+            <div class="box_input">
+            <input type="date" formControlName="date_of_birth" required placeholder="Date de Naissance">
+            </div>
+
+            <div class="box_input">
+            <input type="email" formControlName="mail" required placeholder="Mail">
+            </div>
+
+            <div class="box_input">
+            <input type="password" formControlName="password" required placeholder="Mot de Passe">
+            </div>
+            
+            <div class="box_input">
+            <select formControlName="gender" required placeholder="Genre">
+                <option value="">-- Sélectionner --</option>
+                <option value="M">Masculin</option>
+                <option value="F">Feminin</option>
+            </select>
+            </div>
        
+            <button (click)="userInscription()">suivant</button>
+        </form>
     </div>
+
     <div class="texte">
         <p class="voyage">Voyage vers l’ Amour <br>
             sans billet retour </p>
     </div>
-</div> 
