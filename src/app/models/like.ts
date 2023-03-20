@@ -2,7 +2,7 @@ import { User } from "./user";
 
 export class Like {
 
-    private id : number;
+    private id : number | undefined;
     private likeSender : User;
     private likeReceiver : User;
 
@@ -12,7 +12,7 @@ export class Like {
         this.likeReceiver = likeReceiver;
     }
 
-    getId() : number{
+    getId() : number | undefined{
         return this.id;
       }
 

@@ -1,7 +1,7 @@
 import { User } from './user';
 
 export class Picture {
-  private id : number;
+  private id : number| undefined;
   private link : string;
   private user : User;
 
@@ -10,7 +10,7 @@ export class Picture {
     this.user = user;
   }
 
-  public getId() : number {
+  public getId() : number | undefined {
     return this.id;
   }
 

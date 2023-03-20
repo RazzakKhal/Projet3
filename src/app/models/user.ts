@@ -4,31 +4,31 @@ import { Picture } from "./picture";
 
 
 export class User {
-  private id: number = 0;
+  private id: number | undefined;
   private firstname: string;
   private lastname: string;
   private pseudo: string;
-  private date_Of_Birth: Date;
+  private date_of_birth: Date;
   private mail: string;
   private password: string;
   private gender: string;
-  private pictures: Picture[];
-  private size: number;
-  private train_number: number;
-  private car_number: number;
-  private description: string;
-  private messagesSended: Message[];
-  private messagesReceived: Message[];
-  private likesSended: Like[];
-  private likesReceived: Like[];
+  private pictures: Picture[]=[];
+  private size: number = 0;
+  private train_number: number = 0;
+  private car_number: number = 0;
+  private description: string = "";
+  private messagesSended: Message[] = [];
+  private messagesReceived: Message[] = [];
+  private likesSended: Like[] = [];
+  private likesReceived: Like[] = [];
 
   constructor(firstname: string, lastname: string, pseudo: string,
-    date_Of_Birth: Date, mail: string, password: string, gender: string){
+    date_of_birth: Date, mail: string, password: string, gender: string){
 
     this.firstname = firstname;
     this.lastname = lastname;
     this.pseudo = pseudo;
-    this.date_Of_Birth = date_Of_Birth;
+    this.date_of_birth = date_of_birth;
     this.mail = mail;
     this.password = password;
     this.gender = gender;
@@ -59,11 +59,11 @@ export class User {
   }
 
   getDateOfBirth(): Date {
-    return this.date_Of_Birth;
+    return this.date_of_birth;
   }
 
-  setDateOfBirth(date_Of_Birth: Date) {
-    this.date_Of_Birth = date_Of_Birth;
+  setDateOfBirth(date_of_birth: Date) {
+    this.date_of_birth = date_of_birth;
   }
 
   getMail(): string {
