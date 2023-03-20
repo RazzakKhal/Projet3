@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { User } from '../models/user';
 
 
 @Component({
@@ -8,5 +9,6 @@ import { Component } from '@angular/core';
 })
 export class AccueilComponent {
 
-
+new User();
+fetch 
 }
