@@ -1,8 +1,8 @@
-import { User } from './';
+import { User } from './user';
 
 export class Message {
 
-    private id : number;
+    private id : number | undefined;
     private content : string;
     private userSender : User;
     private userReceiver : User;
@@ -13,8 +13,8 @@ export class Message {
         this.userReceiver = userReceiver;
     }
 
-    getId():number{
-        return this.id;   
+    getId():number | undefined{
+        return this.id;
     }
 
     setId(id : number){
