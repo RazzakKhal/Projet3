@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import { Like } from "./like";
 import { Message } from "./message";
 import { Picture } from "./picture";
@@ -35,6 +33,10 @@ export class User {
     this.mail = mail;
     this.password = password;
     this.gender = gender;
+  }
+
+  getId(): number | undefined{
+    return this.id;
   }
 
   getFirstname(): string {
