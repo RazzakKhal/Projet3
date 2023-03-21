@@ -3,7 +3,7 @@ import { Message } from "./message";
 import { Picture } from "./picture";
 
 
->>>>>>> 9bddb1f9660bd44dcf8b794b34a8be29845c82bb
+
 export class User {
   private id: number | undefined;
   private firstname: string;
