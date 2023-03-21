@@ -11,6 +11,8 @@ import { User } from '../models/user';
 export class AccueilComponent {
 
   inscriptionForm : FormGroup;
+  homme : [] | undefined;
+  femme : [] | undefined;
 
   constructor(private formBuilder : FormBuilder){
     this.inscriptionForm = this.formBuilder.group({
@@ -23,6 +25,7 @@ export class AccueilComponent {
       gender : [''], 
   });
    
+ 
   }
 
 
@@ -46,4 +49,14 @@ export class AccueilComponent {
   });
 console.log (this.inscriptionForm.controls['lastname'].value);
   }
+
+   //methode pour récuperer que les hommes ou que les femmes
+   choix(){
+    if (this.inscriptionForm.controls['Homme'].value){
+      return this.homme?.push;
+    }
+    else {
+      return this.femme?.push;
+    }
+   }
 }

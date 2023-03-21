@@ -44,11 +44,11 @@
             <input type="password" formControlName="password" required placeholder="Mot de Passe">
             </div>
             
-            <div class="box_input">
+            <div class="box_input" *ngIf="choix()">
             <select formControlName="gender" required placeholder="Genre">
                 <option value="">-- Sélectionner --</option>
-                <option value="M">Masculin</option>
-                <option value="F">Feminin</option>
+                <option value="H">Homme</option>
+                <option value="F">Femme</option>
             </select>
             </div>
        

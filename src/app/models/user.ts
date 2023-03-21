@@ -57,4 +57,8 @@ export class User {
     setGender(gender : string){
       this.gender = gender;
     }
+
+    getId():number | undefined{
+      return this.id;
+    }
 }
