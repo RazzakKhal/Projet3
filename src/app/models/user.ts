@@ -34,6 +34,10 @@ export class User {
     this.gender = gender;
   }
 
+  getId(): number | undefined{
+    return this.id;
+  }
+
   getFirstname(): string {
     return this.firstname;
   }
