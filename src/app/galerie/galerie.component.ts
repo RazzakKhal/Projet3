@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user';
 
 @Component({
@@ -8,15 +8,16 @@ import { User } from '../models/user';
 })
 export class GalerieComponent implements OnInit{
 
-  user {"Rico","Gourme","rico", new Date(), "rico.gourmel@sncf.fr","toto","M"};
+  user = {id: 8, firstname : "Razzak", lastname : "Khalfallah"};
 
-  constructor(){}
+  constructor(){
 
-  ngOnInit(): void{
-    
-  fetch('http://localhost:8080/galerie/Femme/${this.user.id}').then((data)=> console.log(data))
-    
   }
+
+  ngOnInit(): void {
+    fetch(`http://localhost:8080/galerie/femme/${this.user.id}`).then((data)=> data.json()).then(data => console.log(data)); 
   }
+
+
 
 }

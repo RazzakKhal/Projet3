@@ -1,0 +1,89 @@
+* {
+  /*Toute ma page à la police Iceberg */
+  font-family: var(--textIceberg);
+  font-size: 16px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 85vh;
+  box-sizing: border-box;
+}
+
+
+.bloc1 {
+  background-color: var(--colorWhite);
+  width: 80%;
+  height: 50%;
+  margin-top: 20px;
+
+  display: flex;
+  flex-direction:column;
+  align-items: flex-end;
+  border-radius: 20px 20px 0 0;
+  opacity: 0.8;
+}
+
+.sous-bloc1 ,p{
+display: flex;
+padding: 10px;
+
+margin-right: 20px;
+width: 80%;
+
+}
+
+
+
+
+
+.photoOtherProfil {
+  width: 37vh;
+  height: 44vh;
+  border-radius: 20px;
+}
+
+.bloc2 {
+  background-color: var(--colorWhite);
+  margin-bottom: 30px;
+  padding: 20px 10px;
+  box-sizing: border-box;
+  width: 80%;
+  height: 30%;
+  line-height:35px;
+  border-radius: 20px;
+  opacity: 0.8;
+}
+
+.sous-bloc2 {
+  display: flex;
+  flex-direction:row;
+  margin-left: 80px;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+}
+
+.sous-bloc3 {
+  display: flex;
+  flex-direction:row;
+  margin-left: 80px;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+}
+.sous-bloc4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+}
+
+h1 {
+  font-family: var(--textItalianno);
+  font-size: 30px;
+}
+
