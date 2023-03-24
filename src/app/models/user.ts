@@ -3,6 +3,7 @@ import { Message } from "./message";
 import { Picture } from "./picture";
 
 
+
 export class User {
   private id: number | undefined;
   private firstname: string;
@@ -17,6 +18,7 @@ export class User {
   private train_number: number = 0;
   private car_number: number = 0;
   private description: string = "";
+  private role : string = "user";
   private messagesSended: Message[] = [];
   private messagesReceived: Message[] = [];
   private likesSended: Like[] = [];
@@ -161,5 +163,13 @@ export class User {
 
   setDescription(description : string) {
     this.description = description ;
+  }
+
+  getRole(){
+    return this.role;
+  }
+
+  setRole(role : string){
+    this.role = role;
   }
 }
