@@ -7,10 +7,11 @@ import { TchatComponent } from './tchat/tchat.component';
 import { AdminInterfaceComponent } from './admin-interface/admin-interface.component';
 import { OtherProfilComponent } from './other-profil/other-profil.component';
 
+
 const routes: Routes = [
   {path:'', component : AccueilComponent},
   {path:'myProfil', component : MyProfilComponent},
-  {path:'galerie', component : GalerieComponent},
+  {path:'galerie', component : GalerieComponent },
   {path:'messagerie', component : TchatComponent},
   {path:'admin', component : AdminInterfaceComponent},
   {path:'other-profil', component : OtherProfilComponent}
