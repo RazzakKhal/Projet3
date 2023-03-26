@@ -14,11 +14,13 @@ export class GalerieGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    // si il est connecté et qu'il a une photo
-    // return true;
+    // si il est connecté localStorage.getItem('token')
+
+    //et qu'il a une photo
+    return true;
     //sinon 
     
-      return this.router.navigate(['/myProfil']);
+      // return this.router.navigate(['/myProfil']);
   }
   
 }
