@@ -11,6 +11,7 @@ import { User } from '../models/user';
 export class AccueilComponent {
 
   inscriptionForm : FormGroup;
+  connexionForm : FormGroup<any>;
 
   constructor(private formBuilder : FormBuilder){
     this.inscriptionForm = this.formBuilder.group({
@@ -21,6 +22,13 @@ export class AccueilComponent {
       mail : [''],
       password : [''],
       gender : [''], 
+  });
+
+  this.connexionForm = this.formBuilder.group({
+
+    mail : [''],
+    password : [''],
+    train_number : [''],
   });
    
   }
@@ -47,4 +55,28 @@ export class AccueilComponent {
   });
 console.log (this.inscriptionForm.controls['lastname'].value);
   }
+
+  userConnexion(){
+    let user : any = {
+      mail : this.connexionForm.controls['mail'].value,
+      password : this.connexionForm.controls['password'].value
+    };
+  localStorage.setItem('StockageNumberTrain', this.connexionForm.controls['train_number'].value);
+    fetch("http://localhost:8080/accueil/connexion", {
+      method: "POST", 
+      headers: {
+        "Content-Type": "application/json",
+    
+      },
+      body: JSON.stringify(user),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+    console.log (this.connexionForm.controls['mail'].value);
+    }
 }

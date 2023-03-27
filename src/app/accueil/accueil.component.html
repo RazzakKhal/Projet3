@@ -5,17 +5,20 @@
     <div class="connexion-inscription">
         <div class="connexion">
             <h2>Connexion</h2>
+            <form [formGroup]="connexionForm">
             <div class="box_input">
-                <input class="grey" type="mail" placeholder="Mail">
+                <input class="grey" formControlName="mail" type="mail" placeholder="Mail">
             </div>
             <div class="box_input">
-                <input class="red" type="password" placeholder="Mot de passe">
+                <input class="red" formControlName="password" type="password" placeholder="Mot de passe">
             </div>
             <div class="box_input">
-                <input class="grey" type="text" placeholder="Numero de train">
+                <input class="grey" formControlName="train_number" type="text" placeholder="Numero de train">
             </div>
-            <button (click)="userInscription()">suivant</button>
+            <button (click)="userConnexion()">suivant</button>
+             </form> 
         </div>
+      
     </div>
     <div class="inscription">
         <h2>Inscription</h2>
