@@ -71,14 +71,16 @@ console.log (this.inscriptionForm.controls['lastname'].value);
   },
   body: JSON.stringify(user),
 })
+//recupere la reponse
   .then((response) => response.json())
+  //recupere les donneés de la reponse
   .then((data) => {
-    console.log("Success:", data);
+    //pour sauvegaredr le token dans ma data
+    localStorage.setItem("TokenSauvegarde",data.token);
   })
   .catch((error) => {
     console.error("Error:", error);
   });
-console.log (this.connexionForm.controls['mail'].value);
   }
 
 }
