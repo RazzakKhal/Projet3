@@ -11,6 +11,7 @@ import { User } from '../models/user';
 export class AccueilComponent {
 
   inscriptionForm : FormGroup;
+connexionForm: FormGroup<any>;
 
   constructor(private formBuilder : FormBuilder){
     this.inscriptionForm = this.formBuilder.group({
@@ -22,6 +23,11 @@ export class AccueilComponent {
       password : [''],
       gender : [''], 
   });
+  this.connexionForm = this.formBuilder.group({
+    mail: [''],
+    password : [''],
+    train_number: [''],
+  });
    
   }
 
@@ -31,7 +37,7 @@ export class AccueilComponent {
     let user : User = new User(this.inscriptionForm.controls['firstname'].value,this.inscriptionForm.controls['lastname'].value,this.inscriptionForm.controls['pseudo'].value, this.inscriptionForm.controls['date_of_birth'].value, this.inscriptionForm.controls['mail'].value, this.inscriptionForm.controls['password'].value,this.inscriptionForm.controls['gender'].value);
 
     fetch("http://localhost:8080/accueil/inscription", {
-  method: "POST", // or 'PUT'
+  method: "POST", 
   headers: {
     "Content-Type": "application/json",
 
@@ -47,4 +53,32 @@ export class AccueilComponent {
   });
 console.log (this.inscriptionForm.controls['lastname'].value);
   }
+
+
+  //formulaire de connexion
+  userConnexion(){
+
+    let user : any = {mail : this.connexionForm.controls['mail'].value,
+     password : this.connexionForm.controls['password'].value};
+// stocker dans le localStorage
+     localStorage.setItem("TrainNumber",this.connexionForm.controls['train_number'].value);
+    
+    fetch("http://localhost:8080/accueil/connexion", {
+  method: "POST", // car on envoie nos infos
+  headers: {
+    "Content-Type": "application/json",
+
+  },
+  body: JSON.stringify(user),
+})
+  .then((response) => response.json())
+  .then((data) => {
+    console.log("Success:", data);
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
+console.log (this.connexionForm.controls['mail'].value);
+  }
+
 }
