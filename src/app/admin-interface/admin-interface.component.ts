@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 
 @Component({
@@ -7,7 +7,31 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-interface.component.scss']
 })
 
-export class AdminInterfaceComponent {
-
-
+export class AdminInterfaceComponent implements OnInit {
+ngOnInit(): void {
+  this.findAllUser()
 }
+// faire une requete permettant de recuperer les utilisteurs
+findAllUser(){
+let token= localStorage.getItem("TokenSauvegarde");
+fetch("http://localhost:8080/admin/alluser",{
+method :"GET",
+headers: {"Content-Type": "application/json", "Authorization": "Bearer " + token }
+
+
+
+  })
+
+
+
+.then((value) => value.json())
+.then((data) => {
+  
+  console.log(data)
+})
+}
+// Afficher à l'aide d'une boucle tous les utilisateurs dans le HTML
+}
+// mettre un bouton pour supprimer l'utilisateur en question
+
+
