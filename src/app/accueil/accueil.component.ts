@@ -34,6 +34,7 @@ export class AccueilComponent {
   method: "POST", // or 'PUT'
   headers: {
     "Content-Type": "application/json",
+
   },
   body: JSON.stringify(user),
 })

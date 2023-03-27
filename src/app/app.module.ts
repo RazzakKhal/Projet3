@@ -24,9 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AdminInterfaceComponent,
     HeaderComponent,
     ProfilCardComponent,
-    FooterComponent,
-
-  
+    FooterComponent
   ],
   imports: [
     BrowserModule,

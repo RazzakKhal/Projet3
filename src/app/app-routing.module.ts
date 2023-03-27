@@ -6,13 +6,15 @@ import { GalerieComponent } from './galerie/galerie.component';
 import { TchatComponent } from './tchat/tchat.component';
 import { AdminInterfaceComponent } from './admin-interface/admin-interface.component';
 import { OtherProfilComponent } from './other-profil/other-profil.component';
+import { AdminGuardGuard } from './guards/admin-guard.guard';
+import { GalerieGuard } from './guards/galerie.guard';
 
 const routes: Routes = [
   {path:'', component : AccueilComponent},
   {path:'myProfil', component : MyProfilComponent},
-  {path:'galerie', component : GalerieComponent},
+  {path:'galerie', component : GalerieComponent, canActivate:[GalerieGuard]},
   {path:'messagerie', component : TchatComponent},
-  {path:'admin', component : AdminInterfaceComponent},
+  {path:'admin', component : AdminInterfaceComponent, canActivate:[AdminGuardGuard]},
   {path:'other-profil', component : OtherProfilComponent}
 ];
 
