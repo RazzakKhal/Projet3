@@ -28,8 +28,7 @@ export class AccueilComponent {
  
   }
 
-
-  //formulaire reactif avec infos recuperées
+  //formulaire reactif avec infos recuperées.
   userInscription(){
     let user : User = new User(this.inscriptionForm.controls['firstname'].value,this.inscriptionForm.controls['lastname'].value,this.inscriptionForm.controls['pseudo'].value, this.inscriptionForm.controls['date_of_birth'].value, this.inscriptionForm.controls['mail'].value, this.inscriptionForm.controls['password'].value,this.inscriptionForm.controls['gender'].value);
 
