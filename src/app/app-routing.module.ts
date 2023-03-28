@@ -8,14 +8,18 @@ import { AdminInterfaceComponent } from './admin-interface/admin-interface.compo
 import { OtherProfilComponent } from './other-profil/other-profil.component';
 import { AdminGuardGuard } from './guards/admin-guard.guard';
 import { GalerieGuard } from './guards/galerie.guard';
+
 import { MyProfilGuard } from './guards/my-profil.guard';
+
+import { MessagerieGuard } from './guards/messagerie.guard';
+
 
 
 const routes: Routes = [
   {path:'', component : AccueilComponent},
   {path:'myProfil', component : MyProfilComponent, canActivate:[MyProfilGuard]},
   {path:'galerie', component : GalerieComponent, canActivate:[GalerieGuard]},
-  {path:'messagerie', component : TchatComponent},
+  {path:'messagerie', component : TchatComponent, canActivate:[MessagerieGuard]},
   {path:'admin', component : AdminInterfaceComponent, canActivate:[AdminGuardGuard]},
   {path:'other-profil', component : OtherProfilComponent}
 ];
