@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 
 export class AdminInterfaceComponent implements OnInit {
   users: any[] = [];
-  userId: any;
+ 
 
   ngOnInit(): void {
    this.findAllUser()
@@ -34,16 +34,19 @@ headers: {"Content-Type": "application/json",
 // Afficher à l'aide d'une boucle tous les utilisateurs dans le HTML
 // mettre un bouton pour supprimer l'utilisateur en question
 
-/*deleteUser() {
+deleteUser(id: number) {
   let token = localStorage.getItem("TokenSauvegarde");
-  fetch("http://localhost:8080/admin/deleteuser", {
+  fetch(`http://localhost:8080/admin/deleteuser/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
       Authorization: "Bearer " + token,
     },
   })
-}*/
+
+  this.users = this.users.filter((user) => user.id !== id );
+
+}
 
 
 
