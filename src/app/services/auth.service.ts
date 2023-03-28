@@ -1,24 +1,51 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
 
 @Injectable({
   providedIn: 'root'
 })
 
-//ce service fait appel à l'API
+
 export class AuthService {
-  getUserDetails() {
-    throw new Error('Method not implemented.');
+
+
+private jwtService = new JwtHelperService();
+  private token;
+  private InfosToken : any;
+  private mail : undefined | string;
+  private expiration : undefined | number;
+
+  constructor(){
+
+   this.token = localStorage.getItem("TokenSauvegarde");
+
+ 
+   }
+
+   getTokenInformations(){
+    if(this.token !== null){
+   this.InfosToken = this.jwtService.decodeToken(this.token);
+   console.log(this.InfosToken);
+   return this.InfosToken;
+    }
   }
 
-url ="http://localhost:8080/auth";
+    getTokenMail(){
+      this.mail = this.InfosToken.sub;
+      return this.mail;
+    }
 
-//j 'injecte mon service dans le constructor
-  constructor(private http: HttpClient){ }
+    getTokenExpiration(){
+      this.expiration = this.InfosToken.exp;
+      return this.expiration;
+    }
 
-  login(password : any){
-   return this.http.post(this.url, password)
-  }
+    getToken(){
+      return this.token;
+    }
+    
 
+   
 
 }
