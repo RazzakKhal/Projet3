@@ -17,7 +17,7 @@ export class User {
   private train_number: number = 0;
   private car_number: number = 0;
   private description: string = "";
-  private role : string = "user";
+  private role : string = "USER";
   private messagesSended: Message[] = [];
   private messagesReceived: Message[] = [];
   private likesSended: Like[] = [];
