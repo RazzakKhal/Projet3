@@ -9,9 +9,11 @@ import { OtherProfilComponent } from './other-profil/other-profil.component';
 import { AdminGuardGuard } from './guards/admin-guard.guard';
 import { GalerieGuard } from './guards/galerie.guard';
 
+
 const routes: Routes = [
   {path:'', component : AccueilComponent},
   {path:'myProfil', component : MyProfilComponent},
+  {path: '**', redirectTo: 'myProfil'},
   {path:'galerie', component : GalerieComponent, canActivate:[GalerieGuard]},
   {path:'messagerie', component : TchatComponent},
   {path:'admin', component : AdminInterfaceComponent, canActivate:[AdminGuardGuard]},
