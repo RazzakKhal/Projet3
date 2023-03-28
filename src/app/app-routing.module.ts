@@ -9,6 +9,7 @@ import { OtherProfilComponent } from './other-profil/other-profil.component';
 import { AdminGuardGuard } from './guards/admin-guard.guard';
 import { GalerieGuard } from './guards/galerie.guard';
 import { MessagerieGuard } from './guards/messagerie.guard';
+import { MyProfilGuard } from './guards/my-profil.guard';
 
 
 const routes: Routes = [
