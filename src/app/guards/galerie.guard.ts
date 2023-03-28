@@ -6,21 +6,29 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GalerieGuard implements CanActivate {
-  constructor(private router:Router){
+  constructor(private router: Router) {
 
   }
-
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    // si il est connecté localStorage.getItem('token')
+    // si il n'est pas connecté l' envoie à l'accueil
+    if (localStorage.getItem("TokenSauvegarde") === null) {
+      return this.router.navigate(['']);
+    }
 
-    //et qu'il a une photo
+    // sinon si il est connecté mais il n'a pas de photo
+    // return this.router.navigate(['/myProfil']);
+
+    // sinon on retourne true;
+
+
     return true;
-    //sinon 
-    
-      // return this.router.navigate(['/myProfil']);
+
+
+
   }
-  
+
+
 }
