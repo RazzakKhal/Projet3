@@ -1,4 +1,6 @@
+
 import { Component } from '@angular/core';
+
 
 
 @Component({
@@ -6,7 +8,7 @@ import { Component } from '@angular/core';
   templateUrl: './my-profil.component.html',
   styleUrls: ['./my-profil.component.scss']
 })
-export class MyProfilComponent {
+export class MyProfilComponent{
   
 
 }

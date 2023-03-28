@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { User } from '../models/user';
@@ -11,9 +12,9 @@ import { User } from '../models/user';
 export class AccueilComponent {
 
   inscriptionForm : FormGroup;
-connexionForm: FormGroup<any>;
+  connexionForm: FormGroup<any>;
 
-  constructor(private formBuilder : FormBuilder){
+  constructor(private formBuilder : FormBuilder, private router : Router){
     this.inscriptionForm = this.formBuilder.group({
       lastname : [''],
       firstname : [''],
@@ -77,6 +78,7 @@ console.log (this.inscriptionForm.controls['lastname'].value);
   .then((data) => {
     //pour sauvegaredr le token dans ma data
     localStorage.setItem("TokenSauvegarde",data.token);
+    return this.router.navigate(['/myProfil']);
   })
   .catch((error) => {
     console.error("Error:", error);
@@ -84,3 +86,4 @@ console.log (this.inscriptionForm.controls['lastname'].value);
   }
 
 }
+
