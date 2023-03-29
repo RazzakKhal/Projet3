@@ -27,19 +27,7 @@ export class MyProfilComponent implements OnInit{
     });
   }
 
-  ngOnInit() {
-    
-  }
-
-  // onFileSelected(event: Event) { // permet d'ajouter une photo
-  //   const files = (event.target as HTMLInputElement).files;
-  //   if (files) {
-  //     const formData = new FormData();// permet d'ajt chaque fichier à l'objet formData, & peut ensuite etre envoyé au serveur via une requette HTTP
-  //     for (let i = 0; i < files.length; i++) {
-  //       formData.append('photos', files[i]);
-  //     }
-  //   }
-  // }
+  ngOnInit() {}
 
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
