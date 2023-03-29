@@ -45,7 +45,20 @@ private jwtService = new JwtHelperService();
       return this.token;
     }
     
-
+    getUserConnected(){
+     this.getTokenInformations();
+     
+     return fetch("http://localhost:8080/myProfil/getUser",{
+        method :"POST",
+        headers: {"Content-Type": "application/json",
+                  "Authorization": "Bearer " + this.getToken()
+                 },
+        body : JSON.stringify({"mail" : this.getTokenMail()}) 
+          })
+        
+        
+        }
+        }
    
 
-}
+

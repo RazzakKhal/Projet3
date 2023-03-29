@@ -16,25 +16,27 @@ export class MyProfilComponent{
   MyUser: undefined | User;
 
   constructor(private authService : AuthService){
-    this.authService.getTokenInformations();
-    this.userMail = authService.getTokenMail();
+    // this.authService.getTokenInformations();
+    // this.userMail = authService.getTokenMail();
     this.getUserConnected();
   }
 
   getUserConnected(){
      
-fetch("http://localhost:8080/myProfil/getUser",{
+/*fetch("http://localhost:8080/myProfil/getUser",{
   method :"POST",
   headers: {"Content-Type": "application/json",
             "Authorization": "Bearer " + this.authService.getToken()
            },
   body : JSON.stringify({"mail" : this.userMail}) 
-    })
+    })*/
   
+    this.authService.getUserConnected()
   .then((value) => value.json())
   .then((data) => {
     
    this.MyUser = data;
+   console.log(this.MyUser)
   })
   }
 
