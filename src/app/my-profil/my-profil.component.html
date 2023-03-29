@@ -1,32 +1,47 @@
-<div class="container">
+<div class="container"> 
+
   <div class="bloc1">
-    <img class="photoProfil" src="assets/photos/photorazzak.png" alt="photo de mon profil" />
-    <p>Razzak, 27 ans</p>
-  </div>
-  <div class="bloc2">
-    <div class="sous-bloc2">
-      <h1>Genre</h1>
-      <p>{{MyUser?.gender}}</p>  
-      <h1>Taille</h1>
-      <p>{{MyUser?.size}} cm</p>
-       <input type="text" id="size" name="size" placeholder="taille" 
-      [(ngModel)]="sizeUser">
 
-      <img (click)="putUserSize()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
-    </div>
-    <div class="sous-bloc22">
-      <h1>Description</h1>
-      <p>{{MyUser?.description}}
-        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img class="iconeCrayon"
-          src="assets/images/crayon1.png" alt="icone crayon" /></p>
+  <form [formGroup]="myForm">  
+  <label for="photo">Photo:</label>
+  <input type="file" id="photo" (change)="onFileSelected($event)">
+  <img [src]="imageUrl" alt="selected image">
+ 
 
-    </div>
+  
+  <p>{{MyUser.pseudo}}{{MyUser.date_of_birth}}</p>
+  <!-- <p>{{MyUser.pseudo}}{{MyUser.getAge()}}</p> -->
 
-  </div>
-  <div class="bloc3">
-    <h2>Numéro de train:</h2>
-    <p>{{MyUser?.train_number}}<img class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" /> </p>
-    <h2>Voiture:</h2>
-    <p>{{MyUser?.car_number}}<img class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" /></p>
-  </div>
+</form>
 </div>
+
+
+<!-----------------JE NE TOUCHE A RIEN----------------------------->
+  
+<div class="bloc2">
+  <div class="sous-bloc2">
+    <h1>Genre</h1>
+    <p>{{MyUser?.gender}}</p>  
+    <h1>Taille</h1>
+    <p>{{MyUser?.size}} cm</p>
+     <input type="text" id="size" name="size" placeholder="taille" 
+    [(ngModel)]="sizeUser">
+
+    <img (click)="putUserSize()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
+  </div>
+  <div class="sous-bloc22">
+    <h1>Description</h1>
+    <p>{{MyUser?.description}}
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img class="iconeCrayon"
+        src="assets/images/crayon1.png" alt="icone crayon" /></p>
+
+  </div>
+
+</div>
+<div class="bloc3">
+  <h2>Numéro de train:</h2>
+  <p>{{MyUser?.train_number}}<img class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" /> </p>
+  <h2>Voiture:</h2>
+  <p>{{MyUser?.car_number}}<img class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" /></p>
+</div>
+

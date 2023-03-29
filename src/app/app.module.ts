@@ -11,8 +11,8 @@ import { AdminInterfaceComponent } from './admin-interface/admin-interface.compo
 import { HeaderComponent } from './header/header.component';
 import { ProfilCardComponent } from './profil-card/profil-card.component';
 import { FooterComponent } from './footer/footer.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
