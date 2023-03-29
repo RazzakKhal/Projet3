@@ -6,11 +6,11 @@
   <label for="photo">Photo:</label>
   <input type="file" id="photo" (change)="onFileSelected($event)">
   <img [src]="imageUrl" alt="selected image">
-  <button type="button" (click)="onSave()">Enregistrer</button>
+ 
 
   
   <p>{{MyUser.pseudo}}{{MyUser.date_of_birth}}</p>
-  <p>{{MyUser.pseudo}}{{MyUser.getAge()}}</p>
+  <!-- <p>{{MyUser.pseudo}}{{MyUser.getAge()}}</p> -->
 
 </form>
 </div>
