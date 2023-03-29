@@ -57,8 +57,33 @@ private jwtService = new JwtHelperService();
           })
         
         
-        }
-        }
+    }
+// recuperer les femmes du meme train
+    findFemaleByTrainNumber(id: number){
+return fetch(`http://localhost:8080/galerie/femme/${id}`,{
+  method :"GET",
+  headers: {"Content-Type": "application/json",
+            "Authorization": "Bearer " + this.getToken()
+           },
+  
+    })
+
+    }
+    findMaleByTrainNumber(id: number){
+      return fetch(`http://localhost:8080/galerie/homme/${id}`,{
+        method :"GET",
+        headers: {"Content-Type": "application/json",
+                  "Authorization": "Bearer " + this.getToken()
+                 },
+        
+          })
+      
+          }
+
+
+
+
+  }
    
 
 
