@@ -3,6 +3,7 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { formatDistanceStrict } from 'date-fns';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-my-profil',
@@ -14,11 +15,10 @@ export class MyProfilComponent implements OnInit{
   userMail : string | undefined;
   MyUser: any;
   myForm: FormGroup;
-  age : any;
   date_of_birth: any;
   imageUrl: any;
 
-  constructor(private authService : AuthService, private formBuilder : FormBuilder){
+  constructor(private authService : AuthService, private formBuilder : FormBuilder, private http : HttpClient){
     // this.authService.getTokenInformations();
     // this.userMail = authService.getTokenMail();
     this.getUserConnected();
@@ -27,19 +27,7 @@ export class MyProfilComponent implements OnInit{
     });
   }
 
-  ngOnInit() {
-    
-  }
-
-  // onFileSelected(event: Event) { // permet d'ajouter une photo
-  //   const files = (event.target as HTMLInputElement).files;
-  //   if (files) {
-  //     const formData = new FormData();// permet d'ajt chaque fichier à l'objet formData, & peut ensuite etre envoyé au serveur via une requette HTTP
-  //     for (let i = 0; i < files.length; i++) {
-  //       formData.append('photos', files[i]);
-  //     }
-  //   }
-  // }
+  ngOnInit() {}
 
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
@@ -48,27 +36,40 @@ export class MyProfilComponent implements OnInit{
       reader.readAsDataURL(file);
       reader.onload = () => {
         this.imageUrl = reader.result;
-        console.log(this.imageUrl);
+       console.log(this.imageUrl);
         if(this.imageUrl.includes("jpeg") || this.imageUrl.includes("jpg") || this.imageUrl.includes("png")){
           // envoyer l'url de l'img en BDD
-       }else{
-        this.imageUrl = "assets/images/aliciaaccepte.png";
-        console.log("aucune img");
+          fetch("http://localhost:8080/picture/addpicture",{
+      method :"POST",
+      headers: {"Content-Type": "application/json",
+          "Authorization": "Bearer " + localStorage.getItem('TokenSauvegarde') },
+          body: JSON.stringify({link:this.imageUrl, user:this.MyUser}),
+    })
+      }else{
+      this.imageUrl = "assets/images/aliciaaccepte.png";
       }
       };
     }
   }
-  
+  // onSave() { // sauver les photos dans le back
+  //   const formData = new FormData();
+  //   formData.append('imageUrl', this.imageUrl);
+  //   this.http.post('/picture', formData).subscribe((response) => {
+  //     console.log('Photo sauvegardé');
+  //   }, error => {
+  //     console.error(error);
+  //   });
+  // }
 
-
-  onSave() { }// sauver les photos dans le back
     
-  // Méthode pour obtenir l'âge formaté
-  public getAge(): string {
-    const ageInMs = Date.now() - this.date_of_birth.getTime();
-    const age = new Date(ageInMs).getUTCFullYear() - 1972;
-    return formatDistanceStrict(new Date(0), new Date(ageInMs), { unit: 'year' }) + ' ans';
-  }
+ 
+    
+  // // Méthode pour obtenir l'âge formaté
+  // public getAge(): string {
+  //   const ageInMs = Date.now() - this.date_of_birth.getTime();
+  //   const age = new Date(ageInMs).getUTCFullYear() - 1972;
+  //   return formatDistanceStrict(new Date(0), new Date(ageInMs), { unit: 'year' }) + ' ans';
+  // }
 
 
 
@@ -91,9 +92,4 @@ export class MyProfilComponent implements OnInit{
    console.log(this.MyUser)
   })
   }
-
-
-
 }
-
-
