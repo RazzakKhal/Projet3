@@ -81,7 +81,18 @@ return fetch(`http://localhost:8080/galerie/femme/${id}`,{
           }
 
 
-
+  //modifier la taille
+  putUserSize(size :number) {
+    return fetch("http://localhost:8080/myProfil/updateSize", {
+       method: "PUT",
+       headers: {
+         "Content-Type": "application/json",
+         "Authorization": "Bearer " + this.getToken()
+       },
+       body: JSON.stringify({ "mail": this.getTokenMail(), "size":size})
+     })
+ 
+   }
 
   }
    
