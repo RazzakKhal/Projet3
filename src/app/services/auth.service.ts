@@ -68,4 +68,41 @@ return fetch(`http://localhost:8080/galerie/femme/${id}`,{
        body: JSON.stringify({ "mail": this.getTokenMail(), "size":size})
      })
    }
+
+
+    //modifier la description
+   putUserDescription(description : string){
+    return fetch("http://localhost:8080/myProfil/updateDescription", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + this.getToken()
+      },
+      body: JSON.stringify({ "mail": this.getTokenMail(), "descirption":description})
+    })
+   }
+
+   //modifier le numero train
+   putUserTrainNumber(train_number : number){
+    return fetch("http://localhost:8080/myProfil/updateNumberTrain", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + this.getToken()
+      },
+      body: JSON.stringify({ "mail": this.getTokenMail(), "train_number":train_number})
+    })
+   }
+
+   putUserCarTrain(carNumber : number){
+    return fetch("http://localhost:8080/myProfil/updateCarTrain", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + this.getToken()
+      },
+      body: JSON.stringify({ "mail": this.getTokenMail(), "car_number":carNumber})
+    })
+   }
+
   }

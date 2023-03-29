@@ -17,7 +17,11 @@ export class MyProfilComponent{
   age : any;
   date_of_birth: any;
   imageUrl: any;
+  //pour les changements de l'utilisateur angular
   sizeUser : any;
+  descriptionUser : any ; 
+  trainNumberUser : any ;
+  carNumberUser : any ;
 
   constructor(private authService : AuthService, private formBuilder : FormBuilder){
     // this.authService.getTokenInformations();
@@ -60,12 +64,8 @@ export class MyProfilComponent{
   }
 
 
-
-
-
   getUserConnected(){
-     
-    this.authService.getUserConnected()
+  this.authService.getUserConnected()
   .then((value) => value.json())
   .then((data) => { 
    this.MyUser = data;
@@ -80,11 +80,39 @@ export class MyProfilComponent{
       .then((data) => {
         this.MyUser = data;
         console.log(this.MyUser)
-      })
-    
+      }) 
+  }
+
+  //changement de la description de l'user
+  putUserDescription(){
+    this.authService.putUserDescription(this.descriptionUser)
+    .then((value) => value.json())
+    .then((data) => {
+      this.MyUser = data;
+      console.log(this.MyUser)
+    }) 
   }
 
 
+  // changement du numero de train de l'user
+  putUserTrainNumber(){
+    this.authService.putUserDescription(this.trainNumberUser)
+    .then((value) => value.json())
+    .then((data) => {
+      this.MyUser = data;
+      console.log(this.MyUser)
+    }) 
+  }
+
+  //changement de la voiture de l'user
+  putUserCarTrain(){
+    this.authService.putUserDescription(this.carNumberUser)
+    .then((value) => value.json())
+    .then((data) => {
+      this.MyUser = data;
+      console.log(this.MyUser)
+    }) 
+  }
 
 }
 
