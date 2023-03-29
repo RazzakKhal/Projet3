@@ -2,7 +2,6 @@ import { Like } from "./like";
 import { Message } from "./message";
 import { Picture } from "./picture";
 
-
 export class User {
   private id: number | undefined;
   private firstname: string;
@@ -171,4 +170,8 @@ export class User {
   setRole(role : string){
     this.role = role;
   }
+
+
+  
 }
+
