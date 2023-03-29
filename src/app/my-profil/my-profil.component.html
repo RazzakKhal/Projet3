@@ -1,8 +1,23 @@
-<div class="container">
+<div class="container"> 
+
   <div class="bloc1">
-    <img class="photoProfil" src="assets/photos/photorazzak.png" alt="photo de mon profil" />
-    <p>Razzak, 27 ans</p>
-  </div>
+
+  <form [formGroup]="myForm">  
+  <label for="photo">Photo:</label>
+  <input type="file" id="photo" (change)="onFileSelected($event)">
+  <img [src]="imageUrl" alt="selected image">
+  <button type="button" (click)="onSave()">Enregistrer</button>
+
+  
+  <p>{{MyUser.pseudo}}{{MyUser.date_of_birth}}</p>
+  <p>{{MyUser.pseudo}}{{MyUser.getAge()}}</p>
+
+</form>
+</div>
+
+
+<!-----------------JE NE TOUCHE A RIEN----------------------------->
+  
   <div class="bloc2">
     <div class="sous-bloc2">
       <h1>Genre</h1>
@@ -27,4 +42,5 @@
     <h2>Voiture:</h2>
     <p>04 <img class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" /></p>
   </div>
+
 </div>
