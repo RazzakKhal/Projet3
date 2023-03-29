@@ -52,7 +52,7 @@ export class MyProfilComponent implements OnInit{
         if(this.imageUrl.includes("jpeg") || this.imageUrl.includes("jpg") || this.imageUrl.includes("png")){
           // envoyer l'url de l'img en BDD
        }else{
-        this.imageUrl = null;
+        this.imageUrl = "assets/images/aliciaaccepte.png";
         console.log("aucune img");
       }
       };
