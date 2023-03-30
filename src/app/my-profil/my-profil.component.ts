@@ -22,6 +22,8 @@ export class MyProfilComponent{
   descriptionUser : any ; 
   trainNumberUser : any ;
   carNumberUser : any ;
+  pictures : any;
+
 
   constructor(private authService : AuthService, private formBuilder : FormBuilder){
     // this.authService.getTokenInformations();
@@ -43,7 +45,15 @@ export class MyProfilComponent{
         console.log(this.imageUrl);
         if(this.imageUrl.includes("jpeg") || this.imageUrl.includes("jpg") || this.imageUrl.includes("png")){
           // envoyer l'url de l'img en BDD
-
+          fetch("http://localhost:8080/picture/addpicture",{
+            method :"POST",
+            headers: {"Content-Type": "application/json",
+                "Authorization": "Bearer " + localStorage.getItem('TokenSauvegarde') },
+                body: JSON.stringify({link:this.imageUrl, user:this.MyUser}),
+          })
+          .then() // je recupere la reponse
+          .then() // j'enregiste les donnés dans ma variables pictures
+          
        }else{
         this.imageUrl = "assets/images/aliciaaccepte.png";
         console.log("aucune img");
