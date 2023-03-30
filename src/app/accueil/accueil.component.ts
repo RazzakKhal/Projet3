@@ -61,6 +61,7 @@ console.log (this.inscriptionForm.controls['lastname'].value);
 
     let user : any = {mail : this.connexionForm.controls['mail'].value,
      password : this.connexionForm.controls['password'].value};
+  
 // stocker dans le localStorage
      localStorage.setItem("TrainNumber",this.connexionForm.controls['train_number'].value);
     

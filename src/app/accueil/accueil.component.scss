@@ -55,6 +55,9 @@
 
 ////////////////  Input  /////////////////////////
 input {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
     text-align: center;
     background-color: var(--colorWhite);
 }
@@ -71,6 +74,7 @@ input {
 .red::placeholder{
     color: var(--colorRed);
 }
+
 
 // ////////////////  Texte Voyage  /////////////////////////
 .texte {
@@ -89,6 +93,9 @@ input {
 
 ////////////////  button  /////////////////////////
 button {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
     background-color: var(--colorBrown);
     width: 155px;
     color: var(--colorWhite);
