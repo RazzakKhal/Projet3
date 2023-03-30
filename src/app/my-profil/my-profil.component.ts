@@ -96,7 +96,7 @@ export class MyProfilComponent{
 
   // changement du numero de train de l'user
   putUserTrainNumber(){
-    this.authService.putUserDescription(this.trainNumberUser)
+    this.authService.putUserTrainNumber(this.trainNumberUser)
     .then((value) => value.json())
     .then((data) => {
       this.MyUser = data;
@@ -106,7 +106,7 @@ export class MyProfilComponent{
 
   //changement de la voiture de l'user
   putUserCarTrain(){
-    this.authService.putUserDescription(this.carNumberUser)
+    this.authService.putUserCarTrain(this.carNumberUser)
     .then((value) => value.json())
     .then((data) => {
       this.MyUser = data;

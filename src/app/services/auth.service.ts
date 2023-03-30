@@ -78,7 +78,7 @@ return fetch(`http://localhost:8080/galerie/femme/${id}`,{
         "Content-Type": "application/json",
         "Authorization": "Bearer " + this.getToken()
       },
-      body: JSON.stringify({ "mail": this.getTokenMail(), "descirption":description})
+      body: JSON.stringify({ "mail": this.getTokenMail(), "description":description})
     })
    }
 
