@@ -22,28 +22,39 @@
   
 <div class="bloc2">
   <div class="sous-bloc2">
+
     <h1>Genre</h1>
-    <p>{{MyUser?.gender}}</p>  
+    <p>{{MyUser?.gender}}</p> 
+
     <h1>Taille</h1>
     <p>{{MyUser?.size}} cm</p>
      <input type="text" id="size" name="size" placeholder="taille" 
     [(ngModel)]="sizeUser">
-
     <img (click)="putUserSize()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
   </div>
+
   <div class="sous-bloc22">
     <h1>Description</h1>
-    <p>{{MyUser?.description}}
-      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img class="iconeCrayon"
-        src="assets/images/crayon1.png" alt="icone crayon" /></p>
+    <p>{{MyUser?.description}}</p>
+      <input type="text" id="description" name="description" placeholder="description" 
+      [(ngModel)]="descriptionUser">
+     <img (click)="putUserDescription()" class="iconeCrayon"
+        src="assets/images/crayon1.png" alt="icone crayon" />
 
   </div>
 
 </div>
 <div class="bloc3">
   <h2>Numéro de train:</h2>
-  <p>{{MyUser?.train_number}}<img class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" /> </p>
+  <p>{{MyUser?.train_number}}</p>
+    <input type="number" id="trainNumber" name="numerotrain" placeholder="numero de train" 
+      [(ngModel)]="trainNumberUser">
+    <img (click)="putUserTrainNumber()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" /> 
+
   <h2>Voiture:</h2>
-  <p>{{MyUser?.car_number}}<img class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" /></p>
+  <p>{{MyUser?.car_number}}</p>
+  <input type="number" id="carNumber" name="carNumber" placeholder="numero de voiture" 
+      [(ngModel)]="carNumberUser">
+  <img (click)="putUserCarTrain()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
 </div>
 
