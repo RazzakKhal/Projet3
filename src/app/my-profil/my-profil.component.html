@@ -5,6 +5,8 @@
   <form [formGroup]="myForm">  
   <label for="photo">Photo:</label>
   <input type="file" id="photo" (change)="onFileSelected($event)">
+
+   <!-- CARROUSSEL AVEC LES PHOTOS DE L'UTILISATEUR (VARIABLE pictures)  -->
   <img [src]="imageUrl" alt="selected image">
  
 

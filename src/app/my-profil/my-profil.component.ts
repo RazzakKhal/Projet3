@@ -18,6 +18,7 @@ export class MyProfilComponent{
   date_of_birth: any;
   imageUrl: any;
   sizeUser : any;
+  pictures : any;
 
   constructor(private authService : AuthService, private formBuilder : FormBuilder){
     // this.authService.getTokenInformations();
@@ -45,6 +46,9 @@ export class MyProfilComponent{
                 "Authorization": "Bearer " + localStorage.getItem('TokenSauvegarde') },
                 body: JSON.stringify({link:this.imageUrl, user:this.MyUser}),
           })
+          .then() // je recupere la reponse
+          .then() // j'enregiste les donnés dans ma variables pictures
+          
        }else{
         this.imageUrl = "assets/images/aliciaaccepte.png";
         console.log("aucune img");
