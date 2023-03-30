@@ -4,14 +4,19 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   providedIn: 'root'
 })
 export class AuthService {
+  
 private jwtService = new JwtHelperService();
   private token;
   private InfosToken : any;
   private mail : undefined | string;
   private expiration : undefined | number;
+
+
   constructor(){
    this.token = localStorage.getItem("TokenSauvegarde");
    }
+
+   
    getTokenInformations(){
     if(this.token !== null){
    this.InfosToken = this.jwtService.decodeToken(this.token);
@@ -106,3 +111,5 @@ return fetch(`http://localhost:8080/galerie/femme/${id}`,{
    }
 
   }
+
+  
