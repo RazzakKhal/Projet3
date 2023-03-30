@@ -1,4 +1,4 @@
-import { Component,Injectable } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { formatDistanceStrict } from 'date-fns';
@@ -21,8 +21,9 @@ export class MyProfilComponent{
   descriptionUser : any ; 
   trainNumberUser : any ;
   carNumberUser : any ;
-  pictures : any;
 
+  pictures : any;
+  data : any;
 
   constructor(private authService : AuthService, private formBuilder : FormBuilder){
     // this.authService.getTokenInformations();
@@ -31,9 +32,8 @@ export class MyProfilComponent{
     this.myForm = this.formBuilder.group({
       pictures: ''
     });
+  
   }
-
-
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
     if (file) {
@@ -50,8 +50,8 @@ export class MyProfilComponent{
                 "Authorization": "Bearer " + localStorage.getItem('TokenSauvegarde') },
                 body: JSON.stringify({link:this.imageUrl, user:this.MyUser}),
           })
-          .then() // je recupere la reponse
-          .then() // j'enregiste les donnés dans ma variables pictures
+          .then((response)=> response.json()) // je recupere la reponse
+          .then((data)=> this.pictures = data) // j'enregiste les donnés dans ma variables pictures
           
        }else{
         this.imageUrl = "assets/images/aliciaaccepte.png";
@@ -60,8 +60,10 @@ export class MyProfilComponent{
       };
     }
   }
-  
 
+
+
+  
 
   onSave() { }// sauver les photos dans le back
     
@@ -124,5 +126,7 @@ export class MyProfilComponent{
   }
 
 }
+
+
 
 
