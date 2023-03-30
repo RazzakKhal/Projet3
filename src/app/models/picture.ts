@@ -4,6 +4,7 @@ export class Picture {
   private id : number| undefined;
   private link : string;
   private user : User;
+  static link: any;
 
   constructor(link : string, user: User){
     this.link = link;
