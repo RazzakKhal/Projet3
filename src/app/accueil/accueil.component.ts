@@ -60,9 +60,8 @@ console.log (this.inscriptionForm.controls['lastname'].value);
   userConnexion(){
 
     let user : any = {mail : this.connexionForm.controls['mail'].value,
-     password : this.connexionForm.controls['password'].value};
-// stocker dans le localStorage
-     localStorage.setItem("TrainNumber",this.connexionForm.controls['train_number'].value);
+     password : this.connexionForm.controls['password'].value,
+    train_number : this.connexionForm.controls['train_number'].value};
     
     fetch("http://localhost:8080/accueil/connexion", {
   method: "POST", // car on envoie nos infos
