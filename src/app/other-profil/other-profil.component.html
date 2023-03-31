@@ -1,8 +1,9 @@
 <div class="container">
   <div class="bloc1">
-    <img class="photoOtherProfil" src="assets/photos/photosandra.JPG" alt="photo d'un profil" />
+    <img *ngIf="otherUser?.pictures.length > 0" class="photoOtherProfil" src={{otherUser?.pictures[0].link}} alt="photo d'un profil" />
+    <img *ngIf="otherUser?.pictures.length === 0" class="photoOtherProfil" src="assets/images/coeur.png" alt="photo d'un profil" />
     <div class="sous-bloc1">
-      <p>Sandra, 77 ans</p>
+      <p>{{otherUser?.pseudo}}, {{otherUser?.date_of_birth | date: 'dd/MM/yyyy'}}</p>
       <img src="assets/images/message.png" alt="icone" />
     </div>
 
@@ -14,15 +15,15 @@
   <div class="bloc2">
     <div class="sous-bloc2">
       <h1>Genre:</h1>
-      <p>Femelle</p>
+      <p>{{otherUser?.gender}}</p>
     </div>
     <div class="sous-bloc3">
       <h1>Taille:</h1>
-      <p>basse</p>
+      <p>{{otherUser?.size}}</p>
     </div>
     <div class="sous-bloc4">
       <h1>Description</h1>
-      <p>Si je dis la verité je suis mort</p>
+      <p>{{otherUser?.description}}</p>
     </div>
 
 
