@@ -61,6 +61,18 @@ input {
     margin-top: 10px;
     text-align: center;
     background-color: var(--colorWhite);
+    box-sizing: border-box;
+}
+
+input[type="date"]{
+     width: 175px;
+}
+
+select{
+    display: flex;
+    margin-top: 10px;
+    text-align: center;
+    width: 175px;
 }
 
 .grey, .red{
