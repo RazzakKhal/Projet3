@@ -35,18 +35,18 @@ h2 {
   width: 80%;
 
 
-  
+
 }
 
-.photo{
-  max-width:30vw;
+.photo {
+  max-width: 30vw;
   max-height: 25vh;
-  margin-bottom:10px;
+  margin-bottom: 10px;
 }
 
-#input_photo{
-  width:15vw;
-  height:7vh; 
+#input_photo {
+  width: 15vw;
+  height: 7vh;
 }
 
 input[type="file"] {
@@ -56,6 +56,7 @@ input[type="file"] {
 .custom-input_photo {
   display: inline-block;
   cursor: pointer;
+
   img {
     width: 10px;
     height: 10px;
@@ -64,7 +65,7 @@ input[type="file"] {
 
 
 // BLOC MILIEU
-.bloc2{
+.bloc2 {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -73,35 +74,41 @@ input[type="file"] {
   background-color: var(--colorWhite);
   border-radius: 10px;
   opacity: 0.8;
-   padding: 10px 10px;
-   gap: 15px;
+  padding: 10px 10px;
+  gap: 15px;
 }
-.genreSize{
+
+.genreSize {
   display: flex;
   flex-direction: row;
-  justify-content:space-between;
- width: 100%;
- align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
 }
-.description{
+
+.description {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   height: 100%;
 }
+
 .row {
   display: flex;
   flex-direction: row;
 }
-input{
-display: none;
+
+input {
+  display: none;
 }
-.iconeCrayon{
+
+.iconeCrayon {
   width: 15px;
 }
+
 // BLOC BAS
-.bloc3{
+.bloc3 {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -114,10 +121,12 @@ display: none;
   opacity: 0.8;
   padding: 10px 10px;
 }
-.numeroTrain, .numeroVoiture{
+
+.numeroTrain,
+.numeroVoiture {
   display: flex;
-  flex-direction: row ;
-  justify-content:space-between;
+  flex-direction: row;
+  justify-content: space-between;
   width: 100%;
- margin-top: 5px;
+  margin-top: 5px;
 }

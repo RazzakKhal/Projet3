@@ -6,9 +6,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./profil-card.component.scss']
 })
 export class ProfilCardComponent {
-  @Input() picture : string | undefined;
-  @Input() firstname : string | undefined;
-  @Input() age : string | undefined;
-  @Input() car : string | undefined;
+  @Input() picture: string | undefined;
+  @Input() firstname: string | undefined;
+  @Input() age: string | undefined;
+  @Input() car: string | undefined;
 
 }

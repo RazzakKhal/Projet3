@@ -12,7 +12,8 @@ export class MyProfilGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    // si l'user n'est pas connecté, on à accès qu'à la page accueil
+
+    // si le user n'est pas connecté, on à accès qu'à la page accueil
     if (localStorage.getItem("TokenSauvegarde") === null) {
       return this.router.navigate(['']);
     } // sinon on à accès à la page myProfil grâce à mon guard :D 

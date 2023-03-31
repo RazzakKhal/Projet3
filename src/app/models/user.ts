@@ -11,19 +11,19 @@ export class User {
   private mail: string;
   private password: string;
   private gender: string;
-  private pictures: Picture[]=[];
+  private pictures: Picture[] = [];
   private size: number = 0;
   private train_number: number = 0;
   private car_number: number = 0;
   private description: string = "";
-  private role : string = "USER";
+  private role: string = "USER";
   private messagesSended: Message[] = [];
   private messagesReceived: Message[] = [];
   private likesSended: Like[] = [];
   private likesReceived: Like[] = [];
 
   constructor(firstname: string, lastname: string, pseudo: string,
-    date_of_birth: Date, mail: string, password: string, gender: string){
+    date_of_birth: Date, mail: string, password: string, gender: string) {
 
     this.firstname = firstname;
     this.lastname = lastname;
@@ -34,7 +34,7 @@ export class User {
     this.gender = gender;
   }
 
-  getId(): number | undefined{
+  getId(): number | undefined {
     return this.id;
   }
 
@@ -151,27 +151,27 @@ export class User {
     return this.car_number;
   }
 
-  setCarNumber(car_number : number) {
+  setCarNumber(car_number: number) {
     this.car_number = car_number;
   }
 
-  getDescription() : string {
+  getDescription(): string {
     return this.description;
   }
 
-  setDescription(description : string) {
-    this.description = description ;
+  setDescription(description: string) {
+    this.description = description;
   }
 
-  getRole(){
+  getRole() {
     return this.role;
   }
 
-  setRole(role : string){
+  setRole(role: string) {
     this.role = role;
   }
 
 
-  
+
 }
 

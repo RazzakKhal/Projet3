@@ -23,8 +23,6 @@ export class GalerieComponent implements OnInit{
     this.checkUserGender()
     
   }
-
-
 // verifier si l'utilisateur connecté est un homme
 
 checkUserGender(){
@@ -59,15 +57,8 @@ if (this.MyUser.gender ==='M'){
       })
     }
   })
-    
-  });
+});
 }
-  
-  
-  
-  
-  
-
 else if (this.MyUser.gender === 'F'){
   this.authService.findMaleByTrainNumber(this.MyUser.id)
   .then((value) => value.json())
