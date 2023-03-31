@@ -50,6 +50,7 @@ if (this.MyUser.gender ==='M'){
   .then(women => {
     
    this.women = women;
+   console.log(this.women);
   
    this.women.forEach((woman: any) => {
     if(woman.pictures.length === 0){
