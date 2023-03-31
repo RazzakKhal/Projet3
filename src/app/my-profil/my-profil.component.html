@@ -1,62 +1,51 @@
 <div class="container"> 
+  <div class="bloc1"> 
+    <form [formGroup]="myForm">
+      <label for="file-upload" class="custom-file-upload">
+          <img id="input_photo" src="assets/images/iconeappareilphoto.png" alt="Upload">
+      </label>
+          <input id="file-upload" type="file" (change)="onFileSelected($event)" />
+    </form> 
+  <!-- CARROUSSEL AVEC LES PHOTOS DE L'UTILISATEUR (VARIABLE pictures)  -->
+          <img class="photo" [src]="MyUser.pictures[0].link" alt="selected image">
+            <p class="pseudo">{{MyUser.pseudo}}, {{MyUser.date_of_birth | date: 'dd/MM/yyyy'}}</p>
+  </div>
 
-  <div class="bloc1">
-
-  <form [formGroup]="myForm">  
-  <label for="photo">Photo:</label>
-  <input type="file" id="photo" (change)="onFileSelected($event)">
-
-   <!-- CARROUSSEL AVEC LES PHOTOS DE L'UTILISATEUR (VARIABLE pictures)  -->
-  <img [src]="MyUser.pictures[0].link" alt="selected image">
- 
-
-  
-  <p>{{MyUser.pseudo}}{{MyUser.date_of_birth}}</p>
-  <!-- <p>{{MyUser.pseudo}}{{MyUser.getAge()}}</p> -->
-
-</form>
-</div>
 
 
 <!-----------------JE NE TOUCHE A RIEN----------------------------->
   
 <div class="bloc2">
-  <div class="sous-bloc2">
-
+  <div class="genreSize">
     <h1>Genre</h1>
-    <p>{{MyUser?.gender}}</p> 
-
+    <p>{{MyUser?.gender}}</p>
     <h1>Taille</h1>
     <p>{{MyUser?.size}} cm</p>
-     <input type="text" id="size" name="size" placeholder="taille" 
-    [(ngModel)]="sizeUser">
+    <input type="text" id="size" name="size" placeholder="taille" [(ngModel)]="sizeUser">
     <img (click)="putUserSize()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
   </div>
-
-  <div class="sous-bloc22">
-    <h1>Description</h1>
-    <p>{{MyUser?.description}}</p>
-      <input type="text" id="description" name="description" placeholder="description" 
-      [(ngModel)]="descriptionUser">
-     <img (click)="putUserDescription()" class="iconeCrayon"
-        src="assets/images/crayon1.png" alt="icone crayon" />
-
+  <div class="description">
+    <div class="row">
+      <h1>Description</h1>
+      <p>{{MyUser?.description}}</p>
+      <img (click)="putUserDescription()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon"/>
+    </div>
+    <input type="text" id="description" name="description" placeholder="description" [(ngModel)]="descriptionUser">
   </div>
-
 </div>
+<!-- bloc bas -->
 <div class="bloc3">
-  <h2>Numéro de train:</h2>
-  <p>{{MyUser?.train_number}}</p>
-    <input type="number" id="trainNumber" name="numerotrain" placeholder="numero de train" 
+  <div class="numeroTrain">
+    <h2>Numéro de train:</h2>
+    <p>{{MyUser?.train_number}}</p>
+    <input type="number" id="trainNumber" name="numerotrain" placeholder="numero de train"
       [(ngModel)]="trainNumberUser">
-    <img (click)="putUserTrainNumber()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" /> 
-
-  <h2>Voiture:</h2>
-  <p>{{MyUser?.car_number}}</p>
-  <input type="number" id="carNumber" name="carNumber" placeholder="numero de voiture" 
-      [(ngModel)]="carNumberUser">
-  <img (click)="putUserCarTrain()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
+    <img (click)="putUserTrainNumber()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
+  </div>
+  <div class="numeroVoiture">
+    <h2>Voiture:</h2>
+    <p>{{MyUser?.car_number}}</p>
+    <input type="number" id="carNumber" name="carNumber" placeholder="numero de voiture" [(ngModel)]="carNumberUser">
+    <img (click)="putUserCarTrain()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
+  </div>
 </div>
-
-
-

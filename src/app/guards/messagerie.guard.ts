@@ -7,19 +7,19 @@ import { Observable } from 'rxjs';
 })
 export class MessagerieGuard implements CanActivate {
 
-  constructor(private router : Router){}
+  constructor(private router: Router) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-      //si mon utilisateur n'est pas connecté, il est orienté à la page d'accueil 
-      
-      if(localStorage.getItem("TokenSauvegarde") === null){
+    //si mon utilisateur n'est pas connecté, il est orienté à la page d'accueil 
 
-        return this.router.navigate(['']);
-      }
-      return true ;
+    if (localStorage.getItem("TokenSauvegarde") === null) {
+
+      return this.router.navigate(['']);
+    }
+    return true;
   }
-  
+
 }

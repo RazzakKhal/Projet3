@@ -21,9 +21,9 @@
     <!-- si utilisateur est un homme afficher les femmes -->
     <ng-container *ngIf="MyUser.gender === 'M'">
       <app-profil-card *ngFor="let woman of women" 
-                       car="Voiture {{woman.voiture}}" 
-                       age= "{{woman.age}} ans" 
-                       firstname="{{woman.prenom}}" 
+                       car="Voiture {{woman.car_number}}" 
+                       age= "{{woman.date_of_birth | date: 'dd/MM/yyyy'}} " 
+                       firstname="{{woman.firstname}}" 
                        picture="{{woman.pictures[0].link}}">
       </app-profil-card>
     </ng-container>
@@ -31,9 +31,9 @@
     <!-- si utilisateur est une femme afficher les hommes -->
     <ng-container *ngIf="MyUser.gender === 'F'">
       <app-profil-card *ngFor="let man of men" 
-              car="Voiture   {{man.voiture}}"
-              age= "{{man.age}} ans" 
-              firstname="{{man.prenom}}" 
+              car="Voiture   {{man.car_number}}"
+              age= "{{man.date_of_birth | date: 'dd/MM/yyyy'}}" 
+              firstname="{{man.firstname}}" 
               picture="{{man.pictures[0].link}}">
       </app-profil-card>
     </ng-container>
