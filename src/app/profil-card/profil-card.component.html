@@ -1,6 +1,6 @@
 <div class="container">
 <!-- <img *ngIf="picture !== undefined && picture[0] !== undefined" class="profilPhoto" [src]="picture[0].link" alt=""> -->
-<img  class="profilPhoto" [src]="picture" alt="">
+<img (click)="sendAtOtherProfil()" class="profilPhoto" [src]="picture" alt="">
 
 
 <div class="encadre">
