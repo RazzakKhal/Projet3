@@ -18,9 +18,8 @@
             <div class="box_input">
                 <input type="text" formControlName="train_number" required placeholder="Numero de Train">
             </div>
-
-            <button (click)="userConnexion()">suivant</button>
         </form>
+        <button (click)="userConnexion()">suivant</button>
     </div>
 
 
@@ -32,7 +31,7 @@
             </div>
 
             <div class="box_input">
-                <input type="text" formControlName="lastname" required placeholder="Nom">
+                <input type="text" formControlName="lastname" required placeholder="Nom"> 
             </div>
 
             <div class="box_input">
@@ -50,27 +49,15 @@
             <div class="box_input">
                 <input type="password" formControlName="password" required placeholder="Mot de Passe">
             </div>
-    </form>
+    
             <div class="box_input">
                 <select formControlName="gender" required placeholder="Genre">
                     <option value="M">Masculin</option>
                     <option value="F">Feminin</option>
                 </select>
             </div>
-<!--          
-              <div class="homme">
-                <input formControlName="gender" type="checkbox" name="homme"  required>
-                <option value="M">Homme</option>
-           
-                </div>
-                <div class="femme">
-                <input formControlName="gender" type="checkbox" name="femme" required>
-                <option value="F">Femme</option> 
-               
-                 </div> -->
-
-            <button (click)="userInscription()">suivant</button>
-    
+       </form>
+        <button (click)="userInscription()">suivant</button>
     </div>
 
     <div class="texte">
