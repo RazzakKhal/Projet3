@@ -19,7 +19,7 @@ const routes: Routes = [
   {path:'galerie', component : GalerieComponent, canActivate:[GalerieGuard]},
   {path:'messagerie', component : TchatComponent, canActivate:[MessagerieGuard]},
   {path:'admin', component : AdminInterfaceComponent, canActivate:[AdminGuardGuard]},
-  {path:'other-profil', component : OtherProfilComponent}
+  {path:'other-profil/:id', component : OtherProfilComponent}
 ];
 
 @NgModule({
