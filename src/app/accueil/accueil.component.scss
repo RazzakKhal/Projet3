@@ -2,7 +2,8 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
+    justify-content: center;
 }
 
 ////////////////  Logo Coeur  /////////////////////////
@@ -34,8 +35,8 @@
 }
 
 .connexion, .inscription{
-    width: 280px;
-    padding: 20px;
+    width: 220px;
+    padding: 10px;
     background: var(--colorGrey);
     border: none;
     display: flex;
@@ -55,8 +56,30 @@
 
 ////////////////  Input  /////////////////////////
 input {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
     text-align: center;
     background-color: var(--colorWhite);
+    border-radius: 8px;
+    padding: 4px 4px;
+ 
+}
+
+input[type="date"]{
+     width: 165px;
+     border-radius: 8px;
+    padding: 4px 4px;
+     
+}
+
+select{
+    display: flex;
+    margin-top: 10px;
+    text-align: center;
+    width: 169px;
+    border-radius: 8px;
+    padding: 4px 4px;
 }
 
 .grey, .red{
@@ -71,6 +94,7 @@ input {
 .red::placeholder{
     color: var(--colorRed);
 }
+
 
 // ////////////////  Texte Voyage  /////////////////////////
 .texte {
@@ -89,8 +113,19 @@ input {
 
 ////////////////  button  /////////////////////////
 button {
-    background-color: var(--colorBrown);
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    background-color: var(--colorPurple);
     width: 155px;
     color: var(--colorWhite);
+    width: 110px;
+    border-radius: 10px;
 }
+
+button:hover{
+    background-color: var(--colorRed);
+    transition: .25s;
+}
+
 
