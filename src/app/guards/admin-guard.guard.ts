@@ -11,9 +11,7 @@ export class AdminGuardGuard implements CanActivate {
 
   user: any;
   constructor(private router: Router, private authService: AuthService) {
-    this.authService.getUserConnected()
-      .then(reponse => reponse.json())
-      .then(data => this.user = data)
+    
   }
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -21,12 +19,26 @@ export class AdminGuardGuard implements CanActivate {
 
     // je peux retourner true si l'utilisateur est un admin
     // return this.router.navigate(['']); // sinon je redirige
+    return this.authService.getUserConnected()
+      .then(reponse => reponse.json())
+      .then((data) => {
+        this.user = data;
 
-    if (this.user.role === "ADMIN") {
-      return true;
+        if (this.user.role === "ADMIN") {
+          return true;
 
-    } else return this.router.navigate(['']);
+        } else
+          return this.router.navigate(['/myProfil']);
 
+
+
+
+      })
+
+      .catch(() => this.router.navigate(['/myProfil'])
+      );
+
+    
   }
 
 
