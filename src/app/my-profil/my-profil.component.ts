@@ -12,7 +12,7 @@ export class MyProfilComponent{
   
   userMail : string | undefined;
   MyUser: any;
-  myForm: FormGroup;
+
   age : any;
   date_of_birth: any;
   imageUrl: any;
@@ -22,16 +22,19 @@ export class MyProfilComponent{
   trainNumberUser : any ;
   carNumberUser : any ;
 
-  pictures : any;
+ 
   data : any;
 
   constructor(private authService : AuthService, private formBuilder : FormBuilder){
     // this.authService.getTokenInformations();
     // this.userMail = authService.getTokenMail();
-    this.getUserConnected();
-    this.myForm = this.formBuilder.group({
-      pictures: ''
-    });
+    this.authService.getUserConnected()
+    .then((value) => value.json())
+    .then((data) => { 
+     this.MyUser = data;
+     console.log(this.MyUser)
+    })
+
   
   }
   onFileSelected(event: any) {
@@ -51,11 +54,11 @@ export class MyProfilComponent{
                 body: JSON.stringify({link:this.imageUrl, user:this.MyUser}),
           })
           .then((response)=> response.json()) // je recupere la reponse
-          .then((data)=> this.pictures = data) // j'enregiste les donnés dans ma variables pictures
+          .then((data)=> this.MyUser.pictures = data) // j'enregiste les donnés dans ma variables pictures
           
        }else{
         this.imageUrl = "assets/images/aliciaaccepte.png";
-        console.log("aucune img");
+ 
       }
       };
     }
@@ -63,34 +66,13 @@ export class MyProfilComponent{
 
 
 
-  
-
-  onSave() { }// sauver les photos dans le back
-    
-  // Méthode pour obtenir l'âge formaté
-  public getAge(): string {
-    const ageInMs = Date.now() - this.date_of_birth.getTime();
-    const age = new Date(ageInMs).getUTCFullYear() - 1972;
-    return formatDistanceStrict(new Date(0), new Date(ageInMs), { unit: 'year' }) + ' ans';
-  }
-
-
-  getUserConnected(){
-  this.authService.getUserConnected()
-  .then((value) => value.json())
-  .then((data) => { 
-   this.MyUser = data;
-   console.log(this.MyUser)
-  })
-  }
-
   // changement taille de l'user donc je recupere mon APi
   putUserSize() {
     this.authService.putUserSize(this.sizeUser)
       .then((value) => value.json())
       .then((data) => {
         this.MyUser = data;
-        console.log(this.MyUser)
+    
       }) 
   }
 
@@ -100,7 +82,7 @@ export class MyProfilComponent{
     .then((value) => value.json())
     .then((data) => {
       this.MyUser = data;
-      console.log(this.MyUser)
+     
     }) 
   }
 
@@ -111,7 +93,7 @@ export class MyProfilComponent{
     .then((value) => value.json())
     .then((data) => {
       this.MyUser = data;
-      console.log(this.MyUser)
+     
     }) 
   }
 
@@ -121,7 +103,7 @@ export class MyProfilComponent{
     .then((value) => value.json())
     .then((data) => {
       this.MyUser = data;
-      console.log(this.MyUser)
+     
     }) 
   }
 

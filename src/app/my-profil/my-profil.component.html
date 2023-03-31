@@ -1,13 +1,15 @@
 <div class="container"> 
   <div class="bloc1"> 
-    <form [formGroup]="myForm">
+    <form>
       <label for="file-upload" class="custom-file-upload">
           <img id="input_photo" src="assets/images/iconeappareilphoto.png" alt="Upload">
       </label>
           <input id="file-upload" type="file" (change)="onFileSelected($event)" />
     </form> 
   <!-- CARROUSSEL AVEC LES PHOTOS DE L'UTILISATEUR (VARIABLE pictures)  -->
-          <img class="photo" [src]="MyUser.pictures[0].link" alt="selected image">
+
+          <img *ngIf="MyUser.pictures.length > 0" class="photo" [src]="MyUser.pictures[0].link" alt="selected image">
+          <img *ngIf="MyUser.pictures.length === 0" class="photo" src="assets/images/coeur.png" alt="selected image">
             <p class="pseudo">{{MyUser.pseudo}}, {{MyUser.date_of_birth | date: 'dd/MM/yyyy'}}</p>
   </div>
 
@@ -48,4 +50,5 @@
     <input type="number" id="carNumber" name="carNumber" placeholder="numero de voiture" [(ngModel)]="carNumberUser">
     <img (click)="putUserCarTrain()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
   </div>
+</div>
 </div>
