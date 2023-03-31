@@ -26,8 +26,7 @@ export class MyProfilComponent{
   data : any;
 
   constructor(private authService : AuthService, private formBuilder : FormBuilder){
-    // this.authService.getTokenInformations();
-    // this.userMail = authService.getTokenMail();
+
     this.authService.getUserConnected()
     .then((value) => value.json())
     .then((data) => { 

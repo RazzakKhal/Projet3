@@ -22,33 +22,31 @@
     <h1>Genre</h1>
     <p>{{MyUser?.gender}}</p>
     <h1>Taille</h1>
-    <p>{{MyUser?.size}} cm</p>
-    <input type="text" id="size" name="size" placeholder="taille" [(ngModel)]="sizeUser">
+    <input type="text" id="size" name="size"[(ngModel)]="sizeUser">
     <img (click)="putUserSize()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
+    <p>{{MyUser?.size}} cm</p>
   </div>
   <div class="description">
-    <div class="row">
-      <h1>Description</h1>
-      <p>{{MyUser?.description}}</p>
-      <img (click)="putUserDescription()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon"/>
-    </div>
-    <input type="text" id="description" name="description" placeholder="description" [(ngModel)]="descriptionUser">
+    <h1>Description</h1>
+    <img (click)="putUserDescription()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon"/>
+    <input type="text" id="description" name="description" [(ngModel)]="descriptionUser">
+    <p>{{MyUser?.description}}</p>
   </div>
 </div>
 <!-- bloc bas -->
 <div class="bloc3">
   <div class="numeroTrain">
     <h2>Numéro de train:</h2>
-    <p>{{MyUser?.train_number}}</p>
-    <input type="number" id="trainNumber" name="numerotrain" placeholder="numero de train"
-      [(ngModel)]="trainNumberUser">
     <img (click)="putUserTrainNumber()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
+    <input type="number" id="trainNumber" name="numerotrain"
+      [(ngModel)]="trainNumberUser">
+    <p>{{MyUser?.train_number}}</p>
   </div>
   <div class="numeroVoiture">
     <h2>Voiture:</h2>
+    <img (click)="putUserCarTrain()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon"/>
+    <input type="number" id="carNumber" name="carNumber" [(ngModel)]="carNumberUser">
     <p>{{MyUser?.car_number}}</p>
-    <input type="number" id="carNumber" name="carNumber" placeholder="numero de voiture" [(ngModel)]="carNumberUser">
-    <img (click)="putUserCarTrain()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
   </div>
 </div>
 </div>
