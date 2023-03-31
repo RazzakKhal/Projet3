@@ -61,18 +61,25 @@ input {
     margin-top: 10px;
     text-align: center;
     background-color: var(--colorWhite);
-    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 4px 4px;
+ 
 }
 
 input[type="date"]{
-     width: 175px;
+     width: 165px;
+     border-radius: 8px;
+    padding: 4px 4px;
+     
 }
 
 select{
     display: flex;
     margin-top: 10px;
     text-align: center;
-    width: 175px;
+    width: 169px;
+    border-radius: 8px;
+    padding: 4px 4px;
 }
 
 .grey, .red{
@@ -109,10 +116,11 @@ button {
     display: flex;
     justify-content: center;
     margin-top: 10px;
-    background-color: var(--colorBrown);
+    background-color: var(--colorPurple);
     width: 155px;
     color: var(--colorWhite);
     width: 110px;
+    border-radius: 10px;
 }
 
 button:hover{
