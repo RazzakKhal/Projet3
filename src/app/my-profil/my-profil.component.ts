@@ -12,7 +12,6 @@ export class MyProfilComponent{
   
   userMail : string | undefined;
   MyUser: any;
-
   age : any;
   date_of_birth: any;
   imageUrl: any;
@@ -21,8 +20,6 @@ export class MyProfilComponent{
   descriptionUser : any ; 
   trainNumberUser : any ;
   carNumberUser : any ;
-
- 
   data : any;
 
   constructor(private authService : AuthService, private formBuilder : FormBuilder){
@@ -105,6 +102,11 @@ export class MyProfilComponent{
      
     }) 
   }
+
+  //supprimer la photo
+  // deletephoto(){
+  //   this.MyProfilController.deletephoto();
+  // }
 
 }
 
