@@ -129,3 +129,31 @@ button:hover{
 }
 
 
+span{
+    display:flex;
+    justify-content: center;
+ 
+}
+
+.notification{
+    background-color: rgb(123, 197, 123);
+    padding:0px;
+    border-radius: 10px;
+    width:150px;
+    height:0px;
+    font-size:0px;
+    color: white;
+    display:flex;
+    align-items: center;
+    transition: ease-in-out 1s;
+}
+
+.eyes{
+    padding: 10px;
+    height: 20px;
+    font-size:18px;
+    transition: ease-in-out 1s;
+    display: flex;
+    align-items: center;
+}
+

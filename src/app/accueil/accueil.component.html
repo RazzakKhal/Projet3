@@ -70,7 +70,13 @@
           <button type="submit">Inscription</button>
         </form>
       </div>
-    
+
+      <div class="notification" [ngClass]="{'eyes' : notification}">
+        <p [ngClass]="{'eyes' : notification}">
+            Vous êtes inscrit
+        </p> 
+    </div>    
+
       <div class="texte">
         <p class="voyage">Voyage vers l’ Amour <br>
           sans billet retour </p>
