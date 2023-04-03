@@ -14,6 +14,9 @@ export class AccueilComponent {
   inscriptionForm : FormGroup;
   connexionForm: FormGroup<any>;
 
+  notification : boolean = false;
+
+
   constructor(private formBuilder : FormBuilder, private router : Router){
     this.inscriptionForm = this.formBuilder.group({
       lastname : ['', Validators.required],
@@ -73,6 +76,11 @@ export class AccueilComponent {
   .then((response) => response.json())
   .then((data) => {
     console.log("Success:", data);
+    // envoi de la notification réussie de l'inscription
+    this.modifNotification();
+    // dans 1s la notification disparaît
+    setTimeout( () => this.modifNotification(), 3000);  
+
   })
   .catch((error) => {
     console.error("Error:", error);
@@ -80,6 +88,9 @@ export class AccueilComponent {
 console.log (this.inscriptionForm.controls['lastname'].value);
   }
 
+  modifNotification(){
+    this.notification = !this.notification;
+  }
 
   //formulaire de connexion
   userConnexion(){
