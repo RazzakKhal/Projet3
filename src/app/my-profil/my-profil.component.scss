@@ -23,26 +23,29 @@ h2 {
   background-color: rgba($color: white, $alpha: 0.8);
   border-radius: 10px;
   margin-top: 10px;
-  box-sizing: border-box;
   padding: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 80%;
 }
 .photo{
-  max-width:30vw;
-  max-height: 25vh;
-  margin-bottom: 10px;
+  max-width:80vw;
+  max-height: 35vh;
+  margin-bottom:10px;
 }
-#input_photo{
-  width:15vw;
+.iconeAppareilPhoto{
   height:7vh;
+  cursor: pointer;
+}
+.iconePoubelle{
+  height:5vh;
+  cursor: pointer;
+  
 }
 input[type="file"] {
   display: none;
 }
-.custom-input_photo {
+.custom-iconeAppareilPhoto {
   display: inline-block;
   cursor: pointer;
 
@@ -51,6 +54,18 @@ input[type="file"] {
     height: 10px;
   }
 }
+.mesinfos{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.carroussel{
+  display:flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+}
+
 // BLOC MILIEU
 .bloc2 {
   box-sizing: border-box;
