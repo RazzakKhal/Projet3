@@ -58,8 +58,7 @@ if (this.MyUser.gender ==='M'){
       })
     }
   })
-    
-  });
+});
 }
   
 else if (this.MyUser.gender === 'F'){

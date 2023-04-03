@@ -9,9 +9,9 @@ import { id } from 'date-fns/locale';
   templateUrl: './my-profil.component.html',
   styleUrls: ['./my-profil.component.scss']
 })
-export class MyProfilComponent{
-  
-  userMail : string | undefined;
+export class MyProfilComponent {
+
+  userMail: string | undefined;
   MyUser: any;
   age : any;
   date_of_birth: any;
@@ -38,6 +38,7 @@ export class MyProfilComponent{
   // insérer des photos au format JPG/PNG/JPEG
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
+    
     if (file) {
       const reader = new FileReader();
       reader.readAsDataURL(file);

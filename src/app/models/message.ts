@@ -2,46 +2,46 @@ import { User } from './user';
 
 export class Message {
 
-    private id : number | undefined;
-    private content : string;
-    private userSender : User;
-    private userReceiver : User;
+    private id: number | undefined;
+    private content: string;
+    private userSender: User;
+    private userReceiver: User;
 
-    constructor(content : string, userSender : User, userReceiver : User){
+    constructor(content: string, userSender: User, userReceiver: User) {
         this.content = content;
         this.userSender = userSender;
         this.userReceiver = userReceiver;
     }
 
-    getId():number | undefined{
+    getId(): number | undefined {
         return this.id;
     }
 
-    setId(id : number){
+    setId(id: number) {
         this.id = id;
     }
 
-    getContent() : string{
+    getContent(): string {
         return this.content;
     }
 
-    setContent(content : string){
+    setContent(content: string) {
         this.content = content;
     }
 
-    getUserSender() : User{
+    getUserSender(): User {
         return this.userSender;
     }
 
-    setUserSender(userSender : User){
+    setUserSender(userSender: User) {
         this.userSender = userSender;
     }
 
-    getUserReceiver() : User{
+    getUserReceiver(): User {
         return this.userReceiver;
     }
 
-    setUserReceiver(userReceiver : User){
+    setUserReceiver(userReceiver: User) {
         this.userReceiver = userReceiver;
     }
 }

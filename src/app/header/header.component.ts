@@ -9,14 +9,14 @@ import { Router } from '@angular/router';
 })
 
 export class HeaderComponent {
- 
-  constructor(private router : Router){}
+
+  constructor(private router: Router) { }
 
   //pour se deconnecter
-  deconnexion(){
+  deconnexion() {
     localStorage.removeItem("TokenSauvegarde");
-   this.router.navigate(['']);
+    this.router.navigate(['']);
   }
-  
+
 }
 

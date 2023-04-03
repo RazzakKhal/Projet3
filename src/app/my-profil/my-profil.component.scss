@@ -48,6 +48,7 @@ input[type="file"] {
 .custom-iconeAppareilPhoto {
   display: inline-block;
   cursor: pointer;
+
   img {
     width: 10px;
     height: 10px;
@@ -66,7 +67,7 @@ input[type="file"] {
 }
 
 // BLOC MILIEU
-.bloc2{
+.bloc2 {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -75,17 +76,19 @@ input[type="file"] {
   background-color: var(--colorWhite);
   border-radius: 10px;
   opacity: 0.8;
-   padding: 10px 10px;
-   gap: 15px;
+  padding: 10px 10px;
+  gap: 15px;
 }
-.genreSize{
+
+.genreSize {
   display: flex;
   flex-direction: row;
-  justify-content:space-between;
- width: 100%;
- align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
 }
-.description{
+
+.description {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -103,7 +106,7 @@ input{
 }
 
 // BLOC BAS
-.bloc3{
+.bloc3 {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -116,7 +119,9 @@ input{
   opacity: 0.8;
   padding: 10px 10px;
 }
-.numeroTrain, .numeroVoiture{
+
+.numeroTrain,
+.numeroVoiture {
   display: flex;
   flex-direction: row ;
   justify-content: space-between;

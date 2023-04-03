@@ -15,8 +15,9 @@ export class GalerieGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    // si il n'est pas connecté l' envoie à l'accueil
 
+
+    // si il n'est pas connecté l' envoie à l'accueil
     return this.authService.getUserConnected()
       .then(reponse => reponse.json())
       .then((data) => {

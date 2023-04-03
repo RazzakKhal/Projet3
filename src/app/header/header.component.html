@@ -1,14 +1,15 @@
-<div class="container"> 
+<div class="container">
   <!-- methode pour cacher le header un *ngIf prend true ou false donc ma methode fait un return true ou false -->
-  
+
   <img class="logoSite" src="assets/images/logoTrain.png" alt="logo du site">
   <nav>
-  <ul>
-    <li><a [routerLink]="['/galerie']">Galerie</a></li>
-    <li><a [routerLink]="['/myProfil']">Mon profil</a></li>
-    <li><a [routerLink]="['/messagerie']">Messagerie</a></li>
-    <a [routerLink]="['/']"><img class="deconnexion" src="assets/images/deconnexion.png" alt="logo deconnexion" (click)="deconnexion()" ></a>
+    <ul>
+      <li><a [routerLink]="['/galerie']">Galerie</a></li>
+      <li><a [routerLink]="['/myProfil']">Mon profil</a></li>
+      <li><a [routerLink]="['/messagerie']">Messagerie</a></li>
+      <a [routerLink]="['/']"><img class="deconnexion" src="assets/images/deconnexion.png" alt="logo deconnexion"
+          (click)="deconnexion()"></a>
 
-  </ul>
+    </ul>
   </nav>
 </div>

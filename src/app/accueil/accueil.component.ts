@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Component} from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '../models/user';
 
 
@@ -16,26 +16,51 @@ export class AccueilComponent {
 
   constructor(private formBuilder : FormBuilder, private router : Router){
     this.inscriptionForm = this.formBuilder.group({
-      lastname : [''],
-      firstname : [''],
-      pseudo : [''],
-      date_of_birth : [''],
-      mail : [''],
-      password : [''],
-      gender : [''], 
+      lastname : ['', Validators.required],
+      firstname : ['', Validators.required],
+      pseudo : ['', Validators.required ],
+      date_of_birth : ['', Validators.required],
+      mail : ['', [Validators.required, Validators.email]],
+      password : ['', [Validators.required, Validators.minLength(6)]],
+      gender : ['', Validators.required], 
   });
   this.connexionForm = this.formBuilder.group({
-    mail: [''],
-    password : [''],
-    train_number: [''],
+    mail: ['', [Validators.required, Validators.email]],
+    password : ['', [Validators.required, Validators.minLength(6)]],
+    train_number: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
   });
    
  
   }
 
+
+  onSubmitConnexion() {
+    if (this.connexionForm.valid) {
+      this.userConnexion();
+    } else {
+      console.log('Formulaire de connexion invalide');
+    }
+  }
+  onSubmitInscription() {
+    if (this.inscriptionForm.valid) {
+      this.userInscription();
+    } else {
+      console.log('Formulaire inscription invalide');
+    }
+  }
+
+  
+
   //formulaire reactif avec infos recuperées.
   userInscription(){
-    let user : User = new User(this.inscriptionForm.controls['firstname'].value,this.inscriptionForm.controls['lastname'].value,this.inscriptionForm.controls['pseudo'].value, this.inscriptionForm.controls['date_of_birth'].value, this.inscriptionForm.controls['mail'].value, this.inscriptionForm.controls['password'].value,this.inscriptionForm.controls['gender'].value);
+    let user : User = new User(
+      this.inscriptionForm.controls['firstname'].value,
+      this.inscriptionForm.controls['lastname'].value,
+      this.inscriptionForm.controls['pseudo'].value,
+      this.inscriptionForm.controls['date_of_birth'].value,
+      this.inscriptionForm.controls['mail'].value,
+      this.inscriptionForm.controls['password'].value,
+      this.inscriptionForm.controls['gender'].value);
 
     fetch("http://localhost:8080/accueil/inscription", {
   method: "POST", 
@@ -59,9 +84,10 @@ console.log (this.inscriptionForm.controls['lastname'].value);
   //formulaire de connexion
   userConnexion(){
 
-    let user : any = {mail : this.connexionForm.controls['mail'].value,
-     password : this.connexionForm.controls['password'].value,
-    train_number : this.connexionForm.controls['train_number'].value};
+    let user : any = {
+      mail: this.connexionForm.controls['mail'].value,
+     password: this.connexionForm.controls['password'].value,
+    train_number: this.connexionForm.controls['train_number'].value};
     
     fetch("http://localhost:8080/accueil/connexion", {
   method: "POST", // car on envoie nos infos
