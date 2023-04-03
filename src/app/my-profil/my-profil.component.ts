@@ -1,7 +1,8 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Picture } from './../models/picture';
+import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { formatDistanceStrict } from 'date-fns';
+import { id } from 'date-fns/locale';
 
 @Component({
   selector: 'app-my-profil',
@@ -12,7 +13,6 @@ export class MyProfilComponent{
   
   userMail : string | undefined;
   MyUser: any;
-
   age : any;
   date_of_birth: any;
   imageUrl: any;
@@ -21,8 +21,6 @@ export class MyProfilComponent{
   descriptionUser : any ; 
   trainNumberUser : any ;
   carNumberUser : any ;
-
- 
   data : any;
 
   constructor(private authService : AuthService, private formBuilder : FormBuilder){
@@ -36,6 +34,8 @@ export class MyProfilComponent{
 
   
   }
+
+  // insérer des photos au format JPG/PNG/JPEG
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
     if (file) {
@@ -45,7 +45,7 @@ export class MyProfilComponent{
         this.imageUrl = reader.result;
         console.log(this.imageUrl);
         if(this.imageUrl.includes("jpeg") || this.imageUrl.includes("jpg") || this.imageUrl.includes("png")){
-          // envoyer l'url de l'img en BDD
+  // envoyer l'url de l'img en BDD
           fetch("http://localhost:8080/picture/addpicture",{
             method :"POST",
             headers: {"Content-Type": "application/json",
@@ -63,9 +63,7 @@ export class MyProfilComponent{
     }
   }
 
-
-
-  // changement taille de l'user donc je recupere mon APi
+  // changement de taille de l'User donc je recupere mon API
   putUserSize() {
     this.authService.putUserSize(this.sizeUser)
       .then((value) => value.json())
@@ -75,36 +73,46 @@ export class MyProfilComponent{
       }) 
   }
 
-  //changement de la description de l'user
+  //changement de la description de l'User
   putUserDescription(){
     this.authService.putUserDescription(this.descriptionUser)
     .then((value) => value.json())
     .then((data) => {
       this.MyUser = data;
-     
     }) 
   }
 
-
-  // changement du numero de train de l'user
+  // changement du numero de train de l'User
   putUserTrainNumber(){
     this.authService.putUserTrainNumber(this.trainNumberUser)
     .then((value) => value.json())
     .then((data) => {
-      this.MyUser = data;
-     
+      this.MyUser = data;  
     }) 
   }
 
-  //changement de la voiture de l'user
+  //changement de la voiture de l'User
   putUserCarTrain(){
     this.authService.putUserCarTrain(this.carNumberUser)
     .then((value) => value.json())
     .then((data) => {
-      this.MyUser = data;
-     
+      this.MyUser = data; 
     }) 
   }
+
+  // supprimer la photo
+   deletePhoto(id : any){
+    console.log("ohhh");
+    this.authService.deletePhoto(id)
+    .then((value) => value.json())
+    .then (() => { 
+      this.MyUser.pictures.splice(0,1);
+    
+
+    })
+   }
+
+   // lorsque on supprime une photo, on ne peut pas ajt d'autres photos sans actualiser la page
 
 }
 

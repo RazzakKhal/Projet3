@@ -1,21 +1,19 @@
 <div class="container"> 
   <div class="bloc1"> 
-    <form>
-      <label for="file-upload" class="custom-file-upload">
-          <img id="input_photo" src="assets/images/iconeappareilphoto.png" alt="Upload">
-      </label>
-          <input id="file-upload" type="file" (change)="onFileSelected($event)" />
-    </form> 
-  <!-- CARROUSSEL AVEC LES PHOTOS DE L'UTILISATEUR (VARIABLE pictures)  -->
-
-          <img *ngIf="MyUser.pictures.length > 0" class="photo" [src]="MyUser.pictures[0].link" alt="selected image">
-          <img *ngIf="MyUser.pictures.length === 0" class="photo" src="assets/images/coeur.png" alt="selected image">
-            <p class="pseudo">{{MyUser.pseudo}}, {{MyUser.date_of_birth | date: 'dd/MM/yyyy'}}</p>
+   <div class="carroussel">
+      <img *ngIf="MyUser.pictures.length > 0" class="photo" [src]="MyUser.pictures[0].link" alt="selected image">
+        <img *ngIf="MyUser.pictures.length === 0" class="photo" src="assets/images/avatar.jpg" alt="selected image">
+             <!-- CARROUSSEL AVEC LES PHOTOS DE L'UTILISATEUR (VARIABLE pictures)  -->
+   </div>
+    <div class="mesinfos">
+    <label for="file-upload" class="custom-file-upload">
+      <img class="iconeAppareilPhoto" src="assets/images/iconeappareilphoto.png" alt="Upload">
+    </label>
+      <input id="file-upload" type="file" (change)="onFileSelected($event)" />
+        <p class="pseudo">{{MyUser.pseudo}}, {{MyUser.date_of_birth | date: 'dd/MM/yyyy'}}</p>
+          <img class="iconePoubelle" src="assets/images/icone_poubelle.png" (click)="deletePhoto(MyUser.pictures[0].id)" alt="icone poubelle">
+    </div>
   </div>
-
-
-
-<!-----------------JE NE TOUCHE A RIEN----------------------------->
   
 <div class="bloc2">
   <div class="genreSize">

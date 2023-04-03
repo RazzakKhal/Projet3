@@ -11,12 +11,10 @@ private jwtService = new JwtHelperService();
   private mail : undefined | string;
   private expiration : undefined | number;
 
-
-  constructor(){
+ constructor(){
    this.token = localStorage.getItem("TokenSauvegarde");
    }
-
-   
+ 
    getTokenInformations(){
     if(this.token !== null){
    this.InfosToken = this.jwtService.decodeToken(this.token);
@@ -24,17 +22,21 @@ private jwtService = new JwtHelperService();
    return this.InfosToken;
     }
   }
+
     getTokenMail(){
       this.mail = this.InfosToken.sub;
       return this.mail;
     }
+
     getTokenExpiration(){
       this.expiration = this.InfosToken.exp;
       return this.expiration;
     }
+
     getToken(){
       return this.token;
     }
+
     getUserConnected(){
      this.getTokenInformations();
      return fetch("http://localhost:8080/myProfil/getUser",{
@@ -45,7 +47,8 @@ private jwtService = new JwtHelperService();
         body : JSON.stringify({"mail" : this.getTokenMail()})
           })
     }
-// recuperer les femmes du meme train
+
+// recuperer les femmes du même train
     findFemaleByTrainNumber(id: number){
 return fetch(`http://localhost:8080/galerie/femme/${id}`,{
   method :"GET",
@@ -62,6 +65,7 @@ return fetch(`http://localhost:8080/galerie/femme/${id}`,{
                  },
           })
           }
+
   //modifier la taille
   putUserSize(size :number) {
     return fetch("http://localhost:8080/myProfil/updateSize", {
@@ -87,7 +91,7 @@ return fetch(`http://localhost:8080/galerie/femme/${id}`,{
     })
    }
 
-   //modifier le numero train
+   //modifier le numero du train
    putUserTrainNumber(train_number : number){
     return fetch("http://localhost:8080/myProfil/updateNumberTrain", {
       method: "PUT",
@@ -110,6 +114,16 @@ return fetch(`http://localhost:8080/galerie/femme/${id}`,{
     })
    }
 
+   //Supprimer la photo de l'User
+   deletePhoto(id : any){
+    return fetch(`http://localhost:8080/picture/deletepicture/${id}`, {
+      method : "DELETE",
+      headers : {"Content-Type": "application/json",
+                  "Authorization": "Bearer " + this.getToken()
+                  },
+                  body: JSON.stringify({ "mail": this.getTokenMail(), "link":id})
+   })
+
   }
 
-  
+}

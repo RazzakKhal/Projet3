@@ -3,7 +3,6 @@
   font-family: var(--textIceberg);
   font-size: 16px;
 }
-
 .container {
   display: flex;
   flex-direction: column;
@@ -12,25 +11,28 @@
   height: 85vh;
   box-sizing: border-box;
 }
-
+.photoOtherProfil{
+  max-width:60vw;
+  max-height: 25vh;
+  margin-bottom:10px;
+  box-sizing: border-box;
+}
 
 .bloc1 {
-  background-color: var(--colorWhite);
-  width: 80%;
-  height: 50%;
-  margin-top: 20px;
-
+  background-color: rgba($color: white, $alpha: 0.8);
+  border-radius: 10px;
+  margin-top: 10px;
+  box-sizing: border-box;
+  padding: 10px;
   display: flex;
-  flex-direction:column;
-  align-items: flex-end;
-  border-radius: 20px 20px 0 0;
-  opacity: 0.8;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
 }
 
 .sous-bloc1 ,p{
 display: flex;
 padding: 10px;
-
 margin-right: 20px;
 width: 80%;
 

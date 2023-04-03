@@ -24,7 +24,6 @@ export class GalerieComponent implements OnInit{
     
   }
 
-
 // verifier si l'utilisateur connecté est un homme
 
 checkUserGender(){
@@ -55,7 +54,7 @@ if (this.MyUser.gender ==='M'){
    this.women.forEach((woman: any) => {
     if(woman.pictures.length === 0){
       woman.pictures.push({
-        link: "assets/images/avatar.png"
+        link: "assets/images/avatar.jpg"
       })
     }
   })
@@ -63,11 +62,6 @@ if (this.MyUser.gender ==='M'){
   });
 }
   
-  
-  
-  
-  
-
 else if (this.MyUser.gender === 'F'){
   this.authService.findMaleByTrainNumber(this.MyUser.id)
   .then((value) => value.json())
@@ -79,7 +73,7 @@ else if (this.MyUser.gender === 'F'){
   this.men.forEach((man: any) => {
     if(man.pictures.length === 0){
       man.pictures.push({
-        link: "assets/images/avatar.png"
+        link: "assets/images/avatar.jpg"
       })
     }
   })
