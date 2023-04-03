@@ -9,7 +9,7 @@
     <label for="file-upload" class="custom-file-upload">
       <img class="iconeAppareilPhoto" src="assets/images/iconeappareilphoto.png" alt="Upload">
     </label>
-      <input id="file-upload" type="file" (change)="onFileSelected($event)" />
+      <input id="file-upload" type="file" (change)="onFileSelected($event)" #fileInput/>
         <p class="pseudo">{{MyUser.pseudo}}, {{MyUser.date_of_birth | date: 'dd/MM/yyyy'}}</p>
           <img class="iconePoubelle" src="assets/images/icone_poubelle.png" (click)="deletePhoto(MyUser.pictures[0].id)" alt="icone poubelle">
     </div>

@@ -1,5 +1,5 @@
 import { Picture } from './../models/picture';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { id } from 'date-fns/locale';
@@ -22,7 +22,7 @@ export class MyProfilComponent{
   trainNumberUser : any ;
   carNumberUser : any ;
   data : any;
-
+  @ViewChild('fileInput') fileInput: any;
   constructor(private authService : AuthService, private formBuilder : FormBuilder){
 
     this.authService.getUserConnected()
@@ -53,7 +53,8 @@ export class MyProfilComponent{
                 body: JSON.stringify({link:this.imageUrl, user:this.MyUser}),
           })
           .then((response)=> response.json()) // je recupere la reponse
-          .then((data)=> this.MyUser.pictures = data) // j'enregiste les donnés dans ma variables pictures
+          .then((data)=> {this.MyUser.pictures = data; // on reinitialise la valeur de notre input afin de pouvoir ajouter d'autres photos
+          this.fileInput.nativeElement.value = '';}) // j'enregiste les donnés dans ma variables pictures
           
        }else{
         this.imageUrl = "assets/images/aliciaaccepte.png";
@@ -106,8 +107,11 @@ export class MyProfilComponent{
     this.authService.deletePhoto(id)
     .then((value) => value.json())
     .then (() => { 
+      // lorsque la requête reussie on supprime 1 élément du tableau de pictures à partir de l'index 0
       this.MyUser.pictures.splice(0,1);
-    
+
+      // on reinitialise la valeur de notre input afin de pouvoir ajouter d'autres photos
+      this.fileInput.nativeElement.value = '';
 
     })
    }
