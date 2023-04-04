@@ -10,9 +10,13 @@ private jwtService = new JwtHelperService();
   private InfosToken : any;
   private mail : undefined | string;
   private expiration : undefined | number;
+  private user : any;
 
  constructor(){
    this.token = localStorage.getItem("TokenSauvegarde");
+   this.getUserConnected()
+   .then(reponse => reponse.json())
+   .then(data => this.user = data);;
    }
  
    getTokenInformations(){
@@ -46,7 +50,11 @@ private jwtService = new JwtHelperService();
                  },
         body : JSON.stringify({"mail" : this.getTokenMail()})
           })
+         
     }
+
+    
+
 
 // recuperer les femmes du même train
     findFemaleByTrainNumber(id: number){
@@ -123,7 +131,20 @@ return fetch(`http://localhost:8080/galerie/femme/${id}`,{
                   },
                   body: JSON.stringify({ "mail": this.getTokenMail(), "link":id})
    })
-
   }
+
+  //liker un utilisateur
+  sendLike(id : any){
+    return fetch(`http://localhost:8080/galerie/like/${id}`, {
+      method : "POST",
+      headers : {"Content-Type": "application/json",
+                  "Authorization": "Bearer " + this.getToken()
+                  },
+                  body: JSON.stringify(this.user)
+                  
+   })
+  
+  }
+
 
 }
