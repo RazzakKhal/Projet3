@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-profil-card',
@@ -8,8 +9,7 @@ import { Router } from '@angular/router';
 })
 export class ProfilCardComponent {
 
-  constructor(private router:Router){
-
+  constructor(private router:Router,private authService : AuthService){
   }
 
   @Input() picture : string | undefined;
@@ -18,6 +18,8 @@ export class ProfilCardComponent {
   @Input() car : string | undefined;
   @Input() id : any;
 
+  MyUser: any;
+  likeUser : any;
 
   sendAtOtherProfil(){
   
@@ -26,7 +28,15 @@ export class ProfilCardComponent {
   }
 
   sendLike(id : number){
+    this.authService.sendLike(id)
+    .then((value) => value.json())
+    .then((data) => {
+      
+      console.log("Success Like:", data);
+    }) 
     
   }
+
+
 
 }

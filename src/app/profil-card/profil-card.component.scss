@@ -25,8 +25,11 @@
 
 .coeur {
   height: 65%;
-
-
+}
+.coeur:hover{
+  opacity: 0.5;
+  transition: ease-in 1s;
+  background-color: yellow;
 }
 
 .profilPhoto {
