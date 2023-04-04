@@ -14,9 +14,12 @@ private jwtService = new JwtHelperService();
 
  constructor(){
    this.token = localStorage.getItem("TokenSauvegarde");
-   this.getUserConnected()
-   .then(reponse => reponse.json())
-   .then(data => this.user = data);;
+   if(localStorage.getItem("TokenSauvegarde")){
+    this.getUserConnected()
+    .then(reponse => reponse.json())
+    .then(data => this.user = data);
+   }
+
    }
  
    getTokenInformations(){
