@@ -56,6 +56,9 @@ private jwtService = new JwtHelperService();
          
     }
 
+    getUser(){
+      return this.user;
+    }
     
 
 
