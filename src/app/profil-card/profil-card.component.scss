@@ -1,30 +1,41 @@
 .container {
-  width: 40vw;
-  height: 25vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-}
-
-.encadre {
-  border: 1px solid;
-  display: flex;
-  justify-content: space-between;
-  height: 25%;
   align-items: center;
   box-sizing: border-box;
-  padding-left: 40px;
-  padding-right: 5px;
+  gap:20px;
+  margin-top: 10px;
 }
-
-.textes {
+.essai2{
+  width: 40%;
+}
+.profilPhoto {
+  width: 100%;
+  height: auto;
+  border-radius: 19px;
+}
+.encadre {
+  width: 40%;
+  background-color: rgba($color: white, $alpha: 0.8);
+  box-sizing: border-box;
+  border: 1px solid;
   display: flex;
-  flex-direction: column;
+  padding:5px;
+  border-radius: 10%;
   justify-content: space-between;
+  align-items: center; 
 }
-
+.customize{
+  font-family: var(--textItalianno);
+  font-size: 35px;
+}
+.textes {
+  width:20%;
+  display: flex;
+  flex-direction: column; 
+}
 .coeur {
-  height: 65%;
+  width: 40%;
 }
 .coeur:hover{
   opacity: 0.5;
@@ -32,8 +43,3 @@
   background-color: yellow;
 }
 
-.profilPhoto {
-  width: 100%;
-  height: 70%;
-  border-radius: 19px;
-}

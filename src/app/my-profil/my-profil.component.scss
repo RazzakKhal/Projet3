@@ -5,7 +5,7 @@
 }
 h1 {
   font-family: var(--textItalianno);
-  font-size: 30px;
+  font-size: 35px;
 }
 h2 {
   font-family: var(--textItalianno);
@@ -14,24 +14,31 @@ h2 {
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  height: 85vh;
+  width:100%;
   box-sizing: border-box;
+  gap:20px;
+  margin-top: 10px;
 }
 .bloc1 {
   background-color: rgba($color: white, $alpha: 0.8);
   border-radius: 10px;
-  margin-top: 10px;
+  box-sizing: border-box;
   padding: 10px;
   display: flex;
   flex-direction: column;
-  width: 80%;
+  align-items: center; 
+  width:80%;
+ }
+.mesinfos{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width:100%;
 }
 .photo{
-  max-width:80vw;
-  max-height: 35vh;
-  margin-bottom:10px;
+  max-width: 100%;
+  height:40vh;  
 }
 .iconeAppareilPhoto{
   height:7vh;
@@ -39,8 +46,7 @@ h2 {
 }
 .iconePoubelle{
   height:5vh;
-  cursor: pointer;
-  
+  cursor: pointer; 
 }
 input[type="file"] {
   display: none;
@@ -54,17 +60,6 @@ input[type="file"] {
     height: 10px;
   }
 }
-.mesinfos{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.carroussel{
-  display:flex;
-  box-sizing: border-box;
-  align-items: center;
-  justify-content: center;
-}
 
 // BLOC MILIEU
 .bloc2 {
@@ -72,37 +67,40 @@ input[type="file"] {
   display: flex;
   flex-direction: column;
   width: 80%;
-  height: 30vh;
   background-color: var(--colorWhite);
   border-radius: 10px;
   opacity: 0.8;
   padding: 10px 10px;
   gap: 15px;
 }
-
 .genreSize {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
+  flex-direction: column;
+  gap:10px;
   align-items: center;
 }
-
 .description {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  height: 100%;
+  gap:10px;
 }
 input{
-  width: 25px;
-   border: none;
-   display: flex;
-   background-color: rgba($color: #DC9D54, $alpha: 0.3);
+  width:90%;
+  border: none;
+  display: flex;
+  background-color: rgba($color: #DC9D54, $alpha: 0.3);
+}
+.customize{
+  width: 90%;
+  height: 10%;
 }
 .iconeCrayon{
   height: 20px;
+}
+.essai{
+  display:flex;
+  gap:10px;
 }
 
 // BLOC BAS
@@ -112,6 +110,7 @@ input{
   flex-direction: column;
   justify-content: center;
   width: 80%;
+  gap:10px;
   background-color: var(--colorWhite);
   align-items: center;
   border-radius: 10px;
@@ -119,13 +118,13 @@ input{
   opacity: 0.8;
   padding: 10px 10px;
 }
-
 .numeroTrain,
 .numeroVoiture {
   display: flex;
   flex-direction: row ;
   justify-content: space-between;
-  width: 100%;
+  align-items: center;
+  gap:10px;
 }
 
 
