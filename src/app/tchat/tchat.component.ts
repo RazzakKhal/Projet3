@@ -16,8 +16,22 @@ export class TchatComponent {
   sendMessage() {
     if (this.input) {
       let user = this.authService.getUser();
-      let user1 = new User("razzak", "khal", "lolo", new Date(),"coco@mail.com", "gdgsrgbg", "M")
-      this.messageService.sendMessage(JSON.stringify(new Message(this.input, user, user1)));
+      let user1 = {
+        id : 12,
+        car_number : 0,
+        date_of_birth: "1982-02-17 00:00:00.000000",
+        description: "",
+        firstname : "Nicolas",
+        gender : "M",
+        lastname : "Fuente",
+        mail : "aaaaaatest@hotmail.fr",
+        password : "$2a$10$l9Xk3uSXUe8FGvDzYcOPh.W8zbyvXEQqToVImuUHka18NgHaeupdS",
+        pseudo : "Archi",
+        role : "USER",
+        size : 0,
+        tain_number : 5050
+      }
+      this.messageService.sendMessage(JSON.stringify({content : this.input, message_receiver : user, message_sender : user1}));
       this.input = '';
     }
   }
