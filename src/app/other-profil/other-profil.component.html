@@ -1,7 +1,9 @@
 <div class="container">
   <div class="bloc1">
-    <img *ngIf="otherUser?.pictures.length > 0" class="photoOtherProfil" src={{otherUser?.pictures[0].link}} alt="photo d'un profil" />
+    <div class="essai">
+        <img *ngIf="otherUser?.pictures.length > 0" class="photoOtherProfil" src={{otherUser?.pictures[0].link}} alt="photo d'un profil" />
     <img *ngIf="otherUser?.pictures.length === 0" class="photoOtherProfil" src="assets/images/avatar.jpg" alt="photo d'un profil" />
+    </div>
     <div class="sous-bloc1">
       <p>{{otherUser?.pseudo}}, {{otherUser?.date_of_birth | date: 'dd/MM/yyyy'}}</p>
       <img src="assets/images/message.png" alt="icone" />
