@@ -13,7 +13,7 @@ export class ProfilCardComponent {
   }
 
   @Input() picture : string | undefined;
-  @Input() firstname : string | undefined;
+  @Input() pseudo : string | undefined;
   @Input() age : string | undefined;
   @Input() car : string | undefined;
   @Input() id : any;
