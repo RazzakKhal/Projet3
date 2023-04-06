@@ -87,22 +87,26 @@ body{
 
 
 /***************  Styles pour les tablettes ********************/
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+@media (min-width: 481px) and (max-width: 768px) {
 
 	body{
 		background-image: url('assets/images/background2.jpg');
 		background-repeat: no-repeat;
+
+  	background-attachment: fixed;
 		
 	}
 }
 
 
 /***************  Styles pour les ecrans ********************/
-@media only screen and (min-width: 769px) {
+@media (min-width: 769px) {
 
 	body{
 		background-image: url('assets/images/background2.jpg');
 		background-repeat: no-repeat;
+	background-size:100% 100%;
+  	background-attachment: fixed;
 		
 	}
   }

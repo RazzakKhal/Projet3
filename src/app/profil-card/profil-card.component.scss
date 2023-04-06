@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: row;
 }
-
+/****** ensemble de 2 blocs ****/
 .lot{
   display: flex;
   flex-direction:column;
@@ -13,6 +13,7 @@
   margin-top: 20px;   
 }
 
+/****** photo utilisateur ***********/
 .blocGallerie{
   display: flex;
   height: auto ;
@@ -25,10 +26,11 @@
   padding: 5px 5px;
 }
 
+/*********** container informations utilisateurs en dessous de sa photo ********/
 .container_mes_Infos{
   display: flex;
   flex-direction: row;
-  width: 70%;
+  width:70%;
    padding: 5px 5px;
   justify-content: space-around;
   background-color: rgba($color: rgb(253, 253, 253), $alpha: 0.8);
@@ -36,20 +38,40 @@
    border-radius: 10px;
 }
 
+/****************  liste de mes informations *******************/
 ul{
  display: flex;
  flex-direction: column;
-align-items: center;
+ align-items: center;
+justify-content: center;
+
 }
 
 li{
 line-height: 25px;
+font-family: var(--textItalianno);
+font-size: 1.2rem;
+text-transform: capitalize;
+
+}
+.pseudo {
+  color: var(--colorPurple);
+  font-size: 1.6rem;
+  font-weight: bold;
 }
 
+/*********** coeur ************/
+.container_coeur{
+    height: 90%;
+  display: flex;
+  align-items: flex-end;
+  z-index: 1;
+ 
+}
 .coeur{
-  height: 4vh;
+  height: 3vh;
  display: flex;
- justify-content: center;
+
 }
 
 .coeur:hover{
