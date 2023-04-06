@@ -5,12 +5,15 @@
     </div>
 
     <div class="container_mes_Infos">
-      <ul class="mesInfos">
-        <li>{{firstname}}</li>
+      <ul>
+        <li class="pseudo">{{firstname}}</li>
         <li>{{age}}</li>
         <li>{{car}}</li>
       </ul>
-              <img (click)="sendLike(id)" class="coeur" src="assets/images/coeur.png" alt="like"> 
+      <div class="container_coeur">
+        <img (click)="sendLike(id)" class="coeur" src="assets/images/coeur.png" alt="like"> 
+      </div>
+              
     </div>  
   </div> 
 </div>
