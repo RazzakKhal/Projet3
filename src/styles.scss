@@ -83,3 +83,27 @@ body{
 @import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Iceberg&display=swap');
 @import url('https://fonts.googleapis.com/css2? famille= Catamaran:wght@200 &family= Great+Vibes & display=swap');
+
+
+
+/***************  Styles pour les tablettes ********************/
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+
+	body{
+		background-image: url('assets/images/background2.jpg');
+		background-repeat: no-repeat;
+		
+	}
+}
+
+
+/***************  Styles pour les ecrans ********************/
+@media only screen and (min-width: 769px) {
+
+	body{
+		background-image: url('assets/images/background2.jpg');
+		background-repeat: no-repeat;
+		
+	}
+  }
+
