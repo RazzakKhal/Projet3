@@ -109,11 +109,11 @@ select{
       
 }
 .voyage{
-    font-size: 3rem;
+    font-size: 2.5rem;
     text-align: center;
     font-family: 'Italianno', cursive;
     color: var(--colorWhite);
-    padding: 10px;
+    padding: 15px;
 }
 
 ////////////////  button  /////////////////////////
@@ -162,3 +162,29 @@ span{
     align-items: center;
 }
 
+
+
+/***************  Styles pour les tablettes ********************/
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    .container{
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    
+}
+
+
+/***************  Styles pour les ecrans ********************/
+@media only screen and (min-width: 769px) {
+    .container{
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+  }
