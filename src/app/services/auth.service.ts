@@ -11,21 +11,35 @@ private jwtService = new JwtHelperService();
   private mail : undefined | string;
   private expiration : undefined | number;
   private user : any;
+  private likes : any;
 
  constructor(){
-   this.token = localStorage.getItem("TokenSauvegarde");
-   if(localStorage.getItem("TokenSauvegarde")){
+  this.token = localStorage.getItem("TokenSauvegarde");
+// lancer directement la méthode pour récupérer l'utilisateur
+  if(localStorage.getItem("TokenSauvegarde")){
     this.getUserConnected()
     .then(reponse => reponse.json())
-    .then(data => this.user = data);
+    .then(data => {this.user = data; console.log(this.user)});
    }
+
+
+// lancer toutes les minutes notre requete qui recuperera les likes de l'utilisateur pour vérifier qu'il n'en a pas de nouveaux
+  setInterval(()=> {
+    
+    if(localStorage.getItem("TokenSauvegarde")){
+     this.getLikeWithUser(this.user.id)
+     .then(reponse => reponse.json())
+     .then(data => {this.likes = data; console.log(this.likes)});
+    }
+  } , 60000)
+
 
    }
  
    getTokenInformations(){
     if(this.token !== null){
    this.InfosToken = this.jwtService.decodeToken(this.token);
-   console.log(this.InfosToken);
+
    return this.InfosToken;
     }
   }
@@ -60,7 +74,9 @@ private jwtService = new JwtHelperService();
       return this.user;
     }
     
-
+    getLikes(){
+      return this.likes;
+    }
 
 // recuperer les femmes du même train
     findFemaleByTrainNumber(id: number){
@@ -91,6 +107,8 @@ return fetch(`http://localhost:8080/galerie/femme/${id}`,{
        body: JSON.stringify({ "mail": this.getTokenMail(), "size":size})
      })
    }
+
+
 
 
     //modifier la description
@@ -151,6 +169,19 @@ return fetch(`http://localhost:8080/galerie/femme/${id}`,{
    })
   
   }
+
+     //récuperer les likes + user associé
+     getLikeWithUser(id:any){
+      return fetch(`http://localhost:8080/galerie/collectLike/${id}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + this.getToken()
+        },
+       
+      })
+  
+     }
 
 
 }
