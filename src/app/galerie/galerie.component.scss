@@ -1,24 +1,25 @@
 .container{
-  padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center; 
+ padding: 20px;
+ align-items: center;
 }
 .profilPhoto{
   max-width: 100%;
   max-height: auto;
 }
-// .profilsContainer{
-//   display : flex;
-//   justify-content: center;
-//   flex-wrap: wrap;
-//   gap : 20px;
-// }
+.profilsContainer{
+  display : flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 10px;
+}
 
 h1{
-  font-size : 48px;
+  font-size : 2.5rem;
   font-family: var(--textItalianno);
-  padding-bottom : 20px;
+ 
 }
 p{
   font-size: 15px;

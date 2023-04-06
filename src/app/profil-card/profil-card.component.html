@@ -1,19 +1,16 @@
 <div class="container">
-  <div class="essai">
-    <div class="essai2">
-<!-- <img *ngIf="picture !== undefined && picture[0] !== undefined" class="profilPhoto" [src]="picture[0].link" alt=""> -->
-<img (click)="sendAtOtherProfil()" class="profilPhoto" [src]="picture" alt="">
-</div>
-
-
-  <div class="encadre">
-    <div class="textes">
-
-      <p class="customize">{{firstname}}</p>
-      <p>{{age}}</p>
-      <p>{{car}}</p>
+   <div class="lot">
+    <div class="blocGallerie">
+      <img (click)="sendAtOtherProfil()" class="profilPhoto" [src]="picture" alt="photo profil">
     </div>
-    <img class="coeur" src="assets/images/coeur.png" alt="like">
-</div>
-  </div>
+
+    <div class="container_mes_Infos">
+      <ul class="mesInfos">
+        <li>{{firstname}}</li>
+        <li>{{age}}</li>
+        <li>{{car}}</li>
+      </ul>
+              <img class="coeur" src="assets/images/coeur.png" alt="like"> 
+    </div>  
+  </div> 
 </div>
