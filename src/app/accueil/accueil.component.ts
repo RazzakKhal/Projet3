@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Component} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '../models/user';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
