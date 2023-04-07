@@ -11,8 +11,10 @@ private jwtService = new JwtHelperService();
   private mail : undefined | string;
   private expiration : undefined | number;
   private user : any;
-  private likes : any;
-  public notification = true;
+  private likes :any = [] ;
+
+
+  public notificationLike = false;
 
  constructor(){
   this.token = localStorage.getItem("TokenSauvegarde");
@@ -34,6 +36,9 @@ private jwtService = new JwtHelperService();
       // ici je vais verifier si la longueur de data est supérieur à celle de this.like
       //si c'est le cas, alors j'ai recu un ou plusieurs like (en fonction du nombre de difference de longueur)
       //alors je vais devoir afficher une notification dans ce cas
+      if(data.length > this.likes.length){
+        this.notificationLike = true;
+      }
       
       this.likes = data; console.log(this.likes)
       

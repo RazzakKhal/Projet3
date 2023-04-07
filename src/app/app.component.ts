@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -10,19 +11,14 @@ export class AppComponent implements OnInit{
   title = 'projet3SCSS';
 
 
+ notificationLike:any;
+
   // faire une injection de dépendance du AuthService en public 
-  constructor(private router:Router){  }
-
-
-
-
+  constructor(private router:Router, public authService: AuthService){  }
 
 ngOnInit(): void {
 
 }
-
-
-
 
   // methode pour cacher le header
 showNav(){

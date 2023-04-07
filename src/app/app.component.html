@@ -6,9 +6,23 @@
 <main>
   <router-outlet></router-outlet>
   <!-- faire une div qui sera la notification qui s'affiche en cas de like recu
+
   elle prendra le nom de l'envoyeur du dernier like, ex : xxxxx vous à envoyé un like -->
 
   <!-- SI la variable notification du auth service est a true alors la div s'affiche -->
+
+
+  <!-- <div class="notificationLike" [ngClass]="{'notifLike' : authService.notificationLike}">
+    <p [ngClass]="{'notifLike' : authService.notificationLike}">
+        Vous avez été liké par {{authService.getLikes()[authService.getLikes().length - 1][1].pseudo}}
+    </p> 
+</div>  -->
+
+<div class="notificationLike" *ngIf="authService.notificationLike" [ngClass]="{'notifLike' : authService
+.notificationLike}">
+  Vous avez été liké par {{authService.getLikes()[authService.getLikes().length - 1][1].pseudo}}
+</div>
+
 </main>
 <footer>
 <app-footer></app-footer>
