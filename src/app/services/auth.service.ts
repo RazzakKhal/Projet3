@@ -220,7 +220,7 @@ return fetch(`http://localhost:8080/galerie/femme/${id}`,{
         
         });
         }
-      } , 5000)
+      } , 60000)
     
     
        }
