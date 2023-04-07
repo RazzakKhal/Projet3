@@ -11,10 +11,10 @@ export class AppComponent implements OnInit{
   title = 'projet3SCSS';
 
 
- notificationLike:any;
+
 
   // faire une injection de dépendance du AuthService en public 
-  constructor(private router:Router, public authService: AuthService){  }
+  constructor(private router:Router){  }
 
 ngOnInit(): void {
 

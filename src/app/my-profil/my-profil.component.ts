@@ -23,7 +23,7 @@ export class MyProfilComponent {
   carNumberUser : any ;
   data : any;
   @ViewChild('fileInput') fileInput: any;
-  constructor(private authService : AuthService, private formBuilder : FormBuilder){
+  constructor(public authService : AuthService, private formBuilder : FormBuilder){
 
     this.authService.getUserConnected()
     .then((value) => value.json())

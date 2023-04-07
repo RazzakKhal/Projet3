@@ -12,7 +12,7 @@ private jwtService = new JwtHelperService();
   private expiration : undefined | number;
   private user : any;
   private likes :any = [] ;
-
+  public lastLikePseudo : any;
 
   public notificationLike = false;
 
@@ -22,31 +22,17 @@ private jwtService = new JwtHelperService();
   if(localStorage.getItem("TokenSauvegarde")){
     this.getUserConnected()
     .then(reponse => reponse.json())
-    .then(data => {this.user = data; console.log(this.user)});
+    .then(data => {
+      this.user = data; 
+// on récupère une premiere fois les likes une fois qu'on a reussi à récuperer l'utilisateur
+      this.getLikeFirst();
+// lancer toutes les minutes notre requete qui recuperera les likes de l'utilisateur pour vérifier qu'il n'en a pas de nouveaux
+      this.getLikeEveryMinute();
+    
+    });
    }
 
 
-// lancer toutes les minutes notre requete qui recuperera les likes de l'utilisateur pour vérifier qu'il n'en a pas de nouveaux
-  setInterval(()=> {
-    
-    if(localStorage.getItem("TokenSauvegarde")){
-     this.getLikeWithUser(this.user.id)
-     .then(reponse => reponse.json())
-     .then(data => {
-      // ici je vais verifier si la longueur de data est supérieur à celle de this.like
-      //si c'est le cas, alors j'ai recu un ou plusieurs like (en fonction du nombre de difference de longueur)
-      //alors je vais devoir afficher une notification dans ce cas
-      if(data.length > this.likes.length){
-        this.notificationLike = true;
-        setTimeout(()=> this.notificationLike = false , 5000);
-      }
-      
-      this.likes = data; console.log(this.likes)
-      
-    
-    });
-    }
-  } , 5000)
 
 
    }
@@ -197,6 +183,49 @@ return fetch(`http://localhost:8080/galerie/femme/${id}`,{
       })
   
      }
+
+
+     // on récupère les likes la premiere fois
+     getLikeFirst(){
+    
+        if(localStorage.getItem("TokenSauvegarde")){
+         this.getLikeWithUser(this.user.id)
+         .then(reponse => reponse.json())
+         .then(data => this.likes = data);
+        }
+       }
+
+     
+
+
+     // on récupère les likes toutes les minutes et on affiche la notif si nouveau like
+     getLikeEveryMinute(){
+      setInterval(()=> {
+    
+        if(localStorage.getItem("TokenSauvegarde")){
+         this.getLikeWithUser(this.user.id)
+         .then(reponse => reponse.json())
+         .then(data => {
+          // ici je vais verifier si la longueur de data est supérieur à celle de this.like
+          //si c'est le cas, alors j'ai recu un ou plusieurs like (en fonction du nombre de difference de longueur)
+          //alors je vais devoir afficher une notification dans ce cas
+          if(data.length > this.likes.length){
+            this.notificationLike = true;
+           
+            setTimeout(()=> this.notificationLike = false , 5000);
+          }
+          
+          this.likes = data; console.log(this.likes)
+          this.lastLikePseudo = this.likes[this.likes.length - 1][1].pseudo;
+          console.log(this.lastLikePseudo)
+        
+        });
+        }
+      } , 5000)
+    
+    
+       }
+     
 
 
 }
