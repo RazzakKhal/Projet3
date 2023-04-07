@@ -17,7 +17,7 @@ export class OtherProfilComponent {
     route.params.subscribe((data) => {
       this.params = data;
 this.id = this.params.id;
-// requete 
+// requete pour récupérer l'utilisateur en fonction de l'id du other profil
 fetch(`http://localhost:8080/otherProfil/user/${this.id}`, {
   method :"GET",
   headers: {"Content-Type": "application/json",

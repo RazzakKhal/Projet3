@@ -17,7 +17,7 @@ const routes: Routes = [
   {path:'', component : AccueilComponent, canActivate:[AccueilGuard]},
   {path:'myProfil', component : MyProfilComponent, canActivate:[MyProfilGuard]},
   {path:'galerie', component : GalerieComponent, canActivate:[GalerieGuard]},
-  {path:'messagerie', component : TchatComponent, canActivate:[MessagerieGuard]},
+  {path:'messagerie/:id', component : TchatComponent, canActivate:[MessagerieGuard]},
   {path:'admin', component : AdminInterfaceComponent, canActivate:[AdminGuardGuard]},
   {path:'other-profil/:id', component : OtherProfilComponent}
 ];
