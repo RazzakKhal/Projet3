@@ -12,7 +12,10 @@ import { Message } from '../models/message';
 export class TchatComponent {
 
   input : any;
-  constructor(public messageService: MessageService, private authService : AuthService) {}
+
+  constructor(public messageService: MessageService, public authService : AuthService) {}
+
+
   sendMessage() {
     if (this.input) {
       let user = this.authService.getUser();

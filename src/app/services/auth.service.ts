@@ -32,9 +32,6 @@ private jwtService = new JwtHelperService();
     });
    }
 
-
-
-
    }
  
    getTokenInformations(){
