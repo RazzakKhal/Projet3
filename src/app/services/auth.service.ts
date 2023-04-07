@@ -212,7 +212,6 @@ return fetch(`http://localhost:8080/galerie/femme/${id}`,{
           if(data.length > this.likes.length){
             this.notificationLike = true;
            
-            setTimeout(()=> this.notificationLike = false , 5000);
           }
           
           this.likes = data; console.log(this.likes)

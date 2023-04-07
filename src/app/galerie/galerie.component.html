@@ -30,7 +30,7 @@
 </div>
 
 <!-- notification  -->
-<div class="notificationLike" [ngClass]="{'notifLike' : authService.notificationLike}">
+<div class="notificationLike" (click)="authService.notificationLike = false" [ngClass]="{'notifLike' : authService.notificationLike}">
   Vous avez été liké par {{authService.lastLikePseudo}}
   
 </div>
