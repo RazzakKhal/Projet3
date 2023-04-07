@@ -38,6 +38,7 @@ private jwtService = new JwtHelperService();
       //alors je vais devoir afficher une notification dans ce cas
       if(data.length > this.likes.length){
         this.notificationLike = true;
+        setTimeout(()=> this.notificationLike = false , 5000);
       }
       
       this.likes = data; console.log(this.likes)
@@ -45,7 +46,7 @@ private jwtService = new JwtHelperService();
     
     });
     }
-  } , 60000)
+  } , 5000)
 
 
    }
