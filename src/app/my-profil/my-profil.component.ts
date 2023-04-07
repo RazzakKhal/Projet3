@@ -30,9 +30,7 @@ export class MyProfilComponent {
     .then((data) => { 
      this.MyUser = data;
      console.log(this.MyUser)
-    })
-
-  
+    })  
   }
 
   // insérer des photos au format JPG/PNG/JPEG
