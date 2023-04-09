@@ -1,18 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'projet3SCSS';
 
+
+
+
+  // faire une injection de dépendance du AuthService en public 
   constructor(private router:Router){  }
-  //   router est le nom de ma variable : type Router
-  //router est une classe qui a pleins de methodes et proprieté dont l'url.
-  // constructor (private router:Router) est une injection de dependence.
+
+ngOnInit(): void {
+
+}
 
   // methode pour cacher le header
 showNav(){

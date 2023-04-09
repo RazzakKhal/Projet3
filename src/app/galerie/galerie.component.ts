@@ -14,7 +14,7 @@ export class GalerieComponent implements OnInit{
   women: any;
   men: any;
 
-  constructor(private authService : AuthService){
+  constructor(public authService : AuthService){
 
   }
 

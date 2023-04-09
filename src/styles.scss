@@ -75,6 +75,7 @@ body{
 	--colorBackground : linear(#DC9D54 0%
 	#B785BB 100%);
 	--textIceberg : 'Iceberg', cursive;
+	--textComfortaa : 'Comfortaa', cursive;
 	--textItalianno :'Italianno', cursive;
 	--guillemet:'Catamaran', sans empattement ;
 }
@@ -83,3 +84,32 @@ body{
 @import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Iceberg&display=swap');
 @import url('https://fonts.googleapis.com/css2? famille= Catamaran:wght@200 &family= Great+Vibes & display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap');
+
+
+
+/***************  Styles pour les tablettes ********************/
+@media (min-width: 481px) and (max-width: 768px) {
+
+	body{
+		background-image: url('assets/images/background2.jpg');
+		background-repeat: no-repeat;
+
+  	background-attachment: fixed;
+		
+	}
+}
+
+
+/***************  Styles pour les ecrans ********************/
+@media (min-width: 769px) {
+
+	body{
+		background-image: url('assets/images/background2.jpg');
+		background-repeat: no-repeat;
+	background-size:100% 100%;
+  	background-attachment: fixed;
+		
+	}
+  }
+

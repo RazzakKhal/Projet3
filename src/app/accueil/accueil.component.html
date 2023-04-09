@@ -2,7 +2,7 @@
     <div class="logo">
       <img class="logoSite" src="assets/images/logoTrain.png" alt="logo du site">
     </div>
-  
+  <div class="big">
     <div class="connexion">
       <form [formGroup]="connexionForm" (ngSubmit)="onSubmitConnexion()">
         <h2>Connexion</h2>
@@ -66,7 +66,6 @@
             </select>
             <span *ngIf="inscriptionForm.controls['gender'].invalid && inscriptionForm.controls['gender'].touched">Genre requis.</span>
           </div>
-    
           <button type="submit">Inscription</button>
         </form>
       </div>
@@ -76,7 +75,7 @@
             Vous êtes inscrit
         </p> 
     </div>    
-
+  </div>
       <div class="texte">
         <p class="voyage">Voyage vers l’ Amour <br>
           sans billet retour </p>

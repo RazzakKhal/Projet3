@@ -19,9 +19,12 @@
   <div class="genreSize">
     <h1>Genre</h1>
     <p>{{MyUser?.gender}}</p>
+    <div class="essai">
     <h1>Taille</h1>
-    <input class="customize" type="text" id="size" name="size"[(ngModel)]="sizeUser">
     <img (click)="putUserSize()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
+  </div>
+    <input class="customize" type="text" id="size" name="size"[(ngModel)]="sizeUser">
+    
     <p>{{MyUser?.size}} cm</p>
   </div>
   <div class="description">
@@ -50,3 +53,9 @@
   </div>
 </div>
 </div>
+<!-- notification  -->
+<div class="notificationLike" (click)="authService.notificationLike = false" [ngClass]="{'notifLike' : authService.notificationLike}">
+  Vous avez été liké par {{authService.lastLikePseudo}}
+  
+</div>
+
