@@ -1,45 +1,28 @@
-<!-- <div class="container">
+<div class="container">
     <div class="grande_box">
         <div class="elements">
             <p class="guillemets">''</p>
         </div>
-            <div class="elements photo">
-                <img src="assets/photos/photorazzak.png" alt="photo">
-            </div>
-            <div class="elements paroles">
-                <p>Coucou ravie de faire ta connaissance. <br>
-                    Tu descends où ? <br>
-                    Tu pars pour loisir ou boulot ?</p>
-            </div>
-    
-    
-            <div class="elements reponses">
-                <p>Bonjour ton profil me plaît bien. Je suis enchanté de faire ta connaissance. Cela te dis d'aller boire un verre ? </p>
-            </div>
-        <div class="card"></div>
-    </div>
-    <button>Qui paye le 1er verre ? </button>
-    </div>
-     -->
-     <input class="form-control" type="text" placeholder="message" [(ngModel)]="input">
+        <div class="elements photo">
+            <img src="assets/photos/photorazzak.png" alt="photo">
+        </div>
 
-     
-     <button (click)="sendMessage()">Send</button>
-     <div>
         <!-- afficher les messages reçus du back end -->
         <div *ngFor="let msg of oldMsg">
             {{msg.content}}
         </div>
 
-        <!-- j'affiche les messages que j'ai précédemment push dans la propriété msg de mon MessageService -->
-       <div *ngFor="let message of msg">
-        {{message.content}}
-       </div>
-     </div>
+        <div class="elements paroles">
+            <input class="form-control" type="text" placeholder="message" [(ngModel)]="input">
+        </div>
 
-     <!-- notification  -->
- <div class="notificationLike" (click)="authService.notificationLike = false" [ngClass]="{'notifLike' : authService.notificationLike}">
-    Vous avez été liké par {{authService.lastLikePseudo}}
-    
-  </div> 
-  
+        <!-- j'affiche les messages que j'ai précédemment push dans la propriété msg de mon MessageService -->
+        <div class="elements reponses" *ngFor="let message of msg">
+            {{message.content}}
+        </div>
+
+        <div class="card"></div>
+    </div>
+    <!-- <button>Qui paye le 1er verre ? </button> -->
+    <button (click)="sendMessage()">Send</button>
+</div>
