@@ -21,6 +21,7 @@ export class TchatComponent {
   otherUser: any;
   public stompClient : any;
   public msg : any = [];
+  public oldMsg : any = [];
 
   constructor(private authService : AuthService, private route: ActivatedRoute) {
       this.getOtherUser();
@@ -104,7 +105,7 @@ export class TchatComponent {
       }
     )
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => this.oldMsg = data)
 
   }
 

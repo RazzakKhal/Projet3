@@ -27,7 +27,9 @@
      <button (click)="sendMessage()">Send</button>
      <div>
         <!-- afficher les messages reçus du back end -->
-
+        <div *ngFor="let msg of oldMsg">
+            {{msg.content}}
+        </div>
 
         <!-- j'affiche les messages que j'ai précédemment push dans la propriété msg de mon MessageService -->
        <div *ngFor="let message of msg">
