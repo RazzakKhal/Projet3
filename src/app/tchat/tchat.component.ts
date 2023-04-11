@@ -23,8 +23,7 @@ export class TchatComponent {
   public msg : any = [];
 
   constructor(private authService : AuthService, private route: ActivatedRoute) {
-       // récuperer les informations de l'utilisateur sur qui on a cliqué
-       this.getOtherUser();
+      this.getOtherUser();
 
     // je requete le endPoint pour lancer la connexion + je souscris à mes routes
     this.initializeWebSocketConnection();
@@ -58,7 +57,9 @@ export class TchatComponent {
       "Authorization": "Bearer " + localStorage.getItem('TokenSauvegarde') },
   })
   .then((response) => response.json())
-  .then((user) => {this.otherUser = user; console.log(this.otherUser)})
+  .then((user) => {this.otherUser = user; 
+  this.getBddMessages()
+  })
   .catch(()=> console.log("utilisateur inexistant"))
   
     });
@@ -86,6 +87,24 @@ export class TchatComponent {
       });
     });
 
+
+  }
+
+  getBddMessages(){
+     // récuperer les informations de l'utilisateur sur qui on a cliqué
+    fetch(`http://localhost:8080/messagerie/${this.authService.getUser().id}/${this.id}`, 
+      {
+        method: "GET", 
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization" : "Bearer " + localStorage.getItem("TokenSauvegarde")
+      
+        },
+    
+      }
+    )
+    .then(response => response.json())
+    .then(data => console.log(data))
 
   }
 
