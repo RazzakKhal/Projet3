@@ -6,6 +6,8 @@
     <ul>
       <li><a [routerLink]="['/galerie']">Galerie</a></li>
       <li><a [routerLink]="['/myProfil']">Mon profil</a></li>
+      <!-- changer Messagerie en like, la route doit prendre l'id de la personne connecté
+      dans la page like il y aura  tous les likes recu de la personne connecté -->
       <li><a [routerLink]="['/messagerie']">Messagerie</a></li>
       <a [routerLink]="['/']"><img class="deconnexion" src="assets/images/deconnexion.png" alt="logo deconnexion"
           (click)="deconnexion()"></a>

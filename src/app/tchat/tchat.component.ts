@@ -36,6 +36,7 @@ export class TchatComponent {
 
   sendMessage() {
     if (this.input) {
+      //DELETE UPDATE SELECT INSERT A BANNIR
       let userConnected = this.authService.getUser();
       let userReceiver = this.otherUser;
         //j'envoi le message qui déclenche dans springboot la méthode handleMessage du tchatController
