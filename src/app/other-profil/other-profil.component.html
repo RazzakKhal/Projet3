@@ -6,7 +6,7 @@
     </div>
     <div class="sous-bloc1">
       <p>{{otherUser?.pseudo}}, {{otherUser?.date_of_birth | date: 'dd/MM/yyyy'}}</p>
-      <img src="assets/images/message.png" alt="icone" />
+      <img (click)="accesChat(otherUser?.id)" class="icone" src="assets/images/message.png" alt="icone" />
     </div>
 
   </div>

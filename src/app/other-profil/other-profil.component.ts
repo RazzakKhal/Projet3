@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-other-profil',
@@ -13,7 +13,7 @@ export class OtherProfilComponent {
   public otherUser : any;
 
   // récuperer les informations de l'utilisateur sur qui on a cliqué
-  constructor(private route: ActivatedRoute){
+  constructor(private route: ActivatedRoute, private router: Router ){
     route.params.subscribe((data) => {
       this.params = data;
 this.id = this.params.id;
@@ -28,6 +28,14 @@ fetch(`http://localhost:8080/otherProfil/user/${this.id}`, {
 .catch(()=> console.log("utilisateur inexistant"))
 
     });
+
+  }
+
+  accesChat(id: any){
+// au click utilisateur est redirigé sur la Messagerie
+this.router.navigate([`/messagerie/${id}`]);
+
+
 
   }
 

@@ -8,7 +8,7 @@
       <app-profil-card *ngFor="let woman of women" 
                        car="Voiture {{woman.car_number}}" 
                        age= "{{woman.date_of_birth | date: 'dd/MM/yyyy'}} " 
-                       firstname="{{woman.firstname}}" 
+                       pseudo="{{woman.pseudo}}" 
                        picture="{{woman.pictures[0].link}}"
                        id = "{{woman.id}}"
                        >
@@ -20,7 +20,7 @@
       <app-profil-card *ngFor="let man of men" 
               car="Voiture   {{man.car_number}}"
               age= "{{man.date_of_birth | date: 'dd/MM/yyyy'}}" 
-              firstname="{{man.firstname}}" 
+              pseudo="{{man.pseudo}}" 
               picture="{{man.pictures[0].link}}"
               id = "{{man.id}}"
               >

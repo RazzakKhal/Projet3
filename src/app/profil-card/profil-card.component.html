@@ -2,18 +2,20 @@
    <div class="lot">
     <div class="blocGallerie">
       <img (click)="sendAtOtherProfil()" class="profilPhoto" [src]="picture" alt="photo profil">
-    </div>
+  
+<!-- <img *ngIf="picture !== undefined && picture[0] !== undefined" class="profilPhoto" [src]="picture[0].link" alt=""> -->
 
-    <div class="container_mes_Infos">
-      <ul>
-        <li class="pseudo">{{firstname}}</li>
-        <li>{{age}}</li>
-        <li>{{car}}</li>
-      </ul>
-      <div class="container_coeur">
-        <img (click)="sendLike(id)" class="coeur" src="assets/images/coeur.png" alt="like"> 
-      </div>
-              
-    </div>  
-  </div> 
+</div>
+
+
+  <div class="encadre">
+    <div class="textes">
+
+      <p class="customize">{{pseudo}}</p>
+      <p>{{age}}</p>
+      <p>{{car}}</p>
+    </div>
+    <img class="coeur" src="assets/images/coeur.png" alt="like">
+</div>
+  </div>
 </div>
