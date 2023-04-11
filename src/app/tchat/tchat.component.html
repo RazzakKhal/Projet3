@@ -24,11 +24,11 @@
      <input class="form-control" type="text" placeholder="message" [(ngModel)]="input">
 
      
-     <button class="btn btn-success" (click)="sendMessage()">Send</button>
-     <div class="content">
+     <button (click)="sendMessage()">Send</button>
+     <div>
         <!-- j'affiche les messages que j'ai précédemment push dans la propriété msg de mon MessageService -->
-       <div *ngFor="let msg of messageService.msg">
-         {{msg.content}}
+       <div *ngFor="let message of msg">
+        {{message.content}}
        </div>
      </div>
 
