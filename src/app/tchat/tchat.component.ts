@@ -28,27 +28,34 @@ export class TchatComponent {
 
     // je requete le endPoint pour lancer la connexion + je souscris à mes routes
     this.initializeWebSocketConnection();
- 
- 
+
+
   }
 
 
 
   sendMessage() {
+    //DELETE UPDATE SELECT INSERT A BANNIR
     if (this.input) {
-      //DELETE UPDATE SELECT INSERT A BANNIR
+      // regex (expression reguliere pour detecter les requetes SQL)
+      const requeteSql = /SELECT|UPDATE|DELETE|INSERT/i;
+      if (requeteSql.test(this.input)) {
+        alert('Requête SQL non autorisée détectée !');
+        return;
+      }
+
       let userConnected = this.authService.getUser();
       let userReceiver = this.otherUser;
         //j'envoi le message qui déclenche dans springboot la méthode handleMessage du tchatController
       this.stompClient.send(`/app/chat/send/${userConnected.id}/${userReceiver.id}` , {}, JSON.stringify({content : this.input, messageSender: userConnected, messageReceiver : userReceiver}));
-  
+
       this.input = '';
     }
   }
 
 
   getOtherUser(){
- 
+
     this.route.params.subscribe((data) => {
       this.params = data;
   this.id = this.params.id;
@@ -59,11 +66,11 @@ export class TchatComponent {
       "Authorization": "Bearer " + localStorage.getItem('TokenSauvegarde') },
   })
   .then((response) => response.json())
-  .then((user) => {this.otherUser = user; 
+  .then((user) => {this.otherUser = user;
   this.getBddMessages()
   })
   .catch(()=> console.log("utilisateur inexistant"))
-  
+
     });
   }
 
@@ -80,7 +87,7 @@ export class TchatComponent {
     this.stompClient.connect({}, function(frame : any) {
       // je souscris à la route topic/messages, c'est cette route à laquelle le serveur renvoi le message
       that.stompClient.subscribe(`/topic/messages/${that.otherUser.id}/${that.authService.getUser().id}`, (message : any ) => {
-  
+
       // on récupére le corps de la réponse
         if (message.body) {
           // le corps de la réponse est notre message sous forme d'objet JSON, on le parse et on l'envoi dans notre tableau de message
@@ -94,15 +101,15 @@ export class TchatComponent {
 
   getBddMessages(){
      // récuperer les informations de l'utilisateur sur qui on a cliqué
-    fetch(`http://localhost:8080/messagerie/${this.authService.getUser().id}/${this.id}`, 
+    fetch(`http://localhost:8080/messagerie/${this.authService.getUser().id}/${this.id}`,
       {
-        method: "GET", 
+        method: "GET",
         headers: {
           "Content-Type": "application/json",
           "Authorization" : "Bearer " + localStorage.getItem("TokenSauvegarde")
-      
+
         },
-    
+
       }
     )
     .then(response => response.json())
