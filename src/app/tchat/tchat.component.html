@@ -1,28 +1,34 @@
 <div class="container">
     <div class="grande_box">
-        <div class="elements">
-            <p class="guillemets">''</p>
-        </div>
-        <div class="elements photo">
-            <img src="assets/photos/photorazzak.png" alt="photo">
-        </div>
-
-        <!-- afficher les messages reçus du back end -->
-        <div *ngFor="let msg of oldMsg">
-            {{msg.content}}
+        <div class="card">
+            <div class="elements">
+                <p class="guillemets">''</p>
+            </div>
+            <div class="photo">
+                <img src="assets/photos/photorazzak.png" alt="photo">
+            </div>
         </div>
 
-        <div class="elements paroles">
-            <input class="form-control" type="text" placeholder="message" [(ngModel)]="input">
-        </div>
+        <div class="tchat">
+            <!-- afficher les messages reçus du back end -->
+            <div class="messages" *ngFor="let msg of oldMsg">
+                {{msg.content}}
+            </div>
 
-        <!-- j'affiche les messages que j'ai précédemment push dans la propriété msg de mon MessageService -->
-        <div class="elements reponses" *ngFor="let message of msg">
-            {{message.content}}
-        </div>
+            <!-- j'affiche les messages que j'ai précédemment push dans la propriété msg de mon MessageService -->
+            <div class="reponses" *ngFor="let message of msg">
+                {{message.content}}
+            </div>
 
-        <div class="card"></div>
+            <div class="paroles">
+                <input class="form-control" type="text" placeholder="message" [(ngModel)]="input">
+            </div>
+            
+        </div>
+        <button (click)="sendMessage()">Send</button>
     </div>
+
     <!-- <button>Qui paye le 1er verre ? </button> -->
-    <button (click)="sendMessage()">Send</button>
+   
+
 </div>
