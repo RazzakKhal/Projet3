@@ -11,12 +11,12 @@
 
         <div class="tchat">
             <!-- afficher les messages reçus du back end -->
-            <div class="anciens_messages" *ngFor="let msg of oldMsg">
+            <div class="anciens_messages" *ngFor="let msg of oldMsg" [ngClass]="{'newMessages':msg.isMine}">
                 {{msg.content}}
             </div>
 
         <!-- j'affiche les messages que j'ai précédemment push dans la propriété msg de mon MessageService -->
-        <div #conversationContainer class="mes_messages" *ngFor="let message of msg" >
+        <div class="mes_messages" *ngFor="let message of msg"  >
             {{message.content}}
         </div>
         </div>
