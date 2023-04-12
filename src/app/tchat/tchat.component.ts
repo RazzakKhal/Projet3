@@ -26,6 +26,12 @@ export class TchatComponent {
   oldMsgReceived : any = [];
 
   constructor(private authService : AuthService, private route: ActivatedRoute) {
+    // si l'utilisateur n'est plus enregistré dans le authService alors je le recupère
+    if(!this.authService.getUser()){
+      this.authService.getUserConnected()
+      .then(reponse => reponse.json())
+      .then((data) => this.authService.setUser(data))
+    }
       this.getOtherUser();
 
     // je requete le endPoint pour lancer la connexion + je souscris à mes routes
@@ -121,7 +127,10 @@ export class TchatComponent {
       this.oldMsgSend = data; 
       // j'ajoute une propriété isMine pour pouvoir différencier mes messages et celui des autres
       this.oldMsgSend.forEach((message : any) => {message.isMine = true; this.oldMsg.push(message)});
-      console.log(this.oldMsg)
+     
+      this.oldMsg.sort((message1:any, message2:any) => {
+        return message1.id - message2.id;
+    });
     })
 
     // récupérer les messages que l'utilisateur à recu
@@ -141,7 +150,7 @@ export class TchatComponent {
        .then(data => {
         this.oldMsgReceived = data; 
         this.oldMsgReceived.forEach((message : any) => {message.isMine = false; this.oldMsg.push(message)});
-        console.log(this.oldMsg)
+    
         // trier les messages selon leur id
        
      this.oldMsg.sort((message1:any, message2:any) => {

@@ -71,6 +71,10 @@ private jwtService = new JwtHelperService();
     getUser(){
       return this.user;
     }
+
+    setUser(user : any){
+      this.user = user;
+    }
     
     getLikes(){
       return this.likes;
