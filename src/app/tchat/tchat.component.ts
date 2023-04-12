@@ -22,39 +22,42 @@ export class TchatComponent {
   public stompClient : any;
   public msg : any = [];
   public oldMsg : any = [];
-  MyUser: any;
-  conversation :any;
+  oldMsgSend : any = [];
+  oldMsgReceived : any = [];
 
-  constructor(public authService : AuthService, private route: ActivatedRoute) {
-    this.authService.getUserConnected()
-    .then((value) => value.json())
-    .then((data) => { 
-     this.MyUser = data;
-     console.log(this.MyUser)
-    }) 
+  constructor(private authService : AuthService, private route: ActivatedRoute) {
       this.getOtherUser();
 
     // je requete le endPoint pour lancer la connexion + je souscris à mes routes
     this.initializeWebSocketConnection();
+
+
   }
  
 
 
   sendMessage() {
+    //DELETE UPDATE SELECT INSERT A BANNIR
     if (this.input) {
-      //DELETE UPDATE SELECT INSERT A BANNIR
+      // regex (expression reguliere pour detecter les requetes SQL)
+      const requeteSql = /SELECT|UPDATE|DELETE|INSERT/i;
+      if (requeteSql.test(this.input)) {
+        alert('Requête SQL non autorisée détectée !');
+        return;
+      }
+
       let userConnected = this.authService.getUser();
       let userReceiver = this.otherUser;
         //j'envoi le message qui déclenche dans springboot la méthode handleMessage du tchatController
       this.stompClient.send(`/app/chat/send/${userConnected.id}/${userReceiver.id}` , {}, JSON.stringify({content : this.input, messageSender: userConnected, messageReceiver : userReceiver}));
-  
+
       this.input = '';
     }
   }
 
 
   getOtherUser(){
- 
+
     this.route.params.subscribe((data) => {
       this.params = data;
   this.id = this.params.id;
@@ -65,11 +68,11 @@ export class TchatComponent {
       "Authorization": "Bearer " + localStorage.getItem('TokenSauvegarde') },
   })
   .then((response) => response.json())
-  .then((user) => {this.otherUser = user; 
+  .then((user) => {this.otherUser = user;
   this.getBddMessages()
   })
   .catch(()=> console.log("utilisateur inexistant"))
-  
+
     });
   }
 
@@ -86,7 +89,7 @@ export class TchatComponent {
     this.stompClient.connect({}, function(frame : any) {
       // je souscris à la route topic/messages, c'est cette route à laquelle le serveur renvoi le message
       that.stompClient.subscribe(`/topic/messages/${that.otherUser.id}/${that.authService.getUser().id}`, (message : any ) => {
-  
+
       // on récupére le corps de la réponse
         if (message.body) {
           // le corps de la réponse est notre message sous forme d'objet JSON, on le parse et on l'envoi dans notre tableau de message
@@ -99,20 +102,44 @@ export class TchatComponent {
   }
 
   getBddMessages(){
-     // récuperer les informations de l'utilisateur sur qui on a cliqué
-    fetch(`http://localhost:8080/messagerie/${this.authService.getUser().id}/${this.id}`, 
+     // récuperer les messages que l'utilisateur a envoyé
+    fetch(`http://localhost:8080/messageriesend/${this.authService.getUser().id}/${this.id}`,
       {
-        method: "GET", 
+        method: "GET",
         headers: {
           "Content-Type": "application/json",
           "Authorization" : "Bearer " + localStorage.getItem("TokenSauvegarde")
         },
-    
+
       }
     )
     .then(response => response.json())
-    .then(data => this.oldMsg = data)
+    .then(data => {
+      this.oldMsgSend = data; 
+      // j'ajoute une propriété isMine pour pouvoir différencier mes messages et celui des autres
+      this.oldMsgSend.forEach((message : any) => {message.isMine = true; this.oldMsg.push(message)});
+      console.log(this.oldMsg)
+    })
 
+    // récupérer les messages que l'utilisateur à recu
+        
+         fetch(`http://localhost:8080/messageriereceive/${this.authService.getUser().id}/${this.id}`,
+         {
+           method: "GET",
+           headers: {
+             "Content-Type": "application/json",
+             "Authorization" : "Bearer " + localStorage.getItem("TokenSauvegarde")
+   
+           },
+   
+         }
+       )
+       .then(response => response.json())
+       .then(data => {
+        this.oldMsgReceived = data; 
+        this.oldMsgReceived.forEach((message : any) => {message.isMine = false; this.oldMsg.push(message)});
+        console.log(this.oldMsg)})
+   
   }
 
 

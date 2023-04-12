@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { ProfilCardComponent } from './profil-card/profil-card.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LikeComponent } from './like/like.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AdminInterfaceComponent,
     HeaderComponent,
     ProfilCardComponent,
-    FooterComponent
+    FooterComponent,
+    LikeComponent
   ],
   imports: [
     BrowserModule,
