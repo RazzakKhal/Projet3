@@ -22,6 +22,8 @@ export class TchatComponent {
   public stompClient : any;
   public msg : any = [];
   public oldMsg : any = [];
+  oldMsgSend : any = [];
+  oldMsgReceived : any = [];
 
   constructor(private authService : AuthService, private route: ActivatedRoute) {
       this.getOtherUser();
@@ -100,8 +102,8 @@ export class TchatComponent {
   }
 
   getBddMessages(){
-     // récuperer les informations de l'utilisateur sur qui on a cliqué
-    fetch(`http://localhost:8080/messagerie/${this.authService.getUser().id}/${this.id}`,
+     // récuperer les messages que l'utilisateur a envoyé
+    fetch(`http://localhost:8080/messageriesend/${this.authService.getUser().id}/${this.id}`,
       {
         method: "GET",
         headers: {
@@ -113,8 +115,32 @@ export class TchatComponent {
       }
     )
     .then(response => response.json())
-    .then(data => this.oldMsg = data)
+    .then(data => {
+      this.oldMsgSend = data; 
+      // j'ajoute une propriété isMine pour pouvoir différencier mes messages et celui des autres
+      this.oldMsgSend.forEach((message : any) => {message.isMine = true; this.oldMsg.push(message)});
+      console.log(this.oldMsg)
+    })
 
+    // récupérer les messages que l'utilisateur à recu
+        
+         fetch(`http://localhost:8080/messageriereceive/${this.authService.getUser().id}/${this.id}`,
+         {
+           method: "GET",
+           headers: {
+             "Content-Type": "application/json",
+             "Authorization" : "Bearer " + localStorage.getItem("TokenSauvegarde")
+   
+           },
+   
+         }
+       )
+       .then(response => response.json())
+       .then(data => {
+        this.oldMsgReceived = data; 
+        this.oldMsgReceived.forEach((message : any) => {message.isMine = false; this.oldMsg.push(message)});
+        console.log(this.oldMsg)})
+   
   }
 
 }
