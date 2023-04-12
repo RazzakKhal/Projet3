@@ -32,9 +32,6 @@ private jwtService = new JwtHelperService();
     });
    }
 
-
-
-
    }
  
    getTokenInformations(){
@@ -73,6 +70,10 @@ private jwtService = new JwtHelperService();
 
     getUser(){
       return this.user;
+    }
+
+    setUser(user : any){
+      this.user = user;
     }
     
     getLikes(){

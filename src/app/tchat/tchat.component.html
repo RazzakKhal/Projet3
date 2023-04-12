@@ -1,38 +1,36 @@
-<!-- <div class="container">
+<div class="container">
     <div class="grande_box">
-        <div class="elements">
-            <p class="guillemets">''</p>
+        <div class="card">
+            <div class="elements">
+                <p class="guillemets">''</p>
+            </div>
+            <div class="photo">
+                <img [src]="otherUser.pictures[0].link" alt="hoto">
+            </div>
         </div>
-            <div class="elements photo">
-                <img src="assets/photos/photorazzak.png" alt="photo">
-            </div>
-            <div class="elements paroles">
-                <p>Coucou ravie de faire ta connaissance. <br>
-                    Tu descends où ? <br>
-                    Tu pars pour loisir ou boulot ?</p>
-            </div>
-    
-    
-            <div class="elements reponses">
-                <p>Bonjour ton profil me plaît bien. Je suis enchanté de faire ta connaissance. Cela te dis d'aller boire un verre ? </p>
-            </div>
-        <div class="card"></div>
-    </div>
-    <button>Qui paye le 1er verre ? </button>
-    </div>
-     -->
-     <input class="form-control" type="text" placeholder="message" [(ngModel)]="input">
 
-     
-     <button (click)="sendMessage()">Send</button>
-     <div>
-        <!-- afficher les messages reçus du back end -->
-        <div *ngFor="let msg of oldMsg">
-            {{msg.content}}
-        </div>
+        <div class="tchat">
+            <!-- afficher les messages reçus du back end -->
+            <div class="anciens_messages" *ngFor="let msg of oldMsg" [ngClass]="{'newMessages':msg.isMine}">
+                {{msg.content}}
+            </div>
 
         <!-- j'affiche les messages que j'ai précédemment push dans la propriété msg de mon MessageService -->
-       <div *ngFor="let message of msg">
-        {{message.content}}
-       </div>
-     </div>
+        <div class="mes_messages" *ngFor="let message of msg"   [ngClass]="{'newMessages':message.isMine}">
+            {{message.content}}
+        </div>
+        </div>
+
+        
+        <div class="paroles">
+            <textarea class="form-control" type="text" placeholder="message" [(ngModel)]="input" rows="2">
+            </textarea>
+        </div>
+        <button (click)="sendMessage()">Send</button>
+
+    </div>
+
+    <!-- <button>Qui paye le 1er verre ? </button> -->
+
+
+</div>
