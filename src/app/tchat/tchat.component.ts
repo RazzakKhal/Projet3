@@ -34,8 +34,7 @@ export class TchatComponent {
     }
       this.getOtherUser();
 
-    // je requete le endPoint pour lancer la connexion + je souscris à mes routes
-    this.initializeWebSocketConnection();
+  
 
 
   }
@@ -77,6 +76,8 @@ export class TchatComponent {
   .then((response) => response.json())
   .then((user) => {this.otherUser = user;
   this.getBddMessages()
+    // je requete le endPoint pour lancer la connexion + je souscris à mes routes
+    this.initializeWebSocketConnection();
   })
   .catch(()=> console.log("utilisateur inexistant"))
 
