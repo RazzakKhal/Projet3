@@ -138,7 +138,13 @@ export class TchatComponent {
        .then(data => {
         this.oldMsgReceived = data; 
         this.oldMsgReceived.forEach((message : any) => {message.isMine = false; this.oldMsg.push(message)});
-        console.log(this.oldMsg)})
+        console.log(this.oldMsg)
+        // trier les messages selon leur id
+       
+     this.oldMsg.sort((message1:any, message2:any) => {
+      return message1.id - message2.id;
+  });
+      })
    
   }
 
