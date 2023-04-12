@@ -107,18 +107,7 @@
    border: 1px solid  rgba(255,255,255,0.75);
    color: rgb(20, 20, 20);
 }
-.newMessages {
-    background-color:  rgb(222, 169, 9);
-    text-align: center;
-    padding: 10px;
-    border: 1px solid rgba(255,255,255,0.5);
-    border-top: 1px solid rgba(255,255,255,0.75);
-    border-left: 1px solid rgba(255,255,255,0.75);
-    box-shadow: 0 25px 45px rgba(0,0,0,0.05);
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
-}
+
 .mes_messages {
     background-color: rgb(9, 190, 222);
     
@@ -133,7 +122,18 @@
     border-radius: 10px;
 
 }
-
+.newMessages {
+    background-color:  rgb(222, 169, 9);
+    text-align: center;
+    padding: 10px;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-top: 1px solid rgba(255,255,255,0.75);
+    border-left: 1px solid rgba(255,255,255,0.75);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}
 
 .paroles{
     display: flex;

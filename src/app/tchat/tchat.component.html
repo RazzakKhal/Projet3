@@ -16,7 +16,7 @@
             </div>
 
         <!-- j'affiche les messages que j'ai précédemment push dans la propriété msg de mon MessageService -->
-        <div class="mes_messages" *ngFor="let message of msg"  >
+        <div class="mes_messages" *ngFor="let message of msg"   [ngClass]="{'newMessages':message.isMine}">
             {{message.content}}
         </div>
         </div>

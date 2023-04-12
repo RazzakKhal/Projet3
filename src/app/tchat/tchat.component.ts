@@ -50,7 +50,8 @@ export class TchatComponent {
       let userReceiver = this.otherUser;
         //j'envoi le message qui déclenche dans springboot la méthode handleMessage du tchatController
       this.stompClient.send(`/app/chat/send/${userConnected.id}/${userReceiver.id}` , {}, JSON.stringify({content : this.input, messageSender: userConnected, messageReceiver : userReceiver}));
-
+      // j'ajoute à mon tableau de message recents
+      this.msg.push({content : this.input, isMine : true})
       this.input = '';
     }
   }
@@ -93,7 +94,9 @@ export class TchatComponent {
       // on récupére le corps de la réponse
         if (message.body) {
           // le corps de la réponse est notre message sous forme d'objet JSON, on le parse et on l'envoi dans notre tableau de message
-          that.msg.push(JSON.parse(message.body));
+          let messageReceived = JSON.parse(message.body)
+          messageReceived.isMine = false;
+          that.msg.push(messageReceived);
         }
       });
     });
