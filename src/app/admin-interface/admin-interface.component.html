@@ -3,6 +3,8 @@
 <div *ngFor="let user of users">
 
     <p>Pseudo: {{ user.pseudo }}</p>
+    <p>id: {{ user.id}}</p>
+    
 
     <button (click)="deleteUser(user.id)">Supprimer l'utilisateur</button>
 </div>
