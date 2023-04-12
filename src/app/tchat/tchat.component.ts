@@ -22,16 +22,22 @@ export class TchatComponent {
   public stompClient : any;
   public msg : any = [];
   public oldMsg : any = [];
+  MyUser: any;
+  conversation :any;
 
-  constructor(private authService : AuthService, private route: ActivatedRoute) {
+  constructor(public authService : AuthService, private route: ActivatedRoute) {
+    this.authService.getUserConnected()
+    .then((value) => value.json())
+    .then((data) => { 
+     this.MyUser = data;
+     console.log(this.MyUser)
+    }) 
       this.getOtherUser();
 
     // je requete le endPoint pour lancer la connexion + je souscris à mes routes
     this.initializeWebSocketConnection();
- 
- 
   }
-
+ 
 
 
   sendMessage() {
@@ -100,7 +106,6 @@ export class TchatComponent {
         headers: {
           "Content-Type": "application/json",
           "Authorization" : "Bearer " + localStorage.getItem("TokenSauvegarde")
-      
         },
     
       }
@@ -109,5 +114,9 @@ export class TchatComponent {
     .then(data => this.oldMsg = data)
 
   }
+
+
+  //pour afficher mon dernier message en scrollant tout seul
+
 
 }

@@ -9,6 +9,8 @@
 .grande_box{
     display: flex;
     flex-direction: column;
+    gap: 15px;
+    align-items: center;
     border-radius: 20px;   //bord arrondi
     background: var(--colorGrey);
     width: 80%;
@@ -68,8 +70,6 @@
     box-shadow: 0 25px 45px rgba(0,0,0,0.05);
     padding: 10px;   
 }
-
-
 .photo img {
     position: absolute;
     width: calc(100% - 20px); //padding 10px donc 2x10px
@@ -81,80 +81,99 @@
 }
 
 
-//////////////////// box conversation ////////////////////
+/*********** box conversation ***********/
 
-
-//conversation message a envoyer
-.elements.paroles{
+.tchat{
+    width:85%;
+    max-height: 50%;
     display: flex;
-    flex-direction: row;
-    background:var(--colorFemme);
-    width: 220px;
-    min-height: 15px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 15px;
+    padding: 20px 15px;
+    overflow-y: scroll;
+  scrollbar-width: thin;
+
+}
+
+.anciens_messages{
+    display: flex;
+    justify-content: center;
+    background-color: var(--colorCardTchat);
+    width: 70%;
+    max-height:10vh;
+    padding: 15px 10px;
+    border-radius: 10px;  
+   border: 1px solid  rgba(255,255,255,0.75);
+   color: rgb(20, 20, 20);
+}
+
+.mes_messages {
+    background-color: orange;
+    
     text-align: center;
     padding: 10px;
     border: 1px solid rgba(255,255,255,0.5);
     border-top: 1px solid rgba(255,255,255,0.75);
     border-left: 1px solid rgba(255,255,255,0.75);
     box-shadow: 0 25px 45px rgba(0,0,0,0.05);
-    justify-content: center;
+    display: flex;
     align-items: center;
+    border-radius: 10px;
+
 }
 
-input {
+
+.paroles{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--colorBrown);
+    min-height: 8px;
+    padding: 10px;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-top: 1px solid rgba(255,255,255,0.75);
+    border-left: 1px solid rgba(255,255,255,0.75);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.05);
+    border-radius: 10px;
+    color: white;
+
+}
+
+textarea {
     width: 100%;
-    min-height: 8vh;
+    min-height: 4vh;
     border-color : transparent;
     background-color: transparent;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
         
 }
+textarea::placeholder {
+    color: #f7b307;
+    font-size: 1.2rem;
+  }
 
-.messages{
-    background-color: yellow;
-    width: 100%;
-    max-height:10vh;
-    text-align: center;
-    display: flex;
 
-    
-}
-
-//conversation Homme
-.elements.reponses {
-    background:var(--colorHomme);
-    width: 220px;
-    min-height: 20px;
-    text-align: center;
-    position: absolute;
-    top: 250px;
-    left:-30px;
-    padding: 10px;
-    border: 1px solid rgba(255,255,255,0.5);
-    border-top: 1px solid rgba(255,255,255,0.75);
-    border-left: 1px solid rgba(255,255,255,0.75);
-    box-shadow: 0 25px 45px rgba(0,0,0,0.05);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 /******** button *****************/
 button {
     display: flex;
     justify-content: center;
-    align-items: center;
-    background-color: var(--colorBrown);
-    width: 155px;
+    background-color: var(--colorPurple);
+    width: 115px;
     color: var(--colorWhite);
-    height: 30px;
+    height: 35px;
     border-radius: 10px;
     font-family: var(--textItalianno);
-    font-size: 25px;
+    margin-bottom: 10px; 
+    font-size: 2rem;
 }
+
 
 button:hover{
     background-color: var(--colorRed);
-    transition: .25s;
+    transition: ease 1s;
 }
 
 /******* NOTIFICATION ************/
