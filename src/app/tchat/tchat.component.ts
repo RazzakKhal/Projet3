@@ -33,7 +33,7 @@ export class TchatComponent {
 
 
   }
-
+ 
 
 
   sendMessage() {
@@ -109,7 +109,6 @@ export class TchatComponent {
         headers: {
           "Content-Type": "application/json",
           "Authorization" : "Bearer " + localStorage.getItem("TokenSauvegarde")
-
         },
 
       }
@@ -142,5 +141,9 @@ export class TchatComponent {
         console.log(this.oldMsg)})
    
   }
+
+
+  //pour afficher mon dernier message en scrollant tout seul
+
 
 }

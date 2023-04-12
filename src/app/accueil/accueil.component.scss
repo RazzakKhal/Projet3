@@ -69,14 +69,15 @@ input {
     font-family: var(--textComfortaa);
     border-radius: 8px;
     padding: 4px 4px;
+    
+    
  
 }
 
 input[type="date"]{
      width: 165px;
      border-radius: 8px;
-    padding: 4px 4px;
-     
+    padding: 4px 4px;    
 }
 
 select{
@@ -86,6 +87,7 @@ select{
     width: 169px;
     border-radius: 8px;
     padding: 4px 4px;
+    
 }
 
 .grey, .red{
