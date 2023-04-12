@@ -1,7 +1,13 @@
+<div class="container">
 <h1>Mes likes</h1>
 
 <ul>
-    <li *ngFor="let like of oldLikes">
-    <p>{{like[1].pseudo}} t'à liké</p> 
+    <li *ngFor="let like of allLikes">
+      
+        <img [src]="like[1].pictures[0].link" alt="photo">
+
+        <p>{{like[1].pseudo}} like ton profil</p> 
+
     </li> 
 </ul>
+</div>
