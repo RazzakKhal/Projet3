@@ -5,7 +5,7 @@
                 <p class="guillemets">''</p>
             </div>
             <div class="photo">
-                <img [src]="otherUser.pictures[0].link" alt="hoto">
+                <img *ngIf="otherUser.pictures[0]" [src]="otherUser.pictures[0].link" alt="hoto">
             </div>
         </div>
 
