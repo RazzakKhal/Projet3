@@ -74,7 +74,7 @@ onFileSelected(event: any) {
 }
 
 // Fonction pour compresser l'image
-compressImage(file : any, quality = 0.8, maxWidth = 800, maxHeight = 800) {
+compressImage(file : any, quality = 0.6, maxWidth = 600, maxHeight = 600) {
   return new Promise((resolve, reject) => {
     const url = URL.createObjectURL(file);
     const image = new Image();
