@@ -9,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 
 export class AdminInterfaceComponent implements OnInit {
   users: any[] = [];
- 
+  authService: any;
+
 
   ngOnInit(): void {
    this.findAllUser()
@@ -42,6 +43,7 @@ deleteUser(id: number) {
       "Content-Type": "application/json",
       Authorization: "Bearer " + token,
     },
+    body: JSON.stringify({mail: this.authService.user.mail})
   })
 
   this.users = this.users.filter((user) => user.id !== id );

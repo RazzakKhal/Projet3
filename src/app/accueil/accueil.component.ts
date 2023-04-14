@@ -26,15 +26,15 @@ export class AccueilComponent {
       date_of_birth : ['', Validators.required],
       mail : ['', [Validators.required, Validators.email]],
       password : ['', [Validators.required, Validators.minLength(6)]],
-      gender : ['', Validators.required], 
+      gender : ['', Validators.required],
   });
   this.connexionForm = this.formBuilder.group({
     mail: ['', [Validators.required, Validators.email]],
     password : ['', [Validators.required, Validators.minLength(6)]],
     train_number: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
   });
-   
- 
+
+
   }
 
 
@@ -53,7 +53,7 @@ export class AccueilComponent {
     }
   }
 
-  
+
 
   //formulaire reactif avec infos recuperées.
   userInscription(){
@@ -67,7 +67,7 @@ export class AccueilComponent {
       this.inscriptionForm.controls['gender'].value);
 
     fetch("http://localhost:8080/accueil/inscription", {
-  method: "POST", 
+  method: "POST",
   headers: {
     "Content-Type": "application/json",
 
@@ -80,7 +80,7 @@ export class AccueilComponent {
     // envoi de la notification réussie de l'inscription
     this.modifNotification();
     // dans 1s la notification disparaît
-    setTimeout( () => this.modifNotification(), 3000);  
+    setTimeout( () => this.modifNotification(), 3000);
 
   })
   .catch((error) => {
@@ -100,7 +100,7 @@ console.log (this.inscriptionForm.controls['lastname'].value);
       mail: this.connexionForm.controls['mail'].value,
      password: this.connexionForm.controls['password'].value,
     train_number: this.connexionForm.controls['train_number'].value};
-    
+
     fetch("http://localhost:8080/accueil/connexion", {
   method: "POST", // car on envoie nos infos
   headers: {
@@ -123,3 +123,4 @@ console.log (this.inscriptionForm.controls['lastname'].value);
   }
 
 }
+//faire notification lorsqu'il y a probleme de connection
