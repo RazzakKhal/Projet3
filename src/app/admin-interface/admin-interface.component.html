@@ -1,13 +1,10 @@
-<p>admin-interface works!</p>
-
-<div *ngFor="let user of users">
-
-    <p>Pseudo: {{ user.pseudo }}</p>
-    <p>id: {{ user.id}}</p>
-    
-
-    <button (click)="deleteUser(user.id)">Supprimer l'utilisateur</button>
+<div class="container">
+    <h1>Paramètres</h1>
+    <div class="bloc1" *ngFor="let user of users">
+       <img class="photo" [src]="user.pictures[0].link" alt="photo de l'utilisateur">
+        <p>id: {{ user.id}} <br><br>{{user.pseudo}}</p>
+        <img class="btn" (click)="deleteUser(user.id)" src="assets/images/supprimer.png">
+    </div>
 </div>
-    
   
   

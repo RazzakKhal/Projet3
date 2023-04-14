@@ -146,7 +146,7 @@ compressImage(file : any, quality = 0.6, maxWidth = 600, maxHeight = 600) {
 
   // supprimer la photo
    deletePhoto(id : any){
-    console.log("ohhh");
+
     this.authService.deletePhoto(id)
     .then((value) => value.json())
     .then (() => { 
