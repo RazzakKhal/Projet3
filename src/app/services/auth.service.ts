@@ -159,7 +159,7 @@ return fetch(`http://localhost:8080/galerie/femme/${id}`,{
       headers : {"Content-Type": "application/json",
                   "Authorization": "Bearer " + this.getToken()
                   },
-                  body: JSON.stringify({ "mail": this.getTokenMail(), "link":id})
+                  body: JSON.stringify({"id" : this.getUser().id})
    })
   }
 
