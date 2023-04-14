@@ -71,10 +71,13 @@ text-transform: capitalize;
 .coeur{
   height: 3vh;
  display: flex;
+ 
 
 }
 
 .coeur:hover{
-   background-color: yellow;
+
+  opacity: 0.3;
+   border-radius: 10px;
   transition: ease-in 0.8s;
 }
