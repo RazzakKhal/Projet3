@@ -80,6 +80,10 @@ private jwtService = new JwtHelperService();
       return this.likes;
     }
 
+    setLikes(likes : any){
+      this.likes = likes;
+    }
+
 // recuperer les femmes du même train
     findFemaleByTrainNumber(id: number){
 return fetch(`http://localhost:8080/galerie/femme/${id}`,{

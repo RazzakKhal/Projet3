@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { MessageService } from '../services/message.service';
 import { User } from '../models/user';
 import { AuthService } from '../services/auth.service';
@@ -6,15 +6,12 @@ import { Message } from '../models/message';
 import { ActivatedRoute } from '@angular/router';
 declare var SockJS : any;
 declare var Stomp : any;
-
-
 @Component({
   selector: 'app-tchat',
   templateUrl: './tchat.component.html',
   styleUrls: ['./tchat.component.scss']
 })
-export class TchatComponent {
-
+export class TchatComponent implements OnDestroy{
   input : any;
   params : any;
   id!: number;
@@ -24,7 +21,6 @@ export class TchatComponent {
   public oldMsg : any = [];
   oldMsgSend : any = [];
   oldMsgReceived : any = [];
-
   constructor(private authService : AuthService, private route: ActivatedRoute) {
     // si l'utilisateur n'est plus enregistré dans le authService alors je le recupère
     if(!this.authService.getUser()){
@@ -34,14 +30,9 @@ export class TchatComponent {
     }
       this.getOtherUser();
 
-    // je requete le endPoint pour lancer la connexion + je souscris à mes routes
-    this.initializeWebSocketConnection();
-
+      
 
   }
- 
-
-
   sendMessage() {
     //DELETE UPDATE SELECT INSERT A BANNIR
     if (this.input) {
@@ -51,20 +42,16 @@ export class TchatComponent {
         alert('Requête SQL non autorisée détectée !');
         return;
       }
-
       let userConnected = this.authService.getUser();
       let userReceiver = this.otherUser;
         //j'envoi le message qui déclenche dans springboot la méthode handleMessage du tchatController
-      this.stompClient.send(`/app/chat/send/${userConnected.id}/${userReceiver.id}` , {}, JSON.stringify({content : this.input, messageSender: userConnected, messageReceiver : userReceiver}));
+      this.stompClient.send(`/app/chat/send/${userConnected.id}/${userReceiver.id}` , {}, JSON.stringify({content : this.input, messageSender: {id : userConnected.id}, messageReceiver : {id : userReceiver.id}}));
       // j'ajoute à mon tableau de message recents
       this.msg.push({content : this.input, isMine : true})
       this.input = '';
     }
   }
-
-
   getOtherUser(){
-
     this.route.params.subscribe((data) => {
       this.params = data;
   this.id = this.params.id;
@@ -77,26 +64,22 @@ export class TchatComponent {
   .then((response) => response.json())
   .then((user) => {this.otherUser = user;
   this.getBddMessages()
+    // je requete le endPoint pour lancer la connexion + je souscris à mes routes
+    this.initializeWebSocketConnection();
   })
   .catch(()=> console.log("utilisateur inexistant"))
-
     });
   }
-
   initializeWebSocketConnection() {
     // je configure la connexion avec le endpoint du back afin de pouvoir echanger des messages via websocket
     const serverUrl = 'http://localhost:8080/chat';
     const socket  = new SockJS(serverUrl);
     this.stompClient = Stomp.over(socket);
     const that = this;
-
-
-
     // souscription à la premiere adresse
     this.stompClient.connect({}, function(frame : any) {
       // je souscris à la route topic/messages, c'est cette route à laquelle le serveur renvoi le message
       that.stompClient.subscribe(`/topic/messages/${that.otherUser.id}/${that.authService.getUser().id}`, (message : any ) => {
-
       // on récupére le corps de la réponse
         if (message.body) {
           // le corps de la réponse est notre message sous forme d'objet JSON, on le parse et on l'envoi dans notre tableau de message
@@ -106,10 +89,7 @@ export class TchatComponent {
         }
       });
     });
-
-
   }
-
   getBddMessages(){
      // récuperer les messages que l'utilisateur a envoyé
     fetch(`http://localhost:8080/messageriesend/${this.authService.getUser().id}/${this.id}`,
@@ -119,49 +99,44 @@ export class TchatComponent {
           "Content-Type": "application/json",
           "Authorization" : "Bearer " + localStorage.getItem("TokenSauvegarde")
         },
-
       }
     )
     .then(response => response.json())
     .then(data => {
-      this.oldMsgSend = data; 
+      this.oldMsgSend = data;
       // j'ajoute une propriété isMine pour pouvoir différencier mes messages et celui des autres
       this.oldMsgSend.forEach((message : any) => {message.isMine = true; this.oldMsg.push(message)});
-     
       this.oldMsg.sort((message1:any, message2:any) => {
         return message1.id - message2.id;
     });
     })
-
     // récupérer les messages que l'utilisateur à recu
-        
          fetch(`http://localhost:8080/messageriereceive/${this.authService.getUser().id}/${this.id}`,
          {
            method: "GET",
            headers: {
              "Content-Type": "application/json",
              "Authorization" : "Bearer " + localStorage.getItem("TokenSauvegarde")
-   
            },
-   
          }
        )
        .then(response => response.json())
        .then(data => {
-        this.oldMsgReceived = data; 
+        this.oldMsgReceived = data;
         this.oldMsgReceived.forEach((message : any) => {message.isMine = false; this.oldMsg.push(message)});
-    
         // trier les messages selon leur id
-       
      this.oldMsg.sort((message1:any, message2:any) => {
       return message1.id - message2.id;
   });
       })
-   
+  }
+
+  // on se deconnecte des websocket en changeant de page
+  ngOnDestroy(): void {
+    this.stompClient.disconnect();
   }
 
 
-  //pour afficher mon dernier message en scrollant tout seul
-
+  
 
 }
