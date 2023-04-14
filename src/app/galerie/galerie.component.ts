@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Picture } from '../models/picture';
 import { User } from '../models/user';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-galerie',
@@ -14,7 +15,16 @@ export class GalerieComponent implements OnInit{
   women: any;
   men: any;
 
-  constructor(public authService : AuthService){
+  constructor(public authService : AuthService, private router:Router){
+
+
+     // lorsqu'on actualise la page , si un token est présent est qu'il est expiré 
+  // on le supprime et redirige vers la page de connexion
+
+  if(this.authService.getTokenExpiration() > Date.now()){
+    localStorage.removeItem("TokenSauvegarde");
+    this.router.navigate(['/'])
+  }
 
   }
 
