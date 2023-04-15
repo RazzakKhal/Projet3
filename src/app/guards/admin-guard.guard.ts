@@ -24,7 +24,7 @@ export class AdminGuardGuard implements CanActivate {
       .then((data) => {
         this.user = data;
 
-        if (this.user.role === "ADMIN") {
+        if (this.user.role === "USER") {
           return true;
           // sinon je redirige return this.router.navigate(['myProfil']); // 
         } else
