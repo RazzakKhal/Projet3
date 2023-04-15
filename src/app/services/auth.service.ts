@@ -13,7 +13,7 @@ private jwtService = new JwtHelperService();
   private user : any;
   private likes :any = [] ;
   public lastLikePseudo : any;
-
+  
   public notificationLike = false;
 
  constructor(){

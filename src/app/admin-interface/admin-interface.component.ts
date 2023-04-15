@@ -29,7 +29,15 @@ headers: {"Content-Type": "application/json",
 .then((value) => value.json())
 .then((data) => {
   this.users = data
-  console.log(data)
+ // si ils n'ont pas de photo, je leur colle un avatar
+ this.users.forEach((user: any) => {
+  if(user.pictures.length === 0){
+    user.pictures.push({
+      link: "assets/images/avatar.jpg"
+    })
+  }
+})
+
 })
 }
 // Afficher à l'aide d'une boucle tous les utilisateurs dans le HTML
