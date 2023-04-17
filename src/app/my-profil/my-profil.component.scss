@@ -38,12 +38,11 @@ h2 {
 .image-container {
   position: relative;
   display: flex;
-flex-direction: column;
-align-items: center; 
-justify-content: center;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
   width: 80%;
-   height: 500px;
-
+  height: 500px;
 
 }
 
@@ -53,9 +52,9 @@ justify-content: center;
   left: 0;
   height: 100%;
   width: 100%;
-   object-fit: cover;
-   border-radius: 15px;
-   transition: 2s ease-in;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: 2s ease-in;
 }
 
 .navigation {
@@ -76,13 +75,13 @@ justify-content: center;
   height: 15px;
   width: 15px;
   border-radius: 50%;
-background-color: var(--colorPurple);
-   margin: 15px;
+  background-color: var(--colorPurple);
+  margin: 15px;
   cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-    transition: 1s ease-in;
+  transition: 1s ease-in;
 }
 
 .navigation input[type="radio"]:checked {
