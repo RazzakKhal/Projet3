@@ -23,6 +23,7 @@ export class MyProfilComponent {
   carNumberUser : any ;
   data : any;
   selectedSlide = 0;  //caroussel
+  
   @ViewChild('fileInput') fileInput: any;
   constructor(public authService : AuthService, private formBuilder : FormBuilder){
 
