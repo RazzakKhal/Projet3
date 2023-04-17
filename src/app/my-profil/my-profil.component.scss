@@ -86,7 +86,7 @@ h2 {
 }
 
 .navigation input[type="radio"]:checked {
-  background-color: #e49e07;
+  background-color: var(--colorOrange);
 
 }
 //fin carroussel
@@ -134,7 +134,7 @@ input[type="file"] {
 
 .genreSize {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 10px;
   align-items: center;
 }

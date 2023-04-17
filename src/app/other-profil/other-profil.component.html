@@ -14,11 +14,13 @@
   <div class="bloc2">
     <div class="sous-bloc2">
       <h1>Genre:</h1>
-      <p>{{otherUser?.gender}}</p>
+    
+      <p *ngIf="otherUser.gender === 'M'">Homme</p>
+      <p *ngIf="otherUser.gender === 'F'">Femme</p>
     </div>
     <div class="sous-bloc3">
       <h1>Taille:</h1>
-      <p>{{otherUser?.size}}</p>
+      <p>{{otherUser?.size}}cm</p>
     </div>
     <div class="sous-bloc4">
       <h1>Description</h1>
