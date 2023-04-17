@@ -2,7 +2,7 @@ import { id } from 'date-fns/locale';
 import { Picture } from './../models/picture';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -16,9 +16,15 @@ export class LikeComponent implements OnInit{
   MyUser: any;
   public allLikes : any = [];
 
-  constructor(private authService : AuthService, private route: ActivatedRoute){
+  constructor(private authService : AuthService, private route: ActivatedRoute, private router:Router){
    
- 
+      // lorsqu'on actualise la page , si un token est présent est qu'il est expiré 
+  // on le supprime et redirige vers la page de connexion
+
+  if(this.authService.getTokenExpiration() > Date.now()){
+    localStorage.removeItem("TokenSauvegarde");
+    this.router.navigate(['/'])
+  }
     
   }
 

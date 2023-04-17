@@ -9,17 +9,18 @@ private jwtService = new JwtHelperService();
   private token;
   private InfosToken : any;
   private mail : undefined | string;
-  private expiration : undefined | number;
+  private expiration! : number;
   private user : any;
   private likes :any = [] ;
   public lastLikePseudo : any;
-
+  
   public notificationLike = false;
 
  constructor(){
   this.token = localStorage.getItem("TokenSauvegarde");
 // lancer directement la méthode pour récupérer l'utilisateur
   if(localStorage.getItem("TokenSauvegarde")){
+ 
     this.getUserConnected()
     .then(reponse => reponse.json())
     .then(data => {
@@ -37,7 +38,6 @@ private jwtService = new JwtHelperService();
    getTokenInformations(){
     if(this.token !== null){
    this.InfosToken = this.jwtService.decodeToken(this.token);
-
    return this.InfosToken;
     }
   }
@@ -58,6 +58,7 @@ private jwtService = new JwtHelperService();
 
     getUserConnected(){
      this.getTokenInformations();
+  
      return fetch("http://localhost:8080/myProfil/getUser",{
         method :"POST",
         headers: {"Content-Type": "application/json",
@@ -206,6 +207,7 @@ return fetch(`http://localhost:8080/galerie/femme/${id}`,{
      // on récupère les likes toutes les minutes et on affiche la notif si nouveau like
      getLikeEveryMinute(){
       setInterval(()=> {
+        
     
         if(localStorage.getItem("TokenSauvegarde")){
          this.getLikeWithUser(this.user.id)

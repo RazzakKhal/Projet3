@@ -2,7 +2,8 @@ import { Picture } from './../models/picture';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { id, th } from 'date-fns/locale';
+import { id } from 'date-fns/locale';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-profil',
@@ -25,7 +26,7 @@ export class MyProfilComponent {
   selectedSlide = 0;  //caroussel
   
   @ViewChild('fileInput') fileInput: any;
-  constructor(public authService : AuthService, private formBuilder : FormBuilder){
+  constructor(public authService : AuthService, private router : Router){
 
     this.authService.getUserConnected()
     .then((value) => value.json())
@@ -33,6 +34,14 @@ export class MyProfilComponent {
      this.MyUser = data;
      console.log(this.MyUser)
     })  
+
+     // lorsqu'on actualise la page , si un token est présent est qu'il est expiré 
+  // on le supprime et redirige vers la page de connexion
+
+  if(this.authService.getTokenExpiration() > Date.now()){
+    localStorage.removeItem("TokenSauvegarde");
+    this.router.navigate(['/'])
+  }
   }
 
   // Insérer des photos au format JPG/PNG/JPEG
