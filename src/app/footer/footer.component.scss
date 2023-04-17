@@ -6,7 +6,8 @@
   flex-wrap: wrap; 
   color: white; 
   font-size:9px;  
-  font-family: var(--textComfortaa); 
+  font-family: var(--textComfortaa);  
+   opacity: 0.8;
   }
 
   .bloc1{
@@ -14,6 +15,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  
   }
     .sous-bloc1 {
     margin: 10px;

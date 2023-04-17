@@ -1,3 +1,5 @@
+
+
 .container {
     display: flex;
     flex-direction: row;
@@ -50,7 +52,7 @@
 }
 
 .guillemets{
-    font-size: 100px;
+    font-size: 90px;
     font-family: var(--guillemet);
     text-align: center;  
 }
@@ -124,7 +126,7 @@
 
 }
 .newMessages {
-    background-color:  rgb(222, 169, 9);
+    background-color: var(--colorOrange);
     text-align: center;
     padding: 10px;
     border: 1px solid rgba(255,255,255,0.5);
@@ -162,7 +164,7 @@ textarea {
         
 }
 textarea::placeholder {
-    color: #f7b307;
+    color: var(--colorOrange);
     font-size: 1.2rem;
   }
 

@@ -24,8 +24,14 @@ export class MyProfilComponent {
   carNumberUser : any ;
   data : any;
   selectedSlide = 0;  //caroussel
+ 
   
   @ViewChild('fileInput') fileInput: any;
+  @ViewChild('inputSize') inputSize: any;
+  @ViewChild('inputDescription') inputDescription: any;
+  @ViewChild('inputCar') inputCar: any;
+
+
   constructor(public authService : AuthService, private router : Router){
 
     this.authService.getUserConnected()
@@ -74,8 +80,8 @@ onFileSelected(event: any) {
         })
           .then((response) => response.json()) // Je récupère la réponse
           .then((data) => {
-            this.MyUser.pictures = data; // On réinitialise la valeur de notre input afin de pouvoir ajouter d'autres photos
-            this.fileInput.nativeElement.value = ""; // J'enregistre les données dans ma variable pictures
+            this.MyUser.pictures = data; // J'enregistre les données dans ma variable pictures
+            this.fileInput.nativeElement.value = ""; // On réinitialise la valeur de notre input afin de pouvoir ajouter d'autres photos
           });
       } else {
         this.imageUrl = "assets/images/aliciaaccepte.png";
@@ -119,12 +125,14 @@ compressImage(file : any, quality = 0.6, maxWidth = 600, maxHeight = 600) {
 }
 
   // changement de taille de l'User donc je recupere mon API
+
   putUserSize() {
+   
     this.authService.putUserSize(this.sizeUser)
       .then((value) => value.json())
       .then((data) => {
-        this.MyUser = data;
-    
+      this.MyUser = data;
+      this.inputSize.nativeElement.value = "";
       }) 
   }
 
@@ -134,15 +142,7 @@ compressImage(file : any, quality = 0.6, maxWidth = 600, maxHeight = 600) {
     .then((value) => value.json())
     .then((data) => {
       this.MyUser = data;
-    }) 
-  }
-
-  // changement du numero de train de l'User
-  putUserTrainNumber(){
-    this.authService.putUserTrainNumber(this.trainNumberUser)
-    .then((value) => value.json())
-    .then((data) => {
-      this.MyUser = data;  
+      this.inputDescription.nativeElement.value = "";
     }) 
   }
 
@@ -152,6 +152,7 @@ compressImage(file : any, quality = 0.6, maxWidth = 600, maxHeight = 600) {
     .then((value) => value.json())
     .then((data) => {
       this.MyUser = data; 
+      this.inputCar.nativeElement.value = "";
     }) 
   }
 

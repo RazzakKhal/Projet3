@@ -29,12 +29,13 @@
   <div class="bloc2">
     <div class="genreSize">
       <h1>Genre</h1>
-      <p>{{MyUser?.gender}}</p>
+      <p *ngIf="MyUser.gender === 'M'">Homme</p>
+      <p *ngIf="MyUser.gender === 'F'">Femme</p>
       <div class="essai">
         <h1>Taille</h1>
         <img (click)="putUserSize()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
       </div>
-      <input class="customize" type="text" id="size" name="size" [(ngModel)]="sizeUser">
+      <input class="customize" type="text" id="size" name="size" [(ngModel)]="sizeUser"  #inputSize>
 
       <p>{{MyUser?.size}} cm</p>
     </div>
@@ -43,7 +44,7 @@
         <h1>Description</h1>
         <img (click)="putUserDescription()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
       </div>
-      <input class="customize" type="text" id="description" name="description" [(ngModel)]="descriptionUser">
+      <input class="customize" type="text" id="description" name="description" [(ngModel)]="descriptionUser" #inputDescription>
       <p>{{MyUser?.description}}</p>
     </div>
   </div>
@@ -51,13 +52,11 @@
     <div class="bloc3">
      <div class="numeroTrain">
        <h2>Numéro de train:</h2>
-         <img (click)="putUserTrainNumber()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
-      <input class="customize" type="number" id="trainNumber" name="numerotrain" [(ngModel)]="trainNumberUser">
-      <p>{{MyUser?.train_number}}</p>
+        <p>{{MyUser?.train_number}}</p>
     </div>
     <div class="numeroVoiture">
       <h2>Voiture:</h2>
-      <img (click)="putUserCarTrain()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
+      <img (click)="putUserCarTrain()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" #inputCar />
       <input class="customize" type="number" id="carNumber" name="carNumber" [(ngModel)]="carNumberUser">
       <p>{{MyUser?.car_number}}</p>
       </div>
