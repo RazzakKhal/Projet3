@@ -2,7 +2,7 @@ import { Picture } from './../models/picture';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { id } from 'date-fns/locale';
+import { id, th } from 'date-fns/locale';
 
 @Component({
   selector: 'app-my-profil',
@@ -22,6 +22,10 @@ export class MyProfilComponent {
   trainNumberUser : any ;
   carNumberUser : any ;
   data : any;
+  //carroussel
+  selectedSlide = 0;
+ 
+
   @ViewChild('fileInput') fileInput: any;
   constructor(public authService : AuthService, private formBuilder : FormBuilder){
 
@@ -161,7 +165,22 @@ compressImage(file : any, quality = 0.6, maxWidth = 600, maxHeight = 600) {
 
    // lorsque on supprime une photo, on ne peut pas ajt d'autres photos sans actualiser la page
 
+//carroussel
+SlideChange(slideIndex: number){
+  this.selectedSlide = slideIndex;
 }
+
+SlideChangeNext(){
+  this.selectedSlide++;
+
+  }
+
+  SlideChangePrevious(){
+    this.selectedSlide--;
+  }
+
+}
+
 
 
 

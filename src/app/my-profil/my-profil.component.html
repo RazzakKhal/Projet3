@@ -1,61 +1,68 @@
-<div class="container"> 
-  <div class="bloc1"> 
-    <div class="carroussel"> 
-      <img *ngIf="MyUser.pictures.length > 0" class="photo" [src]="MyUser.pictures[0].link" alt="selected image">
-        <img *ngIf="MyUser.pictures.length === 0" class="photo" src="assets/images/avatar.jpg" alt="selected image">
-             <!-- CARROUSSEL AVEC LES PHOTOS DE L'UTILISATEUR (VARIABLE pictures)  -->
-    </div> 
-    <div class="mesinfos">
+<div class="container">
+  <div class="bloc1">
+    <div class="image-container">
+      <img *ngIf="MyUser.pictures.length === 0" src="assets/images/avatar.jpg" alt="selected image">
+      <img *ngIf="MyUser.pictures.length > 0" [src]="MyUser.pictures[selectedSlide].link" alt="selected image">
+    </div>
+    <div class="navigation">
+      <input *ngIf="selectedSlide !== 0 && MyUser.pictures.length > 0" type="radio" name="carousel" id="slide-1" checked (click)="SlideChangePrevious()">
+      <!-- <input type="radio" name="carousel" id="slide-2" [(ngModel)]="selectedSlide" value="1" (change)="SlideChange(1)"> -->
+      <input *ngIf="MyUser.pictures.length-1 !== selectedSlide && MyUser.pictures.length > 0" type="radio" name="carousel" id="slide-3"  (click)="SlideChangeNext()">
+    </div>
+  
+  <div class="mesinfos">
     <label for="file-upload" class="custom-file-upload">
       <img class="iconeAppareilPhoto" src="assets/images/iconeappareilphoto.png" alt="Upload">
     </label>
-      <input id="file-upload" type="file" (change)="onFileSelected($event)" #fileInput/>
-        <p class="pseudo">{{MyUser.pseudo}}, {{MyUser.date_of_birth | date: 'dd/MM/yyyy'}}</p>
-          <img class="iconePoubelle" src="assets/images/icone_poubelle.png" (click)="deletePhoto(MyUser.pictures[0].id)" alt="icone poubelle">
-    </div>
+    <input id="file-upload" type="file" (change)="onFileSelected($event)" #fileInput />
+    <p class="pseudo">{{MyUser.pseudo}}, {{MyUser.date_of_birth | date: 'dd/MM/yyyy'}}</p>
+    <img class="iconePoubelle" src="assets/images/icone_poubelle.png" (click)="deletePhoto(MyUser.pictures[0].id)"
+      alt="icone poubelle">
   </div>
-  
-<div class="bloc2">
-  <div class="genreSize">
-    <h1>Genre</h1>
-    <p>{{MyUser?.gender}}</p>
-    <div class="essai">
-    <h1>Taille</h1>
-    <img (click)="putUserSize()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
-  </div>
-    <input class="customize" type="text" id="size" name="size"[(ngModel)]="sizeUser">
-    
-    <p>{{MyUser?.size}} cm</p>
-  </div>
-  <div class="description">
-    <div class="essai">
-    <h1>Description</h1>
-    <img (click)="putUserDescription()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon"/>
-   </div>
-    <input class="customize" type="text" id="description" name="description" [(ngModel)]="descriptionUser">
-    <p>{{MyUser?.description}}</p>
-  </div>
-</div>
-<!-- bloc bas -->
-<div class="bloc3">
-  <div class="numeroTrain">
-    <h2>Numéro de train:</h2>
-    <img (click)="putUserTrainNumber()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
-    <input class="customize" type="number" id="trainNumber" name="numerotrain"
-      [(ngModel)]="trainNumberUser">
-    <p>{{MyUser?.train_number}}</p>
-  </div>
-  <div class="numeroVoiture">
-    <h2>Voiture:</h2>
-    <img (click)="putUserCarTrain()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon"/>
-    <input class="customize" type="number" id="carNumber" name="carNumber" [(ngModel)]="carNumberUser">
-    <p>{{MyUser?.car_number}}</p>
-  </div>
-</div>
-</div>
-<!-- notification  -->
-<div class="notificationLike" (click)="authService.notificationLike = false" [ngClass]="{'notifLike' : authService.notificationLike}">
-  Vous avez été liké par {{authService.lastLikePseudo}}
-  
 </div>
 
+
+  <div class="bloc2">
+    <div class="genreSize">
+      <h1>Genre</h1>
+      <p>{{MyUser?.gender}}</p>
+      <div class="essai">
+        <h1>Taille</h1>
+        <img (click)="putUserSize()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
+      </div>
+      <input class="customize" type="text" id="size" name="size" [(ngModel)]="sizeUser">
+
+      <p>{{MyUser?.size}} cm</p>
+    </div>
+    <div class="description">
+      <div class="essai">
+        <h1>Description</h1>
+        <img (click)="putUserDescription()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
+      </div>
+      <input class="customize" type="text" id="description" name="description" [(ngModel)]="descriptionUser">
+      <p>{{MyUser?.description}}</p>
+    </div>
+  </div>
+  <!-- bloc bas -->
+    <div class="bloc3">
+     <div class="numeroTrain">
+       <h2>Numéro de train:</h2>
+         <img (click)="putUserTrainNumber()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
+      <input class="customize" type="number" id="trainNumber" name="numerotrain" [(ngModel)]="trainNumberUser">
+      <p>{{MyUser?.train_number}}</p>
+    </div>
+    <div class="numeroVoiture">
+      <h2>Voiture:</h2>
+      <img (click)="putUserCarTrain()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
+      <input class="customize" type="number" id="carNumber" name="carNumber" [(ngModel)]="carNumberUser">
+      <p>{{MyUser?.car_number}}</p>
+      </div>
+    </div>
+
+     <!-- notification  -->
+    <div class="notificationLike" (click)="authService.notificationLike = false"
+    [ngClass]="{'notifLike' : authService.notificationLike}">
+    Vous avez été liké par {{authService.lastLikePseudo}}
+    </div>
+
+</div>
