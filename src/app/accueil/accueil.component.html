@@ -6,26 +6,26 @@
     <div class="connexion">
       <form [formGroup]="connexionForm" (ngSubmit)="onSubmitConnexion()">
         <h2>Connexion</h2>
-  
+
         <div class="box_input">
           <input type="email" formControlName="mail" placeholder="Mail">
           <span *ngIf="connexionForm.controls['mail'].invalid && connexionForm.controls['mail'].touched">Adresse e-mail invalide.</span>
         </div>
-  
+
         <div class="box_input">
           <input type="password" formControlName="password" placeholder="Mot de Passe">
           <span *ngIf="connexionForm.controls['password'].invalid && connexionForm.controls['password'].touched">Mot de passe invalide (au moins 8 caractères).</span>
         </div>
-  
+
         <div class="box_input">
           <input type="text" formControlName="train_number" placeholder="Numero de Train">
           <span *ngIf="connexionForm.controls['train_number'].invalid && connexionForm.controls['train_number'].touched">Numéro de train invalide ( 4 chiffre max).</span>
         </div>
-  
+
         <button type="submit">Connexion</button>
       </form>
     </div>
-  
+
     <div class="inscription">
       <h2>Inscription</h2>
       <form [formGroup]="inscriptionForm" (ngSubmit)="onSubmitInscription()">
@@ -33,32 +33,32 @@
           <input type="text" formControlName="firstname" placeholder="Prenom">
           <span *ngIf="inscriptionForm.controls['firstname'].invalid && inscriptionForm.controls['firstname'].touched">Prénom requis.</span>
         </div>
-  
+
         <div class="box_input">
           <input type="text" formControlName="lastname" placeholder="Nom">
           <span *ngIf="inscriptionForm.controls['lastname'].invalid && inscriptionForm.controls['lastname'].touched">Nom requis.</span>
         </div>
-  
+
         <div class="box_input">
           <input type="text" formControlName="pseudo" placeholder="Pseudo">
           <span *ngIf="inscriptionForm.controls['pseudo'].invalid && inscriptionForm.controls['pseudo'].touched">Pseudo requis.</span>
         </div>
-  
+
         <div class="box_input">
           <input type="date" formControlName="date_of_birth" placeholder="Date de Naissance">
           <span *ngIf="inscriptionForm.controls['date_of_birth'].invalid && inscriptionForm.controls['date_of_birth'].touched">Date de naissance requise.</span>
         </div>
-  
+
         <div class="box_input">
           <input type="email" formControlName="mail" placeholder="Mail">
           <span *ngIf="inscriptionForm.controls['mail'].invalid && inscriptionForm.controls['mail'].touched">Adresse e-mail invalide.</span>
         </div>
-  
+
         <div class="box_input">
           <input type="password" formControlName="password" placeholder="Mot de Passe">
           <span *ngIf="inscriptionForm.controls['password'].invalid && inscriptionForm.controls['password'].touched">Mot de passe invalide (au moins 8 caractères).</span>
         </div>
-  
+
         <div class="box_input">
             <select formControlName="gender" placeholder="Genre">
               <option value="M">Masculin</option>
@@ -72,14 +72,13 @@
 
       <div class="notification" [ngClass]="{'eyes' : notification}">
         <p [ngClass]="{'eyes' : notification}">
-            Vous êtes inscrit
-        </p> 
-    </div>    
+            {{errorMessage}}
+        </p>
+    </div>
   </div>
       <div class="texte">
         <p class="voyage">Voyage vers l’ Amour <br>
           sans billet retour </p>
       </div>
     </div>
-    
-  
+
