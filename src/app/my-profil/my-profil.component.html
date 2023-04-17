@@ -56,8 +56,8 @@
     </div>
     <div class="numeroVoiture">
       <h2>Voiture:</h2>
-      <img (click)="putUserCarTrain()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" #inputCar />
-      <input class="customize" type="number" id="carNumber" name="carNumber" [(ngModel)]="carNumberUser">
+      <img (click)="putUserCarTrain()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
+      <input class="customize" type="number" id="carNumber" name="carNumber" [(ngModel)]="carNumberUser" #inputCar>
       <p>{{MyUser?.car_number}}</p>
       </div>
     </div>
