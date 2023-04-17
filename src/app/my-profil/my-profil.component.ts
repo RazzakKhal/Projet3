@@ -22,10 +22,8 @@ export class MyProfilComponent {
   trainNumberUser : any ;
   carNumberUser : any ;
   data : any;
-  //carroussel
-  selectedSlide = 0;
- 
-
+   //carroussel
+   selectedSlide = 0;
   @ViewChild('fileInput') fileInput: any;
   constructor(public authService : AuthService, private formBuilder : FormBuilder){
 
@@ -163,21 +161,16 @@ compressImage(file : any, quality = 0.6, maxWidth = 600, maxHeight = 600) {
     })
    }
 
-   // lorsque on supprime une photo, on ne peut pas ajt d'autres photos sans actualiser la page
+   SlideChangeNext(){
+    this.selectedSlide++;
+  
+    }
+  
+    SlideChangePrevious(){
+      this.selectedSlide--;
+    }
+  
 
-//carroussel
-SlideChange(slideIndex: number){
-  this.selectedSlide = slideIndex;
-}
-
-SlideChangeNext(){
-  this.selectedSlide++;
-
-  }
-
-  SlideChangePrevious(){
-    this.selectedSlide--;
-  }
 
 }
 
