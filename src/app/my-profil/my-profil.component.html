@@ -5,21 +5,25 @@
       <img *ngIf="MyUser.pictures.length > 0" [src]="MyUser.pictures[selectedSlide].link" alt="selected image">
     </div>
     <div class="navigation">
-      <input *ngIf="selectedSlide !== 0 && MyUser.pictures.length > 0" type="radio" name="carousel" id="slide-1" checked (click)="SlideChangePrevious()">
-      <!-- <input type="radio" name="carousel" id="slide-2" [(ngModel)]="selectedSlide" value="1" (change)="SlideChange(1)"> -->
-      <input *ngIf="MyUser.pictures.length-1 !== selectedSlide && MyUser.pictures.length > 0" type="radio" name="carousel" id="slide-3"  (click)="SlideChangeNext()">
+   <!-- previous -->
+      <input *ngIf="selectedSlide !== 0 && MyUser.pictures.length > 0" type="radio" name="carousel" id="slide-1" checked
+        (click)="SlideChangePrevious()">
+ <!-- next -->
+        <input *ngIf="MyUser.pictures.length-1 !== selectedSlide && MyUser.pictures.length > 0" type="radio"
+        name="carousel" id="slide-3" (click)="SlideChangeNext()">
     </div>
-  
-  <div class="mesinfos">
-    <label for="file-upload" class="custom-file-upload">
-      <img class="iconeAppareilPhoto" src="assets/images/iconeappareilphoto.png" alt="Upload">
-    </label>
-    <input id="file-upload" type="file" (change)="onFileSelected($event)" #fileInput />
-    <p class="pseudo">{{MyUser.pseudo}}, {{MyUser.date_of_birth | date: 'dd/MM/yyyy'}}</p>
-    <img class="iconePoubelle" src="assets/images/icone_poubelle.png" (click)="deletePhoto(MyUser.pictures[0].id)"
-      alt="icone poubelle">
+
+    <div class="mesinfos">
+      <label for="file-upload" class="custom-file-upload">
+        <img class="iconeAppareilPhoto" src="assets/images/iconeappareilphoto.png" alt="Upload">
+      </label>
+      <input id="file-upload" type="file" (change)="onFileSelected($event)" #fileInput />
+      <p class="pseudo">{{MyUser.pseudo}}, {{MyUser.date_of_birth | date: 'dd/MM/yyyy'}}</p>
+      <img class="iconePoubelle" src="assets/images/icone_poubelle.png" (click)="deletePhoto(MyUser.pictures[0].id)"
+        alt="icone poubelle">
+    </div>
   </div>
-</div>
+
 
 
   <div class="bloc2">
