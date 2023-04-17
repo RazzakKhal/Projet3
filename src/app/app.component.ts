@@ -25,11 +25,17 @@ ngOnInit(): void {
   // methode pour cacher le header
 showNav(){
   if(this.router.url === "/"){
-    //mon test est  console.log(this.router.url)
+    let main = document.querySelector("main") as HTMLElement;
+    main.style.minHeight = "93vh";
     return false;
   }else{
+    let main = document.querySelector("main") as HTMLElement;
+    main.style.minHeight = "85vh";
     return true;
   }
-   console.log(this.router.url)
+ 
   }
+
+
+
 }
