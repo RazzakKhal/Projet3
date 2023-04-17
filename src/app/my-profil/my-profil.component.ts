@@ -22,10 +22,8 @@ export class MyProfilComponent {
   trainNumberUser : any ;
   carNumberUser : any ;
   data : any;
-  //carroussel
-  selectedSlide = 0;
- 
-
+  selectedSlide = 0;  //caroussel
+  
   @ViewChild('fileInput') fileInput: any;
   constructor(public authService : AuthService, private formBuilder : FormBuilder){
 
@@ -162,7 +160,6 @@ compressImage(file : any, quality = 0.6, maxWidth = 600, maxHeight = 600) {
 
     })
    }
-//carroussel
    SlideChangeNext(){
     this.selectedSlide++;
   
