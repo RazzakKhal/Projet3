@@ -24,6 +24,7 @@ export class MyProfilComponent {
   carNumberUser : any ;
   data : any;
   selectedSlide = 0;  //caroussel
+  
   @ViewChild('fileInput') fileInput: any;
   constructor(public authService : AuthService, private router : Router){
 
@@ -168,7 +169,6 @@ compressImage(file : any, quality = 0.6, maxWidth = 600, maxHeight = 600) {
 
     })
    }
-
    SlideChangeNext(){
     this.selectedSlide++;
   
@@ -179,6 +179,7 @@ compressImage(file : any, quality = 0.6, maxWidth = 600, maxHeight = 600) {
     }
 
 }
+
 
 
 

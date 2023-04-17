@@ -48,10 +48,10 @@
     </div>
   </div>
   <!-- bloc bas -->
-  <div class="bloc3">
-    <div class="numeroTrain">
-      <h2>Numéro de train:</h2>
-      <img (click)="putUserTrainNumber()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
+    <div class="bloc3">
+     <div class="numeroTrain">
+       <h2>Numéro de train:</h2>
+         <img (click)="putUserTrainNumber()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
       <input class="customize" type="number" id="trainNumber" name="numerotrain" [(ngModel)]="trainNumberUser">
       <p>{{MyUser?.train_number}}</p>
     </div>
@@ -60,12 +60,13 @@
       <img (click)="putUserCarTrain()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
       <input class="customize" type="number" id="carNumber" name="carNumber" [(ngModel)]="carNumberUser">
       <p>{{MyUser?.car_number}}</p>
+      </div>
     </div>
-  </div>
-</div>
-<!-- notification  -->
-<div class="notificationLike" (click)="authService.notificationLike = false"
-  [ngClass]="{'notifLike' : authService.notificationLike}">
-  Vous avez été liké par {{authService.lastLikePseudo}}
+
+     <!-- notification  -->
+    <div class="notificationLike" (click)="authService.notificationLike = false"
+    [ngClass]="{'notifLike' : authService.notificationLike}">
+    Vous avez été liké par {{authService.lastLikePseudo}}
+    </div>
 
 </div>
