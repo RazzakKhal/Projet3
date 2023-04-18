@@ -16,7 +16,7 @@ export class AccueilComponent {
   connexionForm: FormGroup<any>;
 
   notification: boolean = false;
-  errorMessage: string = 'Veuillez verifier vos identifiants de connexion';
+  errorMessage: string = '';
 
 
   constructor(private formBuilder: FormBuilder, private router: Router) {
@@ -79,6 +79,7 @@ export class AccueilComponent {
       .then((data) => {
         console.log("Success:", data);
         // envoi de la notification réussie de l'inscription
+        this.errorMessage = "Vous êtes inscris";
         this.modifNotification();
         // dans 1s la notification disparaît
         setTimeout(() => this.modifNotification(), 3000);
@@ -120,10 +121,11 @@ export class AccueilComponent {
         return this.router.navigate(['/myProfil']);
       })
       .catch(() => {
+        this.errorMessage = "Veuillez verifier vos identifiants de connexion";
         this.notification = true;
         setTimeout(() => this.notification = false, 5000)
       });
   }
 
 }
-//faire notification lorsqu'il y a probleme de connection
+
