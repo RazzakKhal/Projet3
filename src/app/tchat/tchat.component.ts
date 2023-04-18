@@ -4,6 +4,7 @@ import { User } from '../models/user';
 import { AuthService } from '../services/auth.service';
 import { Message } from '../models/message';
 import { ActivatedRoute } from '@angular/router';
+import { HostService } from '../services/host.service';
 declare var SockJS : any;
 declare var Stomp : any;
 @Component({
@@ -21,7 +22,7 @@ export class TchatComponent implements OnDestroy{
   public oldMsg : any = [];
   oldMsgSend : any = [];
   oldMsgReceived : any = [];
-  constructor(private authService : AuthService, private route: ActivatedRoute) {
+  constructor(private authService : AuthService, private route: ActivatedRoute, private hostService : HostService) {
     // si l'utilisateur n'est plus enregistré dans le authService alors je le recupère
     if(!this.authService.getUser()){
       this.authService.getUserConnected()
@@ -56,7 +57,7 @@ export class TchatComponent implements OnDestroy{
       this.params = data;
   this.id = this.params.id;
   // requete pour récupérer l'utilisateur en fonction de l'id du other profil
-  fetch(`http://localhost:8080/otherProfil/user/${this.id}`, {
+  fetch(`${this.hostService.host}/otherProfil/user/${this.id}`, {
   method :"GET",
   headers: {"Content-Type": "application/json",
       "Authorization": "Bearer " + localStorage.getItem('TokenSauvegarde') },
@@ -72,7 +73,7 @@ export class TchatComponent implements OnDestroy{
   }
   initializeWebSocketConnection() {
     // je configure la connexion avec le endpoint du back afin de pouvoir echanger des messages via websocket
-    const serverUrl = 'http://localhost:8080/chat';
+    const serverUrl = `${this.hostService.host}/chat`;
     const socket  = new SockJS(serverUrl);
     this.stompClient = Stomp.over(socket);
     const that = this;
@@ -92,7 +93,7 @@ export class TchatComponent implements OnDestroy{
   }
   getBddMessages(){
      // récuperer les messages que l'utilisateur a envoyé
-    fetch(`http://localhost:8080/messageriesend/${this.authService.getUser().id}/${this.id}`,
+    fetch(`${this.hostService.host}/messageriesend/${this.authService.getUser().id}/${this.id}`,
       {
         method: "GET",
         headers: {
@@ -111,7 +112,7 @@ export class TchatComponent implements OnDestroy{
     });
     })
     // récupérer les messages que l'utilisateur à recu
-         fetch(`http://localhost:8080/messageriereceive/${this.authService.getUser().id}/${this.id}`,
+         fetch(`${this.hostService.host}/messageriereceive/${this.authService.getUser().id}/${this.id}`,
          {
            method: "GET",
            headers: {
@@ -135,8 +136,4 @@ export class TchatComponent implements OnDestroy{
   ngOnDestroy(): void {
     this.stompClient.disconnect();
   }
-
-
-  
-
 }

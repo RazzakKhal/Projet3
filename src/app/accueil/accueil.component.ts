@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '../models/user';
 import { AuthService } from '../services/auth.service';
+import { HostService } from '../services/host.service';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class AccueilComponent {
   errorMessage: string = '';
 
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private hostService: HostService) {
     this.inscriptionForm = this.formBuilder.group({
       lastname: ['', Validators.required],
       firstname: ['', Validators.required],
@@ -65,7 +66,7 @@ export class AccueilComponent {
       this.inscriptionForm.controls['password'].value,
       this.inscriptionForm.controls['gender'].value);
 
-    fetch("http://localhost:8080/accueil/inscription", {
+    fetch(`${this.hostService.host}/accueil/inscription`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -102,7 +103,7 @@ export class AccueilComponent {
       train_number: this.connexionForm.controls['train_number'].value
     };
 
-    fetch("http://localhost:8080/accueil/connexion", {
+    fetch(`${this.hostService.host}/accueil/connexion`, {
       method: "POST", // car on envoie nos infos
       headers: {
         "Content-Type": "application/json",

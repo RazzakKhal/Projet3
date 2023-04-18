@@ -14,6 +14,13 @@
      <div class="container_coeur">
        <img (click)="sendLike(id)" class="coeur" src="assets/images/coeur.png" alt="like"> 
      </div>
+
+     <div class="notification" [ngClass]="{'eyes' : notification}">
+      <p [ngClass]="{'eyes' : notification}">
+        {{errorMessage}}
+    </p>
+
+     </div>
              
    </div>  
  </div> 

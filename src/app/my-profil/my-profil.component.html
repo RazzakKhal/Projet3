@@ -59,10 +59,11 @@
     </div>
     <div class="numeroVoiture">
 
-      <h2>Voiture:</h2>
-      <img (click)="putUserCarTrain()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
-      <input class="customize" type="number" id="carNumber" name="carNumber" [(ngModel)]="carNumberUser" #inputCar>
+      <h2>Voiture : </h2>
       <p>{{MyUser?.car_number}}</p>
+      <input class="customizeSize" type="number" id="carNumber" name="carNumber" [(ngModel)]="carNumberUser" #inputCar>
+      <img (click)="putUserCarTrain()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
+  
 
     </div>
   </div>
