@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -9,11 +10,25 @@ import { Component, OnInit } from '@angular/core';
 
 export class AdminInterfaceComponent implements OnInit {
   users: any[] = [];
-  authService: any;
+  
 
+  constructor(private authService : AuthService){
+
+  }
 
   ngOnInit(): void {
    this.findAllUser()
+   this.findUserConnected()
+
+  }
+
+  findUserConnected(){
+    // si on ne sait pas qui est connecté, alors on le récupère et on le rajoute dans le authService
+    if(this.authService.getUser() === undefined){
+      this.authService.getUserConnected()
+      .then((reponse : any) => reponse.json())
+      .then((data : any) => this.authService.setUser(data))
+    }
   }
 
 // faire une requete permettant de recuperer les utilisteurs
@@ -44,6 +59,7 @@ headers: {"Content-Type": "application/json",
 // mettre un bouton pour supprimer l'utilisateur en question
 
 deleteUser(id: number) {
+ 
   let token = localStorage.getItem("TokenSauvegarde");
   fetch(`http://localhost:8080/admin/deleteuser/${id}`, {
     method: "DELETE",
@@ -51,10 +67,12 @@ deleteUser(id: number) {
       "Content-Type": "application/json",
       Authorization: "Bearer " + token,
     },
-    body: JSON.stringify({mail: this.authService.user.mail})
+    body: JSON.stringify({mail: this.authService.getUser().mail})
   })
 
-  this.users = this.users.filter((user) => user.id !== id );
+    this.users = this.users.filter((user) => user.id !== id );
+
+
 
 }
 

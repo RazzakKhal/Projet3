@@ -69,7 +69,7 @@ private jwtService = new JwtHelperService();
          
     }
 
-    getUser(){
+    getUser() : any{
       return this.user;
     }
 

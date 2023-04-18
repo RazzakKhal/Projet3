@@ -14,9 +14,8 @@ export class AccueilComponent {
 
   inscriptionForm: FormGroup;
   connexionForm: FormGroup<any>;
-
   notification: boolean = false;
-  errorMessage: string = 'Veuillez verifier vos identifiants de connexion';
+  errorMessage: string = '';
 
 
   constructor(private formBuilder: FormBuilder, private router: Router) {
@@ -35,13 +34,12 @@ export class AccueilComponent {
       train_number: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
     });
 
-
   }
-
 
   onSubmitConnexion() {
     if (this.connexionForm.valid) {
       this.userConnexion();
+      this.inscriptionForm.reset();
     } else {
       console.log('Formulaire de connexion invalide');
     }
@@ -49,12 +47,12 @@ export class AccueilComponent {
   onSubmitInscription() {
     if (this.inscriptionForm.valid) {
       this.userInscription();
+      this.inscriptionForm.reset();
     } else {
       console.log('Formulaire inscription invalide');
+      
     }
   }
-
-
 
   //formulaire reactif avec infos recuperées.
   userInscription() {
@@ -79,6 +77,7 @@ export class AccueilComponent {
       .then((data) => {
         console.log("Success:", data);
         // envoi de la notification réussie de l'inscription
+        this.errorMessage = "Vous êtes inscris";
         this.modifNotification();
         // dans 1s la notification disparaît
         setTimeout(() => this.modifNotification(), 3000);
@@ -120,10 +119,11 @@ export class AccueilComponent {
         return this.router.navigate(['/myProfil']);
       })
       .catch(() => {
+        this.errorMessage = "Veuillez verifier vos identifiants de connexion";
         this.notification = true;
         setTimeout(() => this.notification = false, 5000)
       });
   }
 
 }
-//faire notification lorsqu'il y a probleme de connection
+
