@@ -13,15 +13,15 @@ form{
 }
 ////////////////  Logo Coeur  /////////////////////////
 .logo{  //contenaire du logo
-     display: flex; 
-    flex-direction: row;   
-    justify-content: center;   
+     display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .logoSite {  //image logo
     width:20vh;
     display: flex;
-   
+
 }
 
 ////////////////  Connexion Inscription Forms  /////////////////////
@@ -31,7 +31,7 @@ form{
     justify-content: center;
     align-items: center;
     height: 20vh;
-   
+
 }
 .voyage{
     font-size: 1.8rem;
@@ -69,15 +69,15 @@ input {
     font-family: var(--textComfortaa);
     border-radius: 8px;
     padding: 4px 4px;
-    
-    
- 
+
+
+
 }
 
 input[type="date"]{
      width: 165px;
      border-radius: 8px;
-    padding: 4px 4px;    
+    padding: 4px 4px;
 }
 
 select{
@@ -87,12 +87,12 @@ select{
     width: 169px;
     border-radius: 8px;
     padding: 4px 4px;
-    
+
 }
 
 .grey, .red{
     width: 280px;
-    border: none;  
+    border: none;
 }
 
 .grey::placeholder{
@@ -109,7 +109,7 @@ select{
     display: flex;
     justify-content: center;
     align-items: center;
-      
+
 }
 .voyage{
     font-size: 2.5rem;
@@ -140,19 +140,19 @@ button:hover{
 span{
     display:flex;
     justify-content: center;
- 
+
 }
 
 .notification{
-    background-color: rgb(123, 197, 123);
+    background-color: rgb(221, 170, 19);
     padding:0px;
     border-radius: 10px;
-    width:150px;
+    width:300px;
     height:0px;
     font-size:0px;
     color: white;
     display:flex;
-    align-items: center;
+    text-align: center;
     transition: ease-in-out 1s;
 }
 
@@ -173,7 +173,7 @@ span{
         height: 90vh;
         display: flex;
         flex-direction: row-reverse;
-        
+
     }
     .big{
         display: flex;
@@ -192,7 +192,7 @@ span{
     display: flex;
     flex-direction: column;
     position: relative;
-    left:-200px; 
+    left:-200px;
     top: 50px;
 }
 
@@ -204,7 +204,7 @@ input {
 
 input[type="date"]{
     width: 200px;
-    height: 10px;  
+    height: 10px;
 }
 
 select{
@@ -235,13 +235,13 @@ button {
     top: 290px;
     color: rgb(245, 240, 240);
     text-shadow: rgb(185, 128, 5) 2px 0 10px;
-  
+
 }
 
 .connexion h2, .inscription h2{
     font-size:1.6rem;
    margin-top: 15px;
-  
+
 }
 }
 
@@ -252,7 +252,7 @@ button {
         height: 90vh;
         display: flex;
         flex-direction: row-reverse;
-        
+
     }
     .big{
         display: flex;
@@ -263,7 +263,7 @@ button {
         width: 400px;
         margin: 15px;
         box-sizing: border-box;
-     
+
     }
 
 /****** bloc connexion inscription ******/
@@ -274,7 +274,7 @@ button {
     display: flex;
     flex-direction: column;
     position: relative;
-    left: -550px; 
+    left: -550px;
 }
 
 input {
@@ -285,7 +285,7 @@ input {
 
 input[type="date"]{
     width: 300px;
-    height: 20px;  
+    height: 20px;
 }
 
 select{
@@ -319,7 +319,7 @@ button {
 .connexion h2, .inscription h2{
     font-size:1.6rem;
    margin-top: 15px;
-  
+
 }
 
   }
