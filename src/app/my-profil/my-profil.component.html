@@ -1,15 +1,16 @@
 <div class="container">
+
   <div class="bloc1">
     <div class="image-container">
       <img *ngIf="MyUser.pictures.length === 0" src="assets/images/avatar.jpg" alt="selected image">
       <img *ngIf="MyUser.pictures.length > 0" [src]="MyUser.pictures[selectedSlide].link" alt="selected image">
     </div>
     <div class="navigation">
-   <!-- previous -->
+      <!-- previous -->
       <input *ngIf="selectedSlide !== 0 && MyUser.pictures.length > 0" type="radio" name="carousel" id="slide-1" checked
         (click)="SlideChangePrevious()">
- <!-- next -->
-        <input *ngIf="MyUser.pictures.length-1 !== selectedSlide && MyUser.pictures.length > 0" type="radio"
+      <!-- next -->
+      <input *ngIf="MyUser.pictures.length-1 !== selectedSlide && MyUser.pictures.length > 0" type="radio"
         name="carousel" id="slide-3" (click)="SlideChangeNext()">
     </div>
 
@@ -24,48 +25,50 @@
     </div>
   </div>
 
-
-
   <div class="bloc2">
-    <div class="genreSize">
+    <!-- genre homme ou femme -->
+    <div class="genre">
       <h1>Genre</h1>
       <p *ngIf="MyUser.gender === 'M'">Homme</p>
       <p *ngIf="MyUser.gender === 'F'">Femme</p>
-      <div class="essai">
-        <h1>Taille</h1>
-        <img (click)="putUserSize()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
-      </div>
-      <input class="customize" type="text" id="size" name="size" [(ngModel)]="sizeUser"  #inputSize>
+    </div>
 
+    <!-- taille -->
+    <div class="size">
+      <h1>Taille</h1>
+      <img (click)="putUserSize()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
+      <input class="customizeSize" type="text" id="size" name="size" [(ngModel)]="sizeUser" #inputSize>
       <p>{{MyUser?.size}} cm</p>
     </div>
+
     <div class="description">
-      <div class="essai">
+      <div class="textIcone">
         <h1>Description</h1>
         <img (click)="putUserDescription()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
       </div>
-      <input class="customize" type="text" id="description" name="description" [(ngModel)]="descriptionUser" #inputDescription>
-      <p>{{MyUser?.description}}</p>
+      <textarea class="customizeDescription" type="text" id="description" name="description" [(ngModel)]="descriptionUser"
+        #inputDescription></textarea>
+      <p class="userDescription">{{MyUser?.description}}</p>
     </div>
   </div>
-  <!-- bloc bas -->
-    <div class="bloc3">
-     <div class="numeroTrain">
-       <h2>Numéro de train:</h2>
-        <p>{{MyUser?.train_number}}</p>
+
+  <div class="bloc3">
+    <div class="numeroTrain">
+      <h2>Numéro de train:</h2>
+      <p>{{MyUser?.train_number}}</p>
     </div>
     <div class="numeroVoiture">
       <h2>Voiture:</h2>
       <img (click)="putUserCarTrain()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
       <input class="customize" type="number" id="carNumber" name="carNumber" [(ngModel)]="carNumberUser" #inputCar>
       <p>{{MyUser?.car_number}}</p>
-      </div>
     </div>
+  </div>
 
-     <!-- notification  -->
-    <div class="notificationLike" (click)="authService.notificationLike = false"
+  <!-- notification  -->
+  <div class="notificationLike" (click)="authService.notificationLike = false"
     [ngClass]="{'notifLike' : authService.notificationLike}">
     Vous avez été liké par {{authService.lastLikePseudo}}
-    </div>
+  </div>
 
 </div>

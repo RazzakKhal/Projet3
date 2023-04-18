@@ -1,12 +1,12 @@
 * {
 
   font-family: var(--textComfortaa);
-  font-size: 16px;
+  font-size: 0.9rem;
 }
 
 h1 {
   font-family: var(--textItalianno);
-  font-size: 35px;
+  font-size: 1.8rem;
 }
 
 h2 {
@@ -132,29 +132,57 @@ input[type="file"] {
   gap: 15px;
 }
 
-.genreSize {
+// genre Homme ou femme
+.genre {
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  justify-content: space-around;
   align-items: center;
 }
 
+//size
+.size{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
 .description {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
 }
+.textIcone{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 80%;
+ gap: 15px;
+}
+.userDescription{
+  text-align: center;
+}
+
+textarea {
+  width: 90%;
+  border: none;
+  display: flex;
+  background-color: rgba($color: #eec698, $alpha: 0.3);
+}
 
 input {
   width: 90%;
   border: none;
   display: flex;
-  background-color: rgba($color: #DC9D54, $alpha: 0.3);
+  background-color: rgba($color: #eec698, $alpha: 0.3);
 }
-
-.customize {
-  width: 90%;
+.customizeSize{
+  width: 30px;
+  height: 10%;
+}
+.customizeDescription {
+  width:80%;
   height: 10%;
 }
 
@@ -162,11 +190,6 @@ input {
   height: 20px;
 }
 
-.essai {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
 
 // BLOC BAS
 .bloc3 {

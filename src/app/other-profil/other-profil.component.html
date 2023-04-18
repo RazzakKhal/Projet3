@@ -1,6 +1,6 @@
 <div class="container">
   <div class="bloc1">
-    <div class="essai">
+    <div class="photo">
         <img *ngIf="otherUser?.pictures.length > 0" class="photoOtherProfil" src={{otherUser?.pictures[0].link}} alt="photo d'un profil" />
     <img *ngIf="otherUser?.pictures.length === 0" class="photoOtherProfil" src="assets/images/avatar.jpg" alt="photo d'un profil" />
     </div>
@@ -12,21 +12,22 @@
   </div>
 
   <div class="bloc2">
+
     <div class="sous-bloc2">
-      <h1>Genre:</h1>
-    
+      <h1>Genre : </h1>
       <p *ngIf="otherUser.gender === 'M'">Homme</p>
       <p *ngIf="otherUser.gender === 'F'">Femme</p>
     </div>
+
     <div class="sous-bloc3">
-      <h1>Taille:</h1>
-      <p>{{otherUser?.size}}cm</p>
+      <h1>Taille : </h1>
+      <p>{{otherUser?.size}} cm</p>
     </div>
+
     <div class="sous-bloc4">
-      <h1>Description</h1>
+      <h1>Description : </h1>
       <p>{{otherUser?.description}}</p>
     </div>
-
-
   </div>
+
 </div>
