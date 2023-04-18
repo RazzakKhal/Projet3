@@ -4,6 +4,7 @@ import { AuthService } from '../services/auth.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { id } from 'date-fns/locale';
 import { Router } from '@angular/router';
+import { HostService } from '../services/host.service';
 
 @Component({
   selector: 'app-my-profil',
@@ -32,7 +33,7 @@ export class MyProfilComponent {
   @ViewChild('inputCar') inputCar: any;
 
 
-  constructor(public authService : AuthService, private router : Router){
+  constructor(public authService : AuthService, private router : Router, private hostService : HostService){
 
     this.authService.getUserConnected()
     .then((value) => value.json())
@@ -70,7 +71,7 @@ onFileSelected(event: any) {
         console.log(compressedImageUrl);
 
         // Envoyer l'URL de l'image compressée en BDD
-        fetch("http://localhost:8080/picture/addpicture", {
+        fetch(`${this.hostService.host}/picture/addpicture`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -170,11 +171,13 @@ compressImage(file : any, quality = 0.6, maxWidth = 600, maxHeight = 600) {
 
     })
    }
+
+   //pour le carroussel passer à la photo suivante
    SlideChangeNext(){
     this.selectedSlide++;
   
     }
-  
+  //pour le carroussel passer à la photo précedante
     SlideChangePrevious(){
       this.selectedSlide--;
     }

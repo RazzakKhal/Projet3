@@ -20,6 +20,9 @@ export class ProfilCardComponent {
 
   MyUser: any;
   likeUser : any;
+  //notification
+  notification: boolean = false;
+  errorMessage: string = '';
 
   sendAtOtherProfil(){
   
@@ -37,6 +40,8 @@ export class ProfilCardComponent {
     
   }
 
-
+ myNotification() {
+    this.notification = !this.notification;
+  }
 
 }

@@ -1,3 +1,4 @@
+import { HostService } from '../services/host.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 
@@ -12,7 +13,7 @@ export class AdminInterfaceComponent implements OnInit {
   users: any[] = [];
   
 
-  constructor(private authService : AuthService){
+  constructor(private authService : AuthService, private hostService: HostService){
 
   }
 
@@ -35,7 +36,7 @@ export class AdminInterfaceComponent implements OnInit {
 findAllUser(){
 let token= localStorage.getItem("TokenSauvegarde");
 
-fetch("http://localhost:8080/admin/alluser",{
+fetch(`${this.hostService.host}/admin/alluser`,{
 method :"GET",
 headers: {"Content-Type": "application/json",
           "Authorization": "Bearer " + token }
@@ -61,7 +62,7 @@ headers: {"Content-Type": "application/json",
 deleteUser(id: number) {
  
   let token = localStorage.getItem("TokenSauvegarde");
-  fetch(`http://localhost:8080/admin/deleteuser/${id}`, {
+  fetch(`${this.hostService.host}/admin/deleteuser/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -71,9 +72,6 @@ deleteUser(id: number) {
   })
 
     this.users = this.users.filter((user) => user.id !== id );
-
-
-
 }
 
 
