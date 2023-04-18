@@ -4,6 +4,7 @@
     <div class="image-container">
       <img *ngIf="MyUser.pictures.length === 0" src="assets/images/avatar.jpg" alt="selected image">
       <img *ngIf="MyUser.pictures.length > 0" [src]="MyUser.pictures[selectedSlide].link" alt="selected image">
+      <p class="notifObligationPhoto" *ngIf="MyUser.pictures.length === 0" >Mettre une photo pour accéder à la galerie</p>
     </div>
     <div class="navigation">
       <!-- previous -->
