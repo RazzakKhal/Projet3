@@ -14,7 +14,6 @@ export class AccueilComponent {
 
   inscriptionForm: FormGroup;
   connexionForm: FormGroup<any>;
-
   notification: boolean = false;
   errorMessage: string = '';
 
@@ -35,13 +34,12 @@ export class AccueilComponent {
       train_number: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
     });
 
-
   }
-
 
   onSubmitConnexion() {
     if (this.connexionForm.valid) {
       this.userConnexion();
+      this.inscriptionForm.reset();
     } else {
       console.log('Formulaire de connexion invalide');
     }
@@ -49,12 +47,12 @@ export class AccueilComponent {
   onSubmitInscription() {
     if (this.inscriptionForm.valid) {
       this.userInscription();
+      this.inscriptionForm.reset();
     } else {
       console.log('Formulaire inscription invalide');
+      
     }
   }
-
-
 
   //formulaire reactif avec infos recuperées.
   userInscription() {
