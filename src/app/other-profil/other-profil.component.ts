@@ -11,6 +11,7 @@ export class OtherProfilComponent {
   private params : any;
   private id : any;
   public otherUser : any;
+  
 
   // récuperer les informations de l'utilisateur sur qui on a cliqué
   constructor(private route: ActivatedRoute, private router: Router ){
