@@ -21,8 +21,6 @@
   width: 15vh; /* ou la largeur souhaitée */
   height: 15vh; /* ou la hauteur souhaitée */
   margin-bottom: 5px;
- 
-  
 }
 
 .profilPhoto {
@@ -31,7 +29,6 @@
   border-radius: 15px;
   padding: 5px 5px;
   object-fit: cover; /* pour que l'image remplisse l'espace sans se déformer */
- 
 }
 
 /*********** container informations utilisateurs en dessous de sa photo ********/
@@ -39,11 +36,11 @@
   display: flex;
   flex-direction: row;
   width:70%;
-   padding: 5px 5px;
+  padding: 5px 5px;
   justify-content: space-around;
   background-color: rgba($color: rgb(253, 253, 253), $alpha: 0.8);
-   align-items: center;
-   border-radius: 10px;
+  align-items: center;
+  border-radius: 10px;
 }
 
 /****************  liste de mes informations *******************/
@@ -52,7 +49,6 @@ ul{
  flex-direction: column;
  align-items: center;
 justify-content: center;
-
 }
 
 li{
@@ -70,21 +66,44 @@ text-transform: capitalize;
 
 /*********** coeur ************/
 .container_coeur{
-    height: 90%;
+  height: 90%;
   display: flex;
   align-items: flex-end;
   z-index: 1;
- 
 }
 .coeur{
   height: 3vh;
- display: flex;
- 
-
+  display: flex
 }
 
 .coeur:hover{
   opacity: 0.3;
-   border-radius: 10px;
+  border-radius: 10px;
   transition: ease-in 0.8s;
+}
+
+.notification{
+  background-color: black;
+  position:fixed;
+  bottom:250px;
+  left:50%;
+  transform: translateX(-50%);
+  padding:0px;
+  border-radius: 10px;
+  color:white;
+  width:300px;
+  height:0px;
+  font-size:0px;
+  font-family: var(--textItalianno);
+  display:flex;
+  justify-content: center;
+  transition: ease-in-out 1s;
+}
+.eyes{
+  padding: 20px;
+  height: 30px;
+  font-size:35px;
+  transition: ease-in-out 1s;
+  display: flex;
+  align-items: center;
 }

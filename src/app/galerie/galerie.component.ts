@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Picture } from '../models/picture';
-import { User } from '../models/user';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 
@@ -18,7 +16,7 @@ export class GalerieComponent implements OnInit{
   constructor(public authService : AuthService, private router:Router){
 
 
-     // lorsqu'on actualise la page , si un token est présent est qu'il est expiré 
+  // lorsqu'on actualise la page , si un token est présent est qu'il est expiré 
   // on le supprime et redirige vers la page de connexion
 
   if(this.authService.getTokenExpiration() > Date.now()){
@@ -92,17 +90,5 @@ else if (this.MyUser.gender === 'F'){
 }
 }
 
-
-   //  utiliser une methode pour ajouter une photo pour chaque femme qui en a pas
-  // ce sera un objet avec propiete clé link dont la valeur sera asset/images/avatar.png 
- 
-
-
-
-
-
-// function defautPhoto(user: any, arg1: number) {
-//   throw new Error('Function not implemented.');
-// }
 
 

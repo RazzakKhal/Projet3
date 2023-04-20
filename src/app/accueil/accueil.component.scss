@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: center;
 }
+
 form{
 
     display:flex;
@@ -12,16 +13,15 @@ form{
     align-items: center;
 }
 ////////////////  Logo Coeur  /////////////////////////
-.logo{  //contenaire du logo
-     display: flex;
+.logo{  
+    display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-.logoSite {  //image logo
+.logoSite { 
     width:20vh;
     display: flex;
-
 }
 
 ////////////////  Connexion Inscription Forms  /////////////////////
@@ -40,22 +40,21 @@ form{
 }
 
 .connexion, .inscription{
-    // width: 220px;
     padding: 10px;
     background: var(--colorGrey);
     border: none;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px; //espace entre mes inputs
-    border-radius: 15px; //bord arrondie
+    gap: 8px; 
+    border-radius: 15px;
     margin: 10px;
 }
 
 .connexion h2, .inscription h2{
     text-align: center;
     font-size: 1.3rem;
-    font-family: 'Iceberg', cursive;
+    font-family: var(--textComfortaa);
 }
 
 
@@ -69,8 +68,6 @@ input {
     font-family: var(--textComfortaa);
     border-radius: 8px;
     padding: 4px 4px;
-
-
 
 }
 
@@ -87,7 +84,6 @@ select{
     width: 169px;
     border-radius: 8px;
     padding: 4px 4px;
-
 }
 
 .grey, .red{
@@ -144,13 +140,13 @@ span{
 }
 
 .notification{
-    background-color: rgb(221, 170, 19);
+    background-color: var(--colorOrange);
     padding:0px;
     border-radius: 10px;
     width:300px;
     height:0px;
     font-size:0px;
-    color: white;
+    color: var(--colorWhite);
     display:flex;
     text-align: center;
     transition: ease-in-out 1s;
