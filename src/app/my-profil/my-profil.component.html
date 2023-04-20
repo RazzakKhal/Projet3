@@ -4,7 +4,8 @@
     <div class="image-container">
       <img *ngIf="MyUser.pictures.length === 0" src="assets/images/avatar.jpg" alt="selected image">
       <img *ngIf="MyUser.pictures.length > 0" [src]="MyUser.pictures[selectedSlide].link" alt="selected image">
-      <p class="notifObligationPhoto" *ngIf="MyUser.pictures.length === 0" >Mettre une photo pour accéder à la galerie</p>
+      <p class="notifObligationPhoto" *ngIf="MyUser.pictures.length === 0">Mettre une photo pour accéder à la galerie
+      </p>
     </div>
     <div class="navigation">
       <!-- previous -->
@@ -39,7 +40,7 @@
       <h1>Taille : </h1>
       <p>{{MyUser?.size}} cm</p>
       <input class="customizeSize" type="text" id="size" name="size" [(ngModel)]="sizeUser" #inputSize>
-      <img (click)="putUserSize()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" /> 
+      <img (click)="putUserSize()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
     </div>
 
     <div class="description">
@@ -47,8 +48,8 @@
         <h1>Description : </h1>
         <img (click)="putUserDescription()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
       </div>
-      <textarea class="customizeDescription" type="text" id="description" name="description" [(ngModel)]="descriptionUser"
-        #inputDescription></textarea>
+      <textarea class="customizeDescription" type="text" id="description" name="description"
+        [(ngModel)]="descriptionUser" #inputDescription></textarea>
       <p class="userDescription">{{MyUser?.description}}</p>
     </div>
   </div>
@@ -64,7 +65,7 @@
       <p>{{MyUser?.car_number}}</p>
       <input class="customizeSize" type="number" id="carNumber" name="carNumber" [(ngModel)]="carNumberUser" #inputCar>
       <img (click)="putUserCarTrain()" class="iconeCrayon" src="assets/images/crayon1.png" alt="icone crayon" />
-  
+
 
     </div>
   </div>

@@ -11,61 +11,62 @@ import { AuthService } from '../services/auth.service';
 
 export class AdminInterfaceComponent implements OnInit {
   users: any[] = [];
-  
-constructor(private authService : AuthService, private hostService: HostService){}
+
+  constructor(private authService: AuthService, private hostService: HostService) { }
 
   ngOnInit(): void {
-   this.findAllUser()
-   this.findUserConnected()
+    this.findAllUser()
+    this.findUserConnected()
   }
 
-  findUserConnected(){
+  findUserConnected() {
     // si on ne sait pas qui est connecté, alors on le récupère et on le rajoute dans le authService
-    if(this.authService.getUser() === undefined){
+    if (this.authService.getUser() === undefined) {
       this.authService.getUserConnected()
-      .then((reponse : any) => reponse.json())
-      .then((data : any) => this.authService.setUser(data))
+        .then((reponse: any) => reponse.json())
+        .then((data: any) => this.authService.setUser(data))
     }
   }
 
-// faire une requete permettant de recuperer les utilisteurs
-findAllUser(){
-let token= localStorage.getItem("TokenSauvegarde");
+  // faire une requete permettant de recuperer les utilisteurs
+  findAllUser() {
+    let token = localStorage.getItem("TokenSauvegarde");
 
-fetch(`${this.hostService.host}/admin/alluser`,{
-method :"GET",
-headers: {"Content-Type": "application/json",
-          "Authorization": "Bearer " + token }
-  })
-
-.then((value) => value.json())
-.then((data) => {
-  this.users = data
- // si ils n'ont pas de photo, je leur mets un avatar
- this.users.forEach((user: any) => {
-  if(user.pictures.length === 0){
-    user.pictures.push({
-      link: "assets/images/avatar.jpg"
+    fetch(`${this.hostService.host}/admin/alluser`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + token
+      }
     })
+
+      .then((value) => value.json())
+      .then((data) => {
+        this.users = data
+        // si ils n'ont pas de photo, je leur mets un avatar
+        this.users.forEach((user: any) => {
+          if (user.pictures.length === 0) {
+            user.pictures.push({
+              link: "assets/images/avatar.jpg"
+            })
+          }
+        })
+
+      })
   }
-})
+  // Afficher à l'aide d'une boucle tous les utilisateurs dans le HTML
+  // mettre un bouton pour supprimer l'utilisateur en question
 
-})
-}
-// Afficher à l'aide d'une boucle tous les utilisateurs dans le HTML
-// mettre un bouton pour supprimer l'utilisateur en question
-
-deleteUser(id: number) {
- 
-  let token = localStorage.getItem("TokenSauvegarde");
-  fetch(`${this.hostService.host}/admin/deleteuser/${id}`, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + token,
-    },
-    body: JSON.stringify({mail: this.authService.getUser().mail})
-  })
-this.users = this.users.filter((user) => user.id !== id );
-}
+  deleteUser(id: number) {
+    let token = localStorage.getItem("TokenSauvegarde");
+    fetch(`${this.hostService.host}/admin/deleteuser/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+      body: JSON.stringify({ mail: this.authService.getUser().mail })
+    })
+    this.users = this.users.filter((user) => user.id !== id);
+  }
 }

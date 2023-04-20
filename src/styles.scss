@@ -1,69 +1,156 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
 	margin: 0;
 	padding: 0;
 	border: 0;
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-	
+
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
-ol, ul {
+
+ol,
+ul {
 	list-style: none;
 }
-blockquote, q {
+
+blockquote,
+q {
 	quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
 
-body{
-	height : 100vh;
-	width : 100vw;
+body {
+	height: 100vh;
+	width: 100vw;
 	background-image: url('assets/images/fondtrain.png');
 	background-repeat: no-repeat;
-	background-size:100% 100%;
-  	background-attachment: fixed;
+	background-size: 100% 100%;
+	background-attachment: fixed;
 }
 
 // Les variables
 :root {
 	--colorWhite: rgba(255, 255, 255, 1);
 	--colorGrey: rgba(217, 217, 217, 0.7);
-	--colorBrown : rgba(110, 99, 92, 1);
-	--colorRed : rgba(225, 84, 88, 1);
-	--colorPurple : rgb(87, 41, 129);
-	--colorOrange : #DC9D54;
+	--colorBrown: rgba(110, 99, 92, 1);
+	--colorRed: rgba(225, 84, 88, 1);
+	--colorPurple: rgb(87, 41, 129);
+	--colorOrange: #DC9D54;
 	--colorCardTchat: rgba(195, 187, 187, 0.54);
-	--textComfortaa : 'Comfortaa', cursive;
-	--textItalianno :'Italianno', cursive;
-	--guillemet:'Secular One', sans empattement ;	
+	--textComfortaa: 'Comfortaa', cursive;
+	--textItalianno: 'Italianno', cursive;
+	--guillemet: 'Secular One', sans empattement;
 }
 
 //import des polices
@@ -76,11 +163,11 @@ body{
 /***************  Styles pour les tablettes ********************/
 @media (min-width: 481px) and (max-width: 768px) {
 
-	body{
+	body {
 		background-image: url('assets/images/background2.jpg');
 		background-repeat: no-repeat;
 		background-attachment: fixed;
-		
+
 	}
 }
 
@@ -88,12 +175,10 @@ body{
 /***************  Styles pour les ecrans ********************/
 @media (min-width: 769px) {
 
-	body{
+	body {
 		background-image: url('assets/images/background2.jpg');
 		background-repeat: no-repeat;
-		background-size:100% 100%;
-  		background-attachment: fixed;
-		
+		background-size: 100% 100%;
+		background-attachment: fixed;
 	}
-  }
-
+}

@@ -24,9 +24,9 @@ h2 {
   margin-top: 10px;
 }
 
-.notifObligationPhoto{
-  color:red;
-  padding-top:10px;
+.notifObligationPhoto {
+  color: red;
+  padding-top: 10px;
   font-size: 12px;
 }
 
@@ -97,6 +97,7 @@ h2 {
   background-color: var(--colorOrange);
 
 }
+
 //fin carroussel
 
 //pseudo utilisateur + logo appareil photo + 
@@ -150,26 +151,29 @@ input[type="file"] {
 }
 
 //size
-.size{
+.size {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
 }
+
 .description {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
 }
-.textIcone{
+
+.textIcone {
   display: flex;
   flex-direction: row;
   justify-content: center;
   width: 80%;
   gap: 15px;
 }
-.userDescription{
+
+.userDescription {
   text-align: center;
 }
 
@@ -186,12 +190,14 @@ input {
   display: flex;
   background-color: rgba($color: #eec698, $alpha: 0.3);
 }
-.customizeSize{
+
+.customizeSize {
   width: 30px;
   height: 10%;
 }
+
 .customizeDescription {
-  width:80%;
+  width: 80%;
   height: 10%;
 }
 
@@ -260,69 +266,84 @@ input {
   .image-container {
     height: 400px;
   }
+
   .navigation {
-       justify-content: center;
+    justify-content: center;
   }
+
   .navigation input[type=radio] {
     height: 15px;
     width: 15px;
-  }   
-  .genre {
-      justify-content: center;
-      gap: 25px;
-    
   }
-  .size{
+
+  .genre {
+    justify-content: center;
+    gap: 25px;
+
+  }
+
+  .size {
     justify-content: center;
     gap: 30px;
-   
+
   }
- 
-  .numeroVoiture, .numeroTrain{
+
+  .numeroVoiture,
+  .numeroTrain {
     gap: 15px;
   }
 
-  .bloc1,.bloc2,.bloc3 {
+  .bloc1,
+  .bloc2,
+  .bloc3 {
     width: 75%;
     padding: 15px 20px;
     gap: 20px;
     justify-content: center;
   }
-  }
+}
 
 
-  
+
 
 /***************  Styles pour les grands ecrans  ********************/
 @media (min-width: 769px) {
   .image-container {
-        height: 600px;
-    }
-    .navigation {
-      justify-content: center;
-      
-    }
+    height: 600px;
+  }
 
-    .navigation input[type=radio] {
-      height: 15px;
-      width: 15px;
-    }
-    .size{
-      justify-content: center;
-      gap: 40px;
-     
-    }
-    .bloc1,.bloc2,.bloc3 {
-      width: 70%;
-      padding: 30px 20px;
-      gap: 25px;
-    }
-    .numeroVoiture, .numeroTrain{
-      gap: 25px;
-    }
-   .customizeDescription{
-    width:60%;
+  .navigation {
+    justify-content: center;
+
+  }
+
+  .navigation input[type=radio] {
+    height: 15px;
+    width: 15px;
+  }
+
+  .size {
+    justify-content: center;
+    gap: 40px;
+
+  }
+
+  .bloc1,
+  .bloc2,
+  .bloc3 {
+    width: 70%;
+    padding: 30px 20px;
+    gap: 25px;
+  }
+
+  .numeroVoiture,
+  .numeroTrain {
+    gap: 25px;
+  }
+
+  .customizeDescription {
+    width: 60%;
     height: 7vh;
-   }
-    
+  }
+
 }

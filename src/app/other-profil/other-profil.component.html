@@ -1,8 +1,10 @@
 <div class="container">
   <div class="bloc1">
     <div class="photo">
-        <img *ngIf="otherUser?.pictures.length > 0" class="photoOtherProfil" src={{otherUser?.pictures[0].link}} alt="photo d'un profil" />
-    <img *ngIf="otherUser?.pictures.length === 0" class="photoOtherProfil" src="assets/images/avatar.jpg" alt="photo d'un profil" />
+      <img *ngIf="otherUser?.pictures.length > 0" class="photoOtherProfil" src={{otherUser?.pictures[0].link}}
+        alt="photo d'un profil" />
+      <img *ngIf="otherUser?.pictures.length === 0" class="photoOtherProfil" src="assets/images/avatar.jpg"
+        alt="photo d'un profil" />
     </div>
     <div class="sous-bloc1">
       <p>{{otherUser?.pseudo}}, {{otherUser?.date_of_birth | date: 'dd/MM/yyyy'}}</p>
@@ -12,7 +14,6 @@
   </div>
 
   <div class="bloc2">
-
     <div class="sous-bloc2">
       <h1>Genre : </h1>
       <p *ngIf="otherUser.gender === 'M'">Homme</p>
@@ -29,5 +30,4 @@
       <p>{{otherUser?.description}}</p>
     </div>
   </div>
-
 </div>
