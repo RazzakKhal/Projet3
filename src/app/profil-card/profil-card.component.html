@@ -2,7 +2,6 @@
   <div class="lot">
    <div class="blocGallerie">
      <img (click)="sendAtOtherProfil()" class="profilPhoto" [src]="picture" alt="photo profil">
-     <!-- <img *ngIf="picture !== undefined && picture[0] !== undefined" class="profilPhoto" [src]="picture[0].link" alt=""> -->
    </div>
 
    <div class="container_mes_Infos">
@@ -16,11 +15,8 @@
      </div>
 
      <div class="notification" [ngClass]="{'eyes' : notification}">
-      <p [ngClass]="{'eyes' : notification}">
-        {{errorMessage}}
-    </p>
-
-     </div>
+     Votre like à bien été envoyé
+    </div>
              
    </div>  
  </div> 
