@@ -2,7 +2,6 @@ import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '../models/user';
-import { AuthService } from '../services/auth.service';
 import { HostService } from '../services/host.service';
 
 
@@ -80,7 +79,7 @@ export class AccueilComponent {
         // envoi de la notification réussie de l'inscription
         this.errorMessage = "Vous êtes inscris";
         this.modifNotification();
-        // dans 1s la notification disparaît
+        // dans 3s la notification disparaît
         setTimeout(() => this.modifNotification(), 3000);
 
       })
@@ -104,10 +103,9 @@ export class AccueilComponent {
     };
 
     fetch(`${this.hostService.host}/accueil/connexion`, {
-      method: "POST", // car on envoie nos infos
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
-
       },
       body: JSON.stringify(user),
     })
@@ -115,7 +113,7 @@ export class AccueilComponent {
       .then((response) => response.json())
       //recupere les donneés de la reponse
       .then((data) => {
-        //pour sauvegaredr le token dans ma data
+        //pour sauvegarder le token dans le localStorage
         localStorage.setItem("TokenSauvegarde", data.token);
         return this.router.navigate(['/myProfil']);
       })

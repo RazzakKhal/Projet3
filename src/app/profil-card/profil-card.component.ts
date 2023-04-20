@@ -34,14 +34,14 @@ export class ProfilCardComponent {
     this.authService.sendLike(id)
     .then((value) => value.json())
     .then((data) => {
-      
-      console.log("Success Like:", data);
+       this.myNotification();
     }) 
     
   }
 
  myNotification() {
-    this.notification = !this.notification;
+    this.notification = true;
+    setTimeout(() => {this.notification = false},3000)
   }
 
 }

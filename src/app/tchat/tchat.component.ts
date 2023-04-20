@@ -1,8 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { MessageService } from '../services/message.service';
-import { User } from '../models/user';
 import { AuthService } from '../services/auth.service';
-import { Message } from '../models/message';
 import { ActivatedRoute } from '@angular/router';
 import { HostService } from '../services/host.service';
 declare var SockJS : any;

@@ -10,17 +10,10 @@ import { AuthService } from './services/auth.service';
 export class AppComponent implements OnInit{
   title = 'projet3SCSS';
 
-
-
-
   // faire une injection de dépendance du AuthService en public 
   constructor(private router:Router){  }
 
-ngOnInit(): void {
- 
-
-
-}
+ngOnInit(): void {}
 
   // methode pour cacher le header
 showNav(){
@@ -35,7 +28,6 @@ showNav(){
   }
  
   }
-
 
 
 }

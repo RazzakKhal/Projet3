@@ -12,15 +12,11 @@ import { AuthService } from '../services/auth.service';
 export class AdminInterfaceComponent implements OnInit {
   users: any[] = [];
   
-
-  constructor(private authService : AuthService, private hostService: HostService){
-
-  }
+constructor(private authService : AuthService, private hostService: HostService){}
 
   ngOnInit(): void {
    this.findAllUser()
    this.findUserConnected()
-
   }
 
   findUserConnected(){
@@ -45,7 +41,7 @@ headers: {"Content-Type": "application/json",
 .then((value) => value.json())
 .then((data) => {
   this.users = data
- // si ils n'ont pas de photo, je leur colle un avatar
+ // si ils n'ont pas de photo, je leur mets un avatar
  this.users.forEach((user: any) => {
   if(user.pictures.length === 0){
     user.pictures.push({
@@ -70,10 +66,6 @@ deleteUser(id: number) {
     },
     body: JSON.stringify({mail: this.authService.getUser().mail})
   })
-
-    this.users = this.users.filter((user) => user.id !== id );
+this.users = this.users.filter((user) => user.id !== id );
 }
-
-
-
 }

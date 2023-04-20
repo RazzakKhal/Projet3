@@ -1,5 +1,3 @@
-
-
 <div class="container">
   <h1>Les profils du train</h1>
   <div class="profilsContainer">
@@ -29,8 +27,12 @@
   </div>
 </div>
 
+
 <!-- notification  -->
 <div class="notificationLike" (click)="authService.notificationLike = false" [ngClass]="{'notifLike' : authService.notificationLike}">
-  Vous avez été liké par {{authService.lastLikePseudo}}
-  
+  Vous avez été liké par {{authService.lastLikePseudo}}  
 </div>
+
+
+
+

@@ -34,8 +34,6 @@ export class AdminGuardGuard implements CanActivate {
       .catch(() => this.router.navigate(['/myProfil'])
       );
 
-
   }
-
 
 }
