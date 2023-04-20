@@ -15,12 +15,12 @@
                 {{msg.content}}
             </div>
 
-        <!-- j'affiche les messages que j'ai précédemment push dans la propriété msg-->
-        <div class="mes_messages" *ngFor="let message of msg"   [ngClass]="{'newMessages':message.isMine}">
-            {{message.content}}
+            <!-- j'affiche les messages que j'ai précédemment push dans la propriété msg-->
+            <div class="mes_messages" *ngFor="let message of msg" [ngClass]="{'newMessages':message.isMine}">
+                {{message.content}}
+            </div>
         </div>
-        </div>
-        
+
         <div class="paroles">
             <textarea class="form-control" type="text" placeholder="message" [(ngModel)]="input" rows="2">
             </textarea>

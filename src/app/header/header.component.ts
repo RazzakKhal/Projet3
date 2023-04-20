@@ -17,6 +17,5 @@ export class HeaderComponent {
     localStorage.removeItem("TokenSauvegarde");
     this.router.navigate(['']);
   }
-
 }
 

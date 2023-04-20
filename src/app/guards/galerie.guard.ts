@@ -8,9 +8,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class GalerieGuard implements CanActivate {
   MyUser: any
-  constructor(private router: Router, private authService: AuthService) {
-
-  }
+  constructor(private router: Router, private authService: AuthService) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,

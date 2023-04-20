@@ -19,7 +19,6 @@ export class MyProfilGuard implements CanActivate {
     } // sinon on à accès à la page myProfil grâce à mon guard
     return true;
   }
-
 }
 
 

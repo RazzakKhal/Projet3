@@ -1,25 +1,28 @@
-.container{
+.container {
   height: 100%;
   display: flex;
   flex-direction: row;
 }
+
 /****** ensemble de 2 blocs ****/
-.lot{
+.lot {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   align-items: center;
-   width: 20vh;
+  width: 20vh;
   justify-content: center;
-  margin-top: 28px; 
+  margin-top: 28px;
 }
 
 /****** photo utilisateur ***********/
-.blocGallerie{
+.blocGallerie {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 15vh; /* ou la largeur souhaitée */
-  height: 15vh; /* ou la hauteur souhaitée */
+  width: 15vh;
+  /* ou la largeur souhaitée */
+  height: 15vh;
+  /* ou la hauteur souhaitée */
   margin-bottom: 5px;
 }
 
@@ -28,14 +31,15 @@
   height: 100%;
   border-radius: 15px;
   padding: 5px 5px;
-  object-fit: cover; /* pour que l'image remplisse l'espace sans se déformer */
+  object-fit: cover;
+  /* pour que l'image remplisse l'espace sans se déformer */
 }
 
 /*********** container informations utilisateurs en dessous de sa photo ********/
-.container_mes_Infos{
+.container_mes_Infos {
   display: flex;
   flex-direction: row;
-  width:70%;
+  width: 70%;
   padding: 5px 5px;
   justify-content: space-around;
   background-color: rgba($color: rgb(253, 253, 253), $alpha: 0.8);
@@ -44,20 +48,21 @@
 }
 
 /****************  liste de mes informations *******************/
-ul{
- display: flex;
- flex-direction: column;
- align-items: center;
-justify-content: center;
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-li{
-line-height: 25px;
-font-family: var(--textItalianno);
-font-size: 1.2rem;
-text-transform: capitalize;
+li {
+  line-height: 25px;
+  font-family: var(--textItalianno);
+  font-size: 1.2rem;
+  text-transform: capitalize;
 
 }
+
 .pseudo {
   color: var(--colorPurple);
   font-size: 1.6rem;
@@ -65,44 +70,46 @@ text-transform: capitalize;
 }
 
 /*********** coeur ************/
-.container_coeur{
+.container_coeur {
   height: 90%;
   display: flex;
   align-items: flex-end;
   z-index: 1;
 }
-.coeur{
+
+.coeur {
   height: 3vh;
   display: flex
 }
 
-.coeur:hover{
+.coeur:hover {
   opacity: 0.3;
   border-radius: 10px;
   transition: ease-in 0.8s;
 }
 
-.notification{
+.notification {
   background-color: black;
-  position:fixed;
-  bottom:250px;
-  left:50%;
+  position: fixed;
+  bottom: 250px;
+  left: 50%;
   transform: translateX(-50%);
-  padding:0px;
+  padding: 0px;
   border-radius: 10px;
-  color:white;
-  width:300px;
-  height:0px;
-  font-size:0px;
+  color: white;
+  width: 300px;
+  height: 0px;
+  font-size: 0px;
   font-family: var(--textItalianno);
-  display:flex;
+  display: flex;
   justify-content: center;
   transition: ease-in-out 1s;
 }
-.eyes{
+
+.eyes {
   padding: 20px;
   height: 30px;
-  font-size:35px;
+  font-size: 35px;
   transition: ease-in-out 1s;
   display: flex;
   align-items: center;

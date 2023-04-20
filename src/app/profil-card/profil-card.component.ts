@@ -9,39 +9,35 @@ import { AuthService } from '../services/auth.service';
 })
 export class ProfilCardComponent {
 
-  constructor(private router:Router,private authService : AuthService){
+  constructor(private router: Router, private authService: AuthService) {
   }
 
-  @Input() picture : string | undefined;
-  @Input() pseudo : string | undefined;
-  @Input() age : string | undefined;
-  @Input() car : string | undefined;
-  @Input() id : any;
+  @Input() picture: string | undefined;
+  @Input() pseudo: string | undefined;
+  @Input() age: string | undefined;
+  @Input() car: string | undefined;
+  @Input() id: any;
 
   MyUser: any;
-  likeUser : any;
+  likeUser: any;
   //notification
   notification: boolean = false;
   errorMessage: string = '';
 
-  sendAtOtherProfil(){
-  
+  sendAtOtherProfil() {
     this.router.navigate([`other-profil/${this.id}`]);
-  
   }
 
-  sendLike(id : number){
+  sendLike(id: number) {
     this.authService.sendLike(id)
-    .then((value) => value.json())
-    .then((data) => {
-       this.myNotification();
-    }) 
-    
+      .then((value) => value.json())
+      .then((data) => {
+        this.myNotification();
+      })
   }
 
- myNotification() {
+  myNotification() {
     this.notification = true;
-    setTimeout(() => {this.notification = false},3000)
+    setTimeout(() => { this.notification = false }, 3000)
   }
-
 }

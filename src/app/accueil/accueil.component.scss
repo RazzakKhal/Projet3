@@ -1,4 +1,4 @@
-.container{
+.container {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -6,25 +6,26 @@
     justify-content: center;
 }
 
-form{
+form {
 
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
-////////////////  Logo Coeur  /////////////////////////
-.logo{  
+
+/******* Logo Coeur  *************/
+.logo {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-.logoSite { 
-    width:20vh;
+.logoSite {
+    width: 20vh;
     display: flex;
 }
 
-////////////////  Connexion Inscription Forms  /////////////////////
+/******** Connexion Inscription Forms **********/
 
 .texte {
     display: flex;
@@ -33,32 +34,35 @@ form{
     height: 20vh;
 
 }
-.voyage{
+
+.voyage {
     font-size: 1.8rem;
     text-align: center;
-    font-family :'Great Vibes', cursive;
+    font-family: 'Great Vibes', cursive;
 }
 
-.connexion, .inscription{
+.connexion,
+.inscription {
     padding: 10px;
     background: var(--colorGrey);
     border: none;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px; 
+    gap: 8px;
     border-radius: 15px;
     margin: 10px;
 }
 
-.connexion h2, .inscription h2{
+.connexion h2,
+.inscription h2 {
     text-align: center;
     font-size: 1.3rem;
     font-family: var(--textComfortaa);
 }
 
 
-////////////////  Input  /////////////////////////
+/********* Input ************/
 input {
     display: flex;
     justify-content: center;
@@ -71,13 +75,13 @@ input {
 
 }
 
-input[type="date"]{
-     width: 165px;
-     border-radius: 8px;
+input[type="date"] {
+    width: 165px;
+    border-radius: 8px;
     padding: 4px 4px;
 }
 
-select{
+select {
     display: flex;
     margin-top: 10px;
     text-align: center;
@@ -86,28 +90,30 @@ select{
     padding: 4px 4px;
 }
 
-.grey, .red{
+.grey,
+.red {
     width: 280px;
     border: none;
 }
 
-.grey::placeholder{
+.grey::placeholder {
     color: var(--colorGrey);
 }
 
-.red::placeholder{
+.red::placeholder {
     color: var(--colorRed);
 }
 
 
-// ////////////////  Texte Voyage  /////////////////////////
+/******** Texte Voyage  ************/
 .texte {
     display: flex;
     justify-content: center;
     align-items: center;
 
 }
-.voyage{
+
+.voyage {
     font-size: 2.5rem;
     text-align: center;
     font-family: 'Italianno', cursive;
@@ -115,7 +121,7 @@ select{
     padding: 15px;
 }
 
-////////////////  button  /////////////////////////
+/******** button  ********/
 button {
     display: flex;
     justify-content: center;
@@ -127,35 +133,35 @@ button {
     border-radius: 10px;
 }
 
-button:hover{
+button:hover {
     background-color: var(--colorRed);
     transition: .25s;
 }
 
 
-span{
-    display:flex;
+span {
+    display: flex;
     justify-content: center;
 
 }
 
-.notification{
+.notification {
     background-color: var(--colorOrange);
-    padding:0px;
+    padding: 0px;
     border-radius: 10px;
-    width:300px;
-    height:0px;
-    font-size:0px;
+    width: 300px;
+    height: 0px;
+    font-size: 0px;
     color: var(--colorWhite);
-    display:flex;
+    display: flex;
     text-align: center;
     transition: ease-in-out 1s;
 }
 
-.eyes{
+.eyes {
     padding: 10px;
     height: 20px;
-    font-size:18px;
+    font-size: 18px;
     transition: ease-in-out 1s;
     display: flex;
     align-items: center;
@@ -165,95 +171,100 @@ span{
 
 /***************  Styles pour les tablettes ********************/
 @media (min-width: 481px) and (max-width: 768px) {
-    .container{
+    .container {
         height: 90vh;
         display: flex;
         flex-direction: row-reverse;
 
     }
-    .big{
+
+    .big {
         display: flex;
         flex-direction: column;
-       justify-content: space-around;
+        justify-content: space-around;
         height: 100%;
         width: 300px;
-             box-sizing: border-box;
+        box-sizing: border-box;
     }
 
-/****** bloc connexion inscription ******/
+    /****** bloc connexion inscription ******/
 
-.connexion, .inscription{
-    width: 250px;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    left:-200px;
-    top: 50px;
-}
+    .connexion,
+    .inscription {
+        width: 250px;
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        left: -200px;
+        top: 50px;
+    }
 
-input {
-   width:200px;
-   margin: 5px;
+    input {
+        width: 200px;
+        margin: 5px;
 
-}
+    }
 
-input[type="date"]{
-    width: 200px;
-    height: 10px;
-}
+    input[type="date"] {
+        width: 200px;
+        height: 10px;
+    }
 
-select{
-     width: 200px;
-     height: 18px;
-}
-button {
-     width: 150px;
-    height: 25px;
-    align-items: center;
-    margin-bottom: 10px;
-}
+    select {
+        width: 200px;
+        height: 18px;
+    }
 
-/****** logo coeur******/
-.logoSite{
-    position: absolute;
-    top: 4px;
-    right: 40px;
-   width:27vh;
-}
+    button {
+        width: 150px;
+        height: 25px;
+        align-items: center;
+        margin-bottom: 10px;
+    }
 
-/****** textes *****/
+    /****** logo coeur******/
+    .logoSite {
+        position: absolute;
+        top: 4px;
+        right: 40px;
+        width: 27vh;
+    }
 
-.voyage{
-    font-size:3.4rem;
-    position: absolute;
-    right: 80px;
-    top: 290px;
-    color: rgb(245, 240, 240);
-    text-shadow: rgb(185, 128, 5) 2px 0 10px;
+    /****** textes *****/
 
-}
+    .voyage {
+        font-size: 3.4rem;
+        position: absolute;
+        right: 80px;
+        top: 290px;
+        color: rgb(245, 240, 240);
+        text-shadow: rgb(185, 128, 5) 2px 0 10px;
 
-.connexion h2, .inscription h2{
-    font-size:1.6rem;
-   margin-top: 15px;
+    }
 
-}
+    .connexion h2,
+    .inscription h2 {
+        font-size: 1.6rem;
+        margin-top: 15px;
+
+    }
 }
 
 
 /***************  Styles pour les grands ecrans  ********************/
 @media (min-width: 769px) {
-    .container{
+    .container {
         height: 90vh;
         display: flex;
         flex-direction: row-reverse;
 
     }
-    .big{
+
+    .big {
         display: flex;
         flex-direction: column;
-       justify-content: space-around;
+        justify-content: space-around;
 
         height: 100%;
         width: 400px;
@@ -262,60 +273,63 @@ button {
 
     }
 
-/****** bloc connexion inscription ******/
+    /****** bloc connexion inscription ******/
 
-.connexion, .inscription{
-    width: 350px;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    left: -550px;
+    .connexion,
+    .inscription {
+        width: 350px;
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        left: -550px;
+    }
+
+    input {
+        width: 300px;
+        margin: 5px;
+
+    }
+
+    input[type="date"] {
+        width: 300px;
+        height: 20px;
+    }
+
+    select {
+        width: 308px;
+        height: 28px;
+    }
+
+    button {
+        width: 200px;
+        height: 30px;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    /****** logo coeur******/
+    .logoSite {
+        position: absolute;
+        top: 4px;
+        right: 70px;
+        width: 33vh;
+    }
+
+    /****** texte voyage centre *****/
+
+    .voyage {
+        font-size: 4rem;
+        position: absolute;
+        right: 550px;
+        top: 200px;
+    }
+
+    .connexion h2,
+    .inscription h2 {
+        font-size: 1.6rem;
+        margin-top: 15px;
+
+    }
+
 }
-
-input {
-   width: 300px;
-   margin: 5px;
-
-}
-
-input[type="date"]{
-    width: 300px;
-    height: 20px;
-}
-
-select{
-     width: 308px;
-     height: 28px;
-}
-button {
-     width: 200px;
-    height: 30px;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-/****** logo coeur******/
-.logoSite{
-    position: absolute;
-    top: 4px;
-    right: 70px;
-   width: 33vh;
-}
-
-/****** texte voyage centre *****/
-
-.voyage{
-    font-size: 4rem;
-    position: absolute;
-    right: 550px;
-    top: 200px;
-}
-
-.connexion h2, .inscription h2{
-    font-size:1.6rem;
-   margin-top: 15px;
-
-}
-
-  }

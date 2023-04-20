@@ -7,18 +7,15 @@ import { Observable } from 'rxjs';
 })
 export class AccueilGuard implements CanActivate {
   constructor(private router: Router) { }
-  canActivate(
 
-    
+  canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-      // si l'utilisateur est connecté , il peut pas acceder a l'accueil
+    // si l'utilisateur est connecté , il peut pas acceder a l'accueil
     if (localStorage.getItem("TokenSauvegarde") !== null) {
       return this.router.navigate(['/myProfil']);
     }
-
     return true;
   }
-
 }

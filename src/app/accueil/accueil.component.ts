@@ -18,7 +18,7 @@ export class AccueilComponent {
   errorMessage: string = '';
 
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private hostService : HostService) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private hostService: HostService) {
     this.inscriptionForm = this.formBuilder.group({
       lastname: ['', Validators.required],
       firstname: ['', Validators.required],
@@ -50,7 +50,7 @@ export class AccueilComponent {
       this.inscriptionForm.reset();
     } else {
       console.log('Formulaire inscription invalide');
-      
+
     }
   }
 
@@ -123,6 +123,5 @@ export class AccueilComponent {
         setTimeout(() => this.notification = false, 5000)
       });
   }
-
 }
 

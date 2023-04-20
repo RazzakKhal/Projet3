@@ -7,7 +7,6 @@ export class Like {
     private likeReceiver: User;
 
     constructor(likeSender: User, likeReceiver: User) {
-
         this.likeSender = likeSender;
         this.likeReceiver = likeReceiver;
     }
