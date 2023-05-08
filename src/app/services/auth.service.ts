@@ -217,6 +217,7 @@ export class AuthService {
         this.getLikeWithUser(this.user.id)
           .then(reponse => reponse.json())
           .then(data => {
+          
             // ici je vais verifier si la longueur de data est supérieur à celle de this.like
             //si c'est le cas, alors j'ai recu un ou plusieurs like (en fonction du nombre de difference de longueur)
             //alors je vais devoir afficher une notification dans ce cas
@@ -225,9 +226,12 @@ export class AuthService {
 
             }
 
-            this.likes = data; console.log(this.likes)
-            this.lastLikePseudo = this.likes[this.likes.length - 1][1].pseudo;
-            console.log(this.lastLikePseudo)
+
+            if(this.likes.length > 0){
+              this.lastLikePseudo = this.likes[this.likes.length - 1][1].pseudo;
+            }
+            
+           
 
           });
       }

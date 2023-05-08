@@ -1,9 +1,9 @@
 <div class="container">
 
-  <div class="bloc1">
+  <div class="bloc1" *ngIf="MyUser">
     <div class="image-container">
-      <img *ngIf="MyUser.pictures.length === 0" src="assets/images/avatar.jpg" alt="selected image">
-      <img *ngIf="MyUser.pictures.length > 0" [src]="MyUser.pictures[selectedSlide].link" alt="selected image">
+      <img *ngIf=" MyUser.pictures.length === 0" src="assets/images/avatar.jpg" alt="selected image">
+      <img *ngIf=" MyUser.pictures.length > 0" [src]="MyUser.pictures[selectedSlide].link" alt="selected image">
       <p class="notifObligationPhoto" *ngIf="MyUser.pictures.length === 0">Mettre une photo pour accéder à la galerie
       </p>
     </div>
@@ -27,7 +27,7 @@
     </div>
   </div>
 
-  <div class="bloc2">
+  <div class="bloc2" *ngIf="MyUser">
     <!-- genre homme ou femme -->
     <div class="genre">
       <h1>Genre : </h1>
@@ -54,7 +54,7 @@
     </div>
   </div>
 
-  <div class="bloc3">
+  <div class="bloc3" *ngIf="MyUser">
     <div class="numeroTrain">
       <h2>Numéro de train :</h2>
       <p>{{MyUser?.train_number}}</p>

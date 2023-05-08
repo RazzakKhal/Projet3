@@ -39,7 +39,7 @@ export class MyProfilComponent {
       .then((value) => value.json())
       .then((data) => {
         this.MyUser = data;
-        console.log(this.MyUser)
+  
       })
 
     // lorsqu'on actualise la page , si un token est présent est qu'il est expiré 

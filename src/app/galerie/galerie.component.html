@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Les profils du train</h1>
-  <div class="profilsContainer">
+  <div class="profilsContainer" *ngIf="MyUser">
     <!-- si utilisateur est un homme afficher les femmes -->
     <ng-container *ngIf="MyUser.gender === 'M'">
       <app-profil-card *ngFor="let woman of women" car="Voiture {{woman.car_number}}"

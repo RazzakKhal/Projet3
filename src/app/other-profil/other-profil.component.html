@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="bloc1">
+  <div class="bloc1" *ngIf="otherUser">
     <div class="photo">
       <img *ngIf="otherUser?.pictures.length > 0" class="photoOtherProfil" src={{otherUser?.pictures[0].link}}
         alt="photo d'un profil" />
@@ -13,7 +13,7 @@
 
   </div>
 
-  <div class="bloc2">
+  <div class="bloc2" *ngIf="otherUser">
     <div class="sous-bloc2">
       <h1>Genre : </h1>
       <p *ngIf="otherUser.gender === 'M'">Homme</p>

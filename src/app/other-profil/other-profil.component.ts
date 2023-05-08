@@ -29,7 +29,7 @@ export class OtherProfilComponent {
         },
       })
         .then((response) => response.json())
-        .then((user) => { this.otherUser = user; console.log(this.otherUser) })
+        .then((user) => { this.otherUser = user; })
         .catch(() => console.log("utilisateur inexistant"))
 
     });
