@@ -1,8 +1,5 @@
-import { Picture } from './../models/picture';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
-import { id } from 'date-fns/locale';
 import { Router } from '@angular/router';
 import { HostService } from '../services/host.service';
 
