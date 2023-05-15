@@ -19,7 +19,7 @@ export class TchatComponent implements OnDestroy {
   public oldMsg: any = [];
   oldMsgSend: any = [];
   oldMsgReceived: any = [];
-  constructor(private authService: AuthService, private route: ActivatedRoute, private hostService: HostService) {
+  constructor(public authService: AuthService, private route: ActivatedRoute, private hostService: HostService) {
     // si l'utilisateur n'est plus enregistré dans le authService alors je le recupère
     if (!this.authService.getUser()) {
       this.authService.getUserConnected()

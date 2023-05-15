@@ -153,6 +153,8 @@ span {
     height: 0px;
     font-size: 0px;
     color: var(--colorWhite);
+    justify-content: center;
+    font-family: var(--textComfortaa);
     display: flex;
     text-align: center;
     transition: ease-in-out 1s;
@@ -161,9 +163,11 @@ span {
 .eyes {
     padding: 10px;
     height: 20px;
-    font-size: 18px;
+    font-size: 22px;
     transition: ease-in-out 1s;
     display: flex;
+    justify-content: center;
+    font-family: var(--textComfortaa);
     align-items: center;
 }
 

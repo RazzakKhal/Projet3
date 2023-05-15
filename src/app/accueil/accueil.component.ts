@@ -77,7 +77,7 @@ export class AccueilComponent {
       .then((data) => {
         console.log("Success:", data);
         // envoi de la notification réussie de l'inscription
-        this.errorMessage = "Vous êtes inscris";
+        this.errorMessage = "Vous êtes inscrit";
         this.modifNotification();
         // dans 3s la notification disparaît
         setTimeout(() => this.modifNotification(), 3000);

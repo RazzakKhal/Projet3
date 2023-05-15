@@ -168,7 +168,7 @@ export class AuthService {
   }
 
   //liker un utilisateur
-  sendLike(id: any) {
+  sendLike(id : any) {
     return fetch(`http://localhost:8080/galerie/like/${id}`, {
       method: "POST",
       headers: {
@@ -182,7 +182,7 @@ export class AuthService {
   }
 
   //récuperer les likes + user associé
-  getLikeWithUser(id: any) {
+  getLikeWithUser(id : any) {
     return fetch(`http://localhost:8080/galerie/collectLike/${id}`, {
       method: "GET",
       headers: {
@@ -223,21 +223,14 @@ export class AuthService {
             //alors je vais devoir afficher une notification dans ce cas
             if (data.length > this.likes.length) {
               this.notificationLike = true;
-
+              this.likes = data;
             }
-
-
             if(this.likes.length > 0){
               this.lastLikePseudo = this.likes[this.likes.length - 1][1].pseudo;
             }
-            
-           
-
           });
       }
-    }, 60000)
-
-
+    }, 5000)
   }
 
 
