@@ -15,15 +15,15 @@
 
         <div class="box_input">
           <input type="password" formControlName="password" placeholder="Mot de Passe">
-          <span *ngIf="connexionForm.controls['password'].invalid && connexionForm.controls['password'].touched">Mot de
-            passe invalide (au moins 8 caractères).</span>
+          <span *ngIf="connexionForm.controls['password'].invalid && connexionForm.controls['password'].touched">
+            Mot de passe invalide (8 caractères au moins avec une majuscule, une minuscule, un chiffre, un caractère spécial).</span>
         </div>
 
         <div class="box_input">
           <input type="text" formControlName="train_number" placeholder="Numero de Train">
           <span
             *ngIf="connexionForm.controls['train_number'].invalid && connexionForm.controls['train_number'].touched">Numéro
-            de train invalide ( 4 chiffre max).</span>
+            de train invalide (4 chiffres max).</span>
         </div>
 
         <button type="submit">Connexion</button>
@@ -67,8 +67,7 @@
 
         <div class="box_input">
           <input type="password" formControlName="password" placeholder="Mot de Passe">
-          <span *ngIf="inscriptionForm.controls['password'].invalid && inscriptionForm.controls['password'].touched">Mot
-            de passe invalide (au moins 8 caractères).</span>
+          <span *ngIf="inscriptionForm.controls['password'].invalid && inscriptionForm.controls['password'].touched">Mot de passe invalide (8 caractères au moins avec une majuscule, une minuscule, un chiffre, un caractère spécial).</span>
         </div>
 
         <div class="box_input">
