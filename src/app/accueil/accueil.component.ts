@@ -33,8 +33,7 @@ export class AccueilComponent {
       password: ['', [Validators.required, Validators.minLength(6)]],
       train_number: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
     });
-
-  }
+}
 
   onSubmitConnexion() {
     if (this.connexionForm.valid) {
@@ -114,8 +113,19 @@ export class AccueilComponent {
       //recupere les donneés de la reponse
       .then((data) => {
         //pour sauvegarder le token dans le localStorage
-        localStorage.setItem("TokenSauvegarde", data.token);
+        console.log(data);
+      // SI data.token renvoie true on fait ce qui y'aura en dessous
+      if (data.token){
+         localStorage.setItem("TokenSauvegarde", data.token);
+       
         return this.router.navigate(['/myProfil']);
+      }else{
+        this.errorMessage = "Veuillez verifier vos identifiants de connexion";
+        this.notification = true;
+        setTimeout(() => this.notification = false, 5000)
+      return this.router.navigate(['/']);
+       }
+        
       })
       .catch(() => {
         this.errorMessage = "Veuillez verifier vos identifiants de connexion";
