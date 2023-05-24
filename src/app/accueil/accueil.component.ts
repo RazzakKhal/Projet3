@@ -25,7 +25,7 @@ export class AccueilComponent {
       pseudo: ['', Validators.required],
       date_of_birth: ['', Validators.required],
       mail: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^\w\d\s:])([^\s]){8,}$/)]],
       gender: ['', Validators.required],
     });
     this.connexionForm = this.formBuilder.group({
