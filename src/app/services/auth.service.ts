@@ -230,7 +230,7 @@ export class AuthService {
             }
           });
       }
-    }, 5000)
+    }, 60000)
   }
 
 

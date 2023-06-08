@@ -12,13 +12,15 @@ declare var Stomp: any;
 export class TchatComponent implements OnDestroy {
   input: any;
   params: any;
-  id!: number;
+  id: number = 0;
   otherUser: any;
   public stompClient: any;
   public msg: any = [];
   public oldMsg: any = [];
   oldMsgSend: any = [];
   oldMsgReceived: any = [];
+
+
   constructor(public authService: AuthService, private route: ActivatedRoute, private hostService: HostService) {
     // si l'utilisateur n'est plus enregistré dans le authService alors je le recupère
     if (!this.authService.getUser()) {
@@ -32,18 +34,15 @@ export class TchatComponent implements OnDestroy {
 
   }
   sendMessage() {
-    //DELETE UPDATE SELECT INSERT A BANNIR
+
     if (this.input) {
-      // regex (expression reguliere pour detecter les requetes SQL)
-      const requeteSql = /SELECT|UPDATE|DELETE|INSERT/i;
-      if (requeteSql.test(this.input)) {
-        alert('Requête SQL non autorisée détectée !');
-        return;
-      }
+     
       let userConnected = this.authService.getUser();
       let userReceiver = this.otherUser;
       //j'envoi le message qui déclenche dans springboot la méthode handleMessage du tchatController
-      this.stompClient.send(`/app/chat/send/${userConnected.id}/${userReceiver.id}`, {}, JSON.stringify({ content: this.input, messageSender: { id: userConnected.id }, messageReceiver: { id: userReceiver.id } }));
+      this.stompClient.send(`/app/chat/send/${userConnected.id}/${userReceiver.id}`,
+       {}, JSON.stringify({ content: this.input, messageSender: { id: userConnected.id }, 
+        messageReceiver: { id: userReceiver.id } }));
       // j'ajoute à mon tableau de message recents
       this.msg.push({ content: this.input, isMine: true })
       this.input = '';
@@ -53,6 +52,7 @@ export class TchatComponent implements OnDestroy {
     this.route.params.subscribe((data) => {
       this.params = data;
       this.id = this.params.id;
+      let reussite = false;
       // requete pour récupérer l'utilisateur en fonction de l'id du other profil
       fetch(`${this.hostService.host}/otherProfil/user/${this.id}`, {
         method: "GET",
@@ -61,14 +61,20 @@ export class TchatComponent implements OnDestroy {
           "Authorization": "Bearer " + localStorage.getItem('TokenSauvegarde')
         },
       })
-        .then((response) => response.json())
+        .then(
+          (response) => { reussite = true; return response.json()}
+          )
         .then((user) => {
+        
           this.otherUser = user;
           this.getBddMessages()
-          // je requete le endPoint pour lancer la connexion + je souscris à mes routes
-          this.initializeWebSocketConnection();
+          console.log('salut')
+          
         })
-        .catch(() => console.log("utilisateur inexistant"))
+        .catch(() => {console.log("utilisateur inexistant"); 
+        
+        if(reussite = true){ this.getOtherUser()}
+       })
     });
   }
   initializeWebSocketConnection() {
@@ -80,10 +86,12 @@ export class TchatComponent implements OnDestroy {
     // souscription à la premiere adresse
     this.stompClient.connect({}, function (frame: any) {
       // je souscris à la route topic/messages, c'est cette route à laquelle le serveur renvoi le message
-      that.stompClient.subscribe(`/topic/messages/${that.otherUser.id}/${that.authService.getUser().id}`, (message: any) => {
+      that.stompClient.subscribe(`/topic/messages/${that.otherUser.id}/${that.authService.getUser().id}`,
+       (message: any) => {
         // on récupére le corps de la réponse
         if (message.body) {
-          // le corps de la réponse est notre message sous forme d'objet JSON, on le parse et on l'envoi dans notre tableau de message
+          // le corps de la réponse est notre message sous forme d'objet JSON, 
+          // on le parse et on l'envoi dans notre tableau de message
           let messageReceived = JSON.parse(message.body)
           messageReceived.isMine = false;
           that.msg.push(messageReceived);
@@ -110,6 +118,8 @@ export class TchatComponent implements OnDestroy {
         this.oldMsg.sort((message1: any, message2: any) => {
           return message1.id - message2.id;
         });
+        // je requete le endPoint pour lancer la connexion + je souscris à mes routes
+        this.initializeWebSocketConnection();
       })
     // récupérer les messages que l'utilisateur à recu
     fetch(`${this.hostService.host}/messageriereceive/${this.authService.getUser().id}/${this.id}`,

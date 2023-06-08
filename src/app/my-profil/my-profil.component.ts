@@ -48,79 +48,36 @@ export class MyProfilComponent {
     }
   }
 
-  // Insérer des photos au format JPG/PNG/JPEG
+  
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
 
     if (file) {
       const reader = new FileReader();
       reader.readAsDataURL(file);
-      reader.onload = async () => {
-        const originalImageUrl: any = reader.result;
+      reader.onload =  () => {
+      const originalImageUrl: any = reader.result;
 
-        if (
-          originalImageUrl.includes("jpeg") ||
-          originalImageUrl.includes("jpg") ||
-          originalImageUrl.includes("png")
-        ) {
-          // Compresser l'image avant de l'envoyer en BDD
-          const compressedImageUrl = await this.compressImage(file);
-          console.log(compressedImageUrl);
-
-          // Envoyer l'URL de l'image compressée en BDD
+          // Envoyer l'URL de l'image en BDD
           fetch(`${this.hostService.host}/picture/addpicture`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
               Authorization: "Bearer " + localStorage.getItem("TokenSauvegarde"),
             },
-            body: JSON.stringify({ link: compressedImageUrl, user: this.MyUser }),
+            body: JSON.stringify({ link: originalImageUrl, user: this.MyUser }),
           })
             .then((response) => response.json()) // Je récupère la réponse
             .then((data) => {
               this.MyUser.pictures = data; // J'enregistre les données dans ma variable pictures
               this.fileInput.nativeElement.value = ""; // On réinitialise la valeur de notre input afin de pouvoir ajouter d'autres photos
             });
-        } else {
-          this.imageUrl = "assets/images/aliciaaccepte.png";
-        }
+        
       };
     }
   }
 
-  // Fonction pour compresser l'image
-  compressImage(file: any, quality = 0.6, maxWidth = 600, maxHeight = 600) {
-    return new Promise((resolve, reject) => {
-      const url = URL.createObjectURL(file);
-      const image = new Image();
-      image.src = url;
-      image.onload = () => {
-        const canvas = document.createElement("canvas");
-        const ctx: any = canvas.getContext("2d");
 
-        const aspectRatio = image.width / image.height;
-        let newWidth = maxWidth;
-        let newHeight = maxHeight;
-
-        if (image.width > image.height) {
-          newHeight = maxWidth / aspectRatio;
-        } else {
-          newWidth = maxHeight * aspectRatio;
-        }
-
-        canvas.width = newWidth;
-        canvas.height = newHeight;
-
-        ctx.drawImage(image, 0, 0, newWidth, newHeight);
-        const compressedImage = canvas.toDataURL("image/jpeg", quality);
-
-        resolve(compressedImage);
-      };
-      image.onerror = (error) => {
-        reject(error);
-      };
-    });
-  }
 
   // changement de taille de l'User donc je recupere mon API
 
