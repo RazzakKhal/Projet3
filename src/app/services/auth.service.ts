@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthService implements OnInit{
 
   private jwtService = new JwtHelperService();
   private token;
@@ -14,7 +14,6 @@ export class AuthService {
   private user: any;
   private likes: any = [];
   public lastLikePseudo: any;
-  private tokenExpiration : any
 
   public notificationLike = false;
 
@@ -25,16 +24,9 @@ export class AuthService {
 
     // lancer directement la méthode pour récupérer l'utilisateur
     if (localStorage.getItem("TokenSauvegarde")) {
- console.log('je suis ici');
+
       this.getUserConnected()
         .then(reponse => reponse.json())
-        .catch((error) => {
-          console.log('il y a une erreur sur le token il est surement expiré')
-          if(this.getTokenExpiration() < Date.now()){
-            localStorage.removeItem("TokenSauvegarde");
-            router.navigate(["/"]);
-          }
-        })
         .then(data => {
           this.user = data;
           // on récupère une premiere fois les likes une fois qu'on a reussi à récuperer l'utilisateur
@@ -45,6 +37,10 @@ export class AuthService {
         })
         ;
     }
+  }
+
+  ngOnInit(): void {
+    
   }
 
   getTokenInformations() {
@@ -61,12 +57,12 @@ export class AuthService {
 
   getTokenExpiration() {
     this.expiration = this.InfosToken.exp;
-    console.log(this.expiration);
+
     return this.expiration;
   }
 
   getToken() {
-    return this.token;
+    return localStorage.getItem("TokenSauvegarde");
   }
 
   getUserConnected() {

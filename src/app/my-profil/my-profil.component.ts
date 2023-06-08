@@ -34,13 +34,22 @@ export class MyProfilComponent {
 
 
 
-    this.authService.getUserConnected()
+      console.log('je suis ici')
+      this.authService.getUserConnected()
       .then((value) => value.json())
-      .catch((erreur) => console.log("erreur sur le token"))
+      .catch((error) => {
+        if(this.authService.getTokenExpiration() < Date.now()){
+          console.log('il y a une erreur sur le token il est surement expiré')
+          localStorage.removeItem("TokenSauvegarde");
+          router.navigate([""]);
+        }
+      
+      })
       .then((data) => {
         this.MyUser = data;
   
       })
+     
 
   
   }
