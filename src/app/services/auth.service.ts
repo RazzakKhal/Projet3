@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 @Injectable({
   providedIn: 'root'
@@ -13,16 +14,27 @@ export class AuthService {
   private user: any;
   private likes: any = [];
   public lastLikePseudo: any;
+  private tokenExpiration : any
 
   public notificationLike = false;
 
-  constructor() {
+  constructor(private router: Router) {
     this.token = localStorage.getItem("TokenSauvegarde");
+    this.getTokenInformations();
+ 
+
     // lancer directement la méthode pour récupérer l'utilisateur
     if (localStorage.getItem("TokenSauvegarde")) {
-
+ console.log('je suis ici');
       this.getUserConnected()
         .then(reponse => reponse.json())
+        .catch((error) => {
+          console.log('il y a une erreur sur le token il est surement expiré')
+          if(this.getTokenExpiration() < Date.now()){
+            localStorage.removeItem("TokenSauvegarde");
+            router.navigate(["/"]);
+          }
+        })
         .then(data => {
           this.user = data;
           // on récupère une premiere fois les likes une fois qu'on a reussi à récuperer l'utilisateur
@@ -30,7 +42,8 @@ export class AuthService {
           // lancer toutes les minutes notre requete qui recuperera les likes de l'utilisateur pour vérifier qu'il n'en a pas de nouveaux
           this.getLikeEveryMinute();
 
-        });
+        })
+        ;
     }
   }
 
@@ -48,6 +61,7 @@ export class AuthService {
 
   getTokenExpiration() {
     this.expiration = this.InfosToken.exp;
+    console.log(this.expiration);
     return this.expiration;
   }
 
@@ -56,7 +70,7 @@ export class AuthService {
   }
 
   getUserConnected() {
-    this.getTokenInformations();
+    
 
     return fetch("http://localhost:8080/myProfil/getUser", {
       method: "POST",

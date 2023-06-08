@@ -68,7 +68,7 @@ export class TchatComponent implements OnDestroy {
         
           this.otherUser = user;
           this.getBddMessages()
-          console.log('salut')
+  
           
         })
         .catch(() => {console.log("utilisateur inexistant"); 

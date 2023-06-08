@@ -32,20 +32,17 @@ export class MyProfilComponent {
 
   constructor(public authService: AuthService, private router: Router, private hostService: HostService) {
 
+
+
     this.authService.getUserConnected()
       .then((value) => value.json())
+      .catch((erreur) => console.log("erreur sur le token"))
       .then((data) => {
         this.MyUser = data;
   
       })
 
-    // lorsqu'on actualise la page , si un token est présent est qu'il est expiré 
-    // on le supprime et redirige vers la page de connexion
-
-    if (this.authService.getTokenExpiration() > Date.now()) {
-      localStorage.removeItem("TokenSauvegarde");
-      this.router.navigate(['/'])
-    }
+  
   }
 
   
