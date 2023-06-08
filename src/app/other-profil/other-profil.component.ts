@@ -16,7 +16,7 @@ export class OtherProfilComponent {
 
 
   // récuperer les informations de l'utilisateur sur qui on a cliqué
-  constructor(private route: ActivatedRoute, private router: Router, private hostService: HostService, private authService : AuthService) {
+  constructor(private route: ActivatedRoute, private router: Router, private hostService: HostService) {
     this.route.params.subscribe((data) => {
       this.params = data;
       this.id = this.params.id;
