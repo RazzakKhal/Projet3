@@ -227,7 +227,7 @@ export class AuthService {
     setInterval(() => {
 
 
-      if (localStorage.getItem("TokenSauvegarde")) {
+      if (localStorage.getItem("TokenSauvegarde") && this.getTokenExpiration() > Date.now()) {
         this.getLikeWithUser(this.user.id)
           .then(reponse => reponse.json())
           .then(data => {
