@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HostService } from '../services/host.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-other-profil',
@@ -15,7 +16,7 @@ export class OtherProfilComponent {
 
 
   // récuperer les informations de l'utilisateur sur qui on a cliqué
-  constructor(private route: ActivatedRoute, private router: Router, private hostService: HostService) {
+  constructor(private route: ActivatedRoute, private router: Router, private hostService: HostService, private authService : AuthService) {
     this.route.params.subscribe((data) => {
       this.params = data;
       this.id = this.params.id;
