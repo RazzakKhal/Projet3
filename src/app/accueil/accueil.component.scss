@@ -52,6 +52,7 @@ form {
     gap: 8px;
     border-radius: 15px;
     margin: 10px;
+   
 }
 
 .connexion h2,
@@ -142,6 +143,8 @@ button:hover {
 span {
     display: flex;
     justify-content: center;
+    max-width:169px;
+ 
 
 }
 
@@ -275,6 +278,12 @@ span {
         margin: 15px;
         box-sizing: border-box;
 
+    }
+    span{
+        display:flex;
+        max-width: 300px;
+        align-items: center;
+        justify-content: center;
     }
 
     /****** bloc connexion inscription ******/
